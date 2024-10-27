@@ -1,0 +1,38 @@
+Jack Flash:
+
+Juego en 3era persona
+
+- Personaje:
+	- Salta
+	- Ataca con un rayo
+	- Corre
+	- Camina
+	- Agarra items (CD, Cassette o instrumento)
+	- En mixamo hay que ver el mejor para este juego. (Big Vegas)
+
+
+- Enemigos:
+	- 3 enemigos dividos en dificultad:
+		- 1. Movimiento aleatorio
+		- 2. Que te siga
+		- 3. Cuando agarras todos los cassettes aparece y suena la musica entera, aparece el boss para derrotarlo y poder pasar de nivel
+		- En mixamo hay que ver el mejor para este juego.
+
+- Niveles:
+	- Veamos la mejor forma de hacerlo, si con AREAS o si hay algo parecido a tilemaps. Kenney tiene assets con GridMaps
+	- En Kenney tenemos un monton de assets para gridmaps
+	- Hay assets para un shooter en kenney (para el Escape Room)
+
+
+- Se podria ver si el personaje mediante un timer (dia/noche) se transforma, como si fuera un hombre lobo. Habria que ver si es posible cambiar alguna habilidad del personaje cuando es ese otro personaje
+
+
+Mini Juego cuando entras a una ventana o portal:
+
+Escape Room pasa a primera persona y tiene que buscar una llave o dibujar un path para desbloquear una puerta. (Path3D?)
+
+
+
+
+
+Agregar archivo con fix
