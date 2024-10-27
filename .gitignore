@@ -86,3 +86,5 @@
 .godot/editor/project_metadata.cfg
 .godot/editor/filesystem_cache8
 .godot/.gdignore
+.godot/editor/editor_layout.cfg
+.godot/editor/script_editor_cache.cfg
