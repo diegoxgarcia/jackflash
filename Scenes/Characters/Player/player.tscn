@@ -1,0 +1,48 @@
+[gd_scene load_steps=12 format=3 uid="uid://djdldu26nyhbc"]
+
+[ext_resource type="Script" path="res://Scenes/Characters/Player/player.gd" id="1_n0nwc"]
+[ext_resource type="PackedScene" uid="uid://doyksevus16f" path="res://Scenes/Characters/StateMachine/state_machine.tscn" id="2_eiog5"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/idle.gd" id="3_ft4uc"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/walk.gd" id="4_65blh"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/run.gd" id="5_sy8rs"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/dead.gd" id="6_rfksk"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/attack.gd" id="7_cooyn"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/jump.gd" id="8_fwlt2"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/fall.gd" id="9_n8ybp"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/hit.gd" id="10_ko4ne"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0l26"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_n0nwc")
+
+[node name="StateMachine" parent="." instance=ExtResource("2_eiog5")]
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_ft4uc")
+
+[node name="walk" type="Node" parent="StateMachine"]
+script = ExtResource("4_65blh")
+
+[node name="run" type="Node" parent="StateMachine"]
+script = ExtResource("5_sy8rs")
+
+[node name="dead" type="Node" parent="StateMachine"]
+script = ExtResource("6_rfksk")
+
+[node name="attack" type="Node" parent="StateMachine"]
+script = ExtResource("7_cooyn")
+
+[node name="jump" type="Node" parent="StateMachine"]
+script = ExtResource("8_fwlt2")
+
+[node name="fall" type="Node" parent="StateMachine"]
+script = ExtResource("9_n8ybp")
+
+[node name="hit" type="Node" parent="StateMachine"]
+script = ExtResource("10_ko4ne")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_v0l26")
