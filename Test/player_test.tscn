@@ -1,6 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc6vec73m7qnt"]
+[gd_scene load_steps=4 format=3 uid="uid://bc6vec73m7qnt"]
 
 [ext_resource type="Script" path="res://Test/player_test.gd" id="1_o0frg"]
+[ext_resource type="PackedScene" uid="uid://djdldu26nyhbc" path="res://Scenes/Characters/Player/player.tscn" id="2_b84w2"]
+
+[sub_resource type="Environment" id="Environment_ad2gg"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_energy = 8.6
 
 [node name="PlayerTest" type="Node3D"]
 script = ExtResource("1_o0frg")
+
+[node name="AreaForPlay" type="Node3D" parent="."]
+
+[node name="Floor3D" type="CSGBox3D" parent="AreaForPlay"]
+transform = Transform3D(2.52259, 0, 0, 0, 2.52259, 0, 0, 0, 2.52259, 1.24497, 0.0655823, 13.6631)
+use_collision = true
+size = Vector3(5.1604, 0.0513306, 17.0024)
+
+[node name="Wall3D" type="CSGBox3D" parent="AreaForPlay"]
+transform = Transform3D(1, 0, 0, 0, 1.62378, 0, 0, 0, 1, 1.24149, 1.54742, -7.8453)
+use_collision = true
+size = Vector3(13.0155, 1.86652, 0.132324)
+
+[node name="Wall3D2" type="CSGBox3D" parent="AreaForPlay"]
+transform = Transform3D(1, 0, 0, 0, 0.747885, 0, 0, 0, 1, 1.24149, 1.42243, 35.1589)
+use_collision = true
+size = Vector3(13.0155, 3.45265, 0.132324)
+
+[node name="Wall3D3" type="CSGBox3D" parent="AreaForPlay"]
+transform = Transform3D(0.00720819, 0, 0.999974, 0, 1, 0, -0.999974, 0, 0.00720819, 7.57505, 0.648492, 13.5904)
+use_collision = true
+size = Vector3(42.6911, 1.03662, 0.132324)
+
+[node name="Wall3D4" type="CSGBox3D" parent="AreaForPlay"]
+transform = Transform3D(0.00720819, 0, 0.999974, 0, 1, 0, -0.999974, 0, 0.00720819, -5.35161, 0.648492, 13.5538)
+use_collision = true
+size = Vector3(42.6178, 1.03662, 0.132324)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ad2gg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.93274, 0.357209, -0.0489593, -0.24615, 0.730115, 0.63745, 0.263449, -0.582524, 0.768935, 0, 11.6931, 42.5433)
+
+[node name="Player" parent="." instance=ExtResource("2_b84w2")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.836468, -0.292251, 0.463585, 0, 0.845933, 0.53329, -0.548016, -0.44608, 0.707596, 6.68327, 7.08603, 11.8973)
