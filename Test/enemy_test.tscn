@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ds2oeo773ylca"]
 
 [ext_resource type="Script" path="res://Test/enemy_test.gd" id="1_dpkma"]
-[ext_resource type="PackedScene" uid="uid://ca1rek372up4p" path="res://Scenes/Characters/Enemies/rasta.tscn" id="2_bxhtg"]
+[ext_resource type="PackedScene" uid="uid://lmhg4fqnxr8g" path="res://Scenes/Characters/Enemies/enemy_rasta.tscn" id="2_in60h"]
 
 [sub_resource type="Environment" id="Environment_4jnd8"]
 
@@ -11,12 +11,11 @@ script = ExtResource("1_dpkma")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4jnd8")
 
-[node name="rasta" parent="." instance=ExtResource("2_bxhtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.558105, 0)
-
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 use_collision = true
 size = Vector3(50, 1, 50)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9698, 0.243903, 0, -0.243903, 0.9698, 0, 3.67167, 7.44812)
+
+[node name="EnemyRasta" parent="." instance=ExtResource("2_in60h")]

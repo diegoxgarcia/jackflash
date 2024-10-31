@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/rasta.glb-4168c0b800238f2f30e7fd76eacc1444.sc
 
 [params]
 
-nodes/root_type="CharacterBody3D"
+nodes/root_type="Node3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
