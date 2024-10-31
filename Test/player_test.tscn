@@ -43,8 +43,9 @@ environment = SubResource("Environment_ad2gg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.93274, 0.357209, -0.0489593, -0.24615, 0.730115, 0.63745, 0.263449, -0.582524, 0.768935, 0, 11.6931, 42.5433)
+shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_b84w2")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(0.836468, -0.292251, 0.463585, 0, 0.845933, 0.53329, -0.548016, -0.44608, 0.707596, 6.68327, 7.08603, 11.8973)
