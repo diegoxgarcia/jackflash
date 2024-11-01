@@ -1,9 +1,9 @@
-class_name Fall
+class_name JumpAndStay
 extends State
 
 @onready var player = $"../.."
-@onready var jackflash = $"../../Visual/jackflash"
 @onready var animation_player = $"../../Visual/jackflash/AnimationPlayer"
+@onready var jackflash = $"../../Visual/jackflash"
 
 func physics_update(delta : float):
 	var direction = get_direction(player)
@@ -13,11 +13,12 @@ func physics_update(delta : float):
 			go_to(player, direction, player.SPEED)
 			change_direction_velocity(jackflash, direction)
 	else:
-		transitioned.emit(self, "Idle")
+		transitioned.emit(self, "idle")
 	pass
 	
 func enter():
-	animation_player.play("Fall")
+	player.velocity.y = player.JUMP_VELOCITY
+	animation_player.play("JumpAndStay")
 	pass
 
 func exit():
