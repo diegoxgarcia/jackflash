@@ -15,6 +15,8 @@ func enter():
 func exit():
 	pass
 	
+### Funciones del Player ###	
+	
 func change_direction_velocity(jackflash : Node3D, direction : Vector3):
 	jackflash.rotation.y = atan2(direction.x, direction.z)
 	pass
@@ -34,3 +36,5 @@ func go_to(player : Player, direction : Vector3, speed : float):
 	player.velocity.x = direction.x * speed
 	player.velocity.z = direction.z * speed
 	pass
+
+### Funciones del Enemy ###

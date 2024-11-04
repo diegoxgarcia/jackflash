@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc6vec73m7qnt"]
+[gd_scene load_steps=10 format=3 uid="uid://bc6vec73m7qnt"]
 
 [ext_resource type="Script" path="res://Test/player_test.gd" id="1_o0frg"]
 [ext_resource type="PackedScene" uid="uid://djdldu26nyhbc" path="res://Scenes/Characters/Player/player.tscn" id="2_b84w2"]
+[ext_resource type="Texture2D" uid="uid://c7k3mqqy4vbr5" path="res://Assets/kenney_platformer-kit/Starbasesnow.png" id="2_h2lrg"]
+[ext_resource type="MeshLibrary" uid="uid://ctb70cp5pqvdy" path="res://Assets/Tiles/tilesv2.tres" id="4_wdqsn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohyju"]
 albedo_color = Color(1, 1, 0.47451, 1)
@@ -10,8 +12,15 @@ albedo_color = Color(1, 1, 0.47451, 1)
 albedo_color = Color(0.305882, 1, 1, 1)
 metallic = 1.0
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5131m"]
+panorama = ExtResource("2_h2lrg")
+
+[sub_resource type="Sky" id="Sky_cl7kr"]
+sky_material = SubResource("PanoramaSkyMaterial_5131m")
+
 [sub_resource type="Environment" id="Environment_ad2gg"]
-background_mode = 1
+background_mode = 2
+sky = SubResource("Sky_cl7kr")
 ambient_light_source = 2
 ambient_light_energy = 8.6
 
@@ -65,3 +74,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.26458, 28.4349)
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(0.92272, -0.205568, 0.326083, 5.4188e-08, 0.845933, 0.53329, -0.385471, -0.492077, 0.780559, 3.55209, 7.08603, 8.20143)
 fov = 42.9
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("4_wdqsn")
+cell_size = Vector3(0.5, 0.25, 0.5)
+data = {
+"cells": PackedInt32Array(65471, 65298, 25, 6, 42, 20, 65534, 44, 20, 393223, 39, 20, 393216, 39, 20, 720901, 56, 20, 9, 29, 655360, 9, 26, 1441792)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]

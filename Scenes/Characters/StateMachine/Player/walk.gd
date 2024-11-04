@@ -7,12 +7,6 @@ extends State
 
 func physics_update(delta : float):
 	var direction = get_direction(player)
-	if Input.is_action_just_pressed("jump_and_stay"):
-		transitioned.emit(self, "jumpandstay")
-	if Input.is_action_just_pressed("attack"):
-		transitioned.emit(self, "attack")
-	if Input.is_action_just_pressed("run"):
-		transitioned.emit(self, "run")		
 	if direction:
 		go_to(player, direction, player.SPEED)
 		change_direction_velocity(jackflash, direction)
@@ -20,6 +14,15 @@ func physics_update(delta : float):
 		transitioned.emit(self, "idle")
 	if not player.is_on_floor():
 		transitioned.emit(self, "fall")
+	pass
+	
+func update(delta : float):
+	if Input.is_action_just_pressed("jump_and_stay"):
+		transitioned.emit(self, "jumpandstay")
+	if Input.is_action_just_pressed("attack"):
+		transitioned.emit(self, "attack")
+	if Input.is_action_just_pressed("run"):
+		transitioned.emit(self, "run")		
 	pass
 
 func enter():
