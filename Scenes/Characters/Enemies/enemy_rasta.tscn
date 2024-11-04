@@ -3,46 +3,43 @@
 [ext_resource type="Script" path="res://Scenes/Characters/Enemies/rasta.gd" id="1_t27xc"]
 [ext_resource type="PackedScene" uid="uid://b6vj202sjowjx" path="res://Assets/Enemies/Rasta/rasta.glb" id="2_7todi"]
 [ext_resource type="PackedScene" uid="uid://doyksevus16f" path="res://Scenes/Characters/StateMachine/state_machine.tscn" id="2_pds7h"]
-[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/idle.gd" id="3_fqgwl"]
-[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/walk.gd" id="4_3bvl7"]
-[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/run.gd" id="5_q6v57"]
-[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/dead.gd" id="6_lkld6"]
-[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/attack.gd" id="7_lp7jg"]
-[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/jump.gd" id="8_ytibv"]
-[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/fall.gd" id="9_wr8hm"]
-[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/hit.gd" id="10_q2dld"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/idle.gd" id="3_kn182"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/walk.gd" id="4_v2dei"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/dead.gd" id="5_v4v1x"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/attack.gd" id="6_6dcns"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/hit.gd" id="7_ms0cr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_txjus"]
 height = 2.02031
 
-[node name="EnemyRasta" type="CharacterBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_j3m7t"]
+size = Vector3(8.41055, 1, 8.70254)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wx84d"]
+size = Vector3(1.82715, 1, 1.86975)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2muvm"]
+radius = 0.784501
+
+[node name="EnemyRasta" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_t27xc")
 
 [node name="StateMachine" parent="." instance=ExtResource("2_pds7h")]
 
 [node name="idle" type="Node" parent="StateMachine"]
-script = ExtResource("3_fqgwl")
+script = ExtResource("3_kn182")
 
 [node name="walk" type="Node" parent="StateMachine"]
-script = ExtResource("4_3bvl7")
-
-[node name="run" type="Node" parent="StateMachine"]
-script = ExtResource("5_q6v57")
+script = ExtResource("4_v2dei")
 
 [node name="dead" type="Node" parent="StateMachine"]
-script = ExtResource("6_lkld6")
+script = ExtResource("5_v4v1x")
 
 [node name="attack" type="Node" parent="StateMachine"]
-script = ExtResource("7_lp7jg")
-
-[node name="jump" type="Node" parent="StateMachine"]
-script = ExtResource("8_ytibv")
-
-[node name="fall" type="Node" parent="StateMachine"]
-script = ExtResource("9_wr8hm")
+script = ExtResource("6_6dcns")
 
 [node name="hit" type="Node" parent="StateMachine"]
-script = ExtResource("10_q2dld")
+script = ExtResource("7_ms0cr")
 
 [node name="visual" type="Node3D" parent="."]
 
@@ -179,8 +176,30 @@ bones/85/rotation = Quaternion(0.49149, -0.0918672, 0.00179797, 0.866023)
 bones/86/position = Vector3(8.94181e-07, 19.3, -9.14728e-07)
 bones/86/rotation = Quaternion(0.285475, -0.022717, -0.0578389, 0.956369)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="colArea" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.075761)
 shape = SubResource("CapsuleShape3D_txjus")
+
+[node name="detectionArea" type="Area3D" parent="."]
+
+[node name="detection_col_area" type="CollisionShape3D" parent="detectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50563, 0.889866, -0.344247)
+shape = SubResource("BoxShape3D_j3m7t")
+
+[node name="attackArea" type="Area3D" parent="."]
+
+[node name="attack_col_area" type="CollisionShape3D" parent="attackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00244141, 0.819422, 0.0223999)
+shape = SubResource("BoxShape3D_wx84d")
+
+[node name="hitArea" type="Area3D" parent="."]
+
+[node name="hit_Col_area" type="CollisionShape3D" parent="hitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.862675, 0.118196)
+shape = SubResource("CapsuleShape3D_2muvm")
+
+[connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="area_entered" from="hitArea" to="." method="_on_hit_area_area_entered"]
 
 [editable path="visual/rasta"]
