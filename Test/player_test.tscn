@@ -1,10 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc6vec73m7qnt"]
+[gd_scene load_steps=10 format=3 uid="uid://bc6vec73m7qnt"]
 
 [ext_resource type="Script" path="res://Test/player_test.gd" id="1_o0frg"]
 [ext_resource type="PackedScene" uid="uid://djdldu26nyhbc" path="res://Scenes/Characters/Player/player.tscn" id="2_b84w2"]
+[ext_resource type="Texture2D" uid="uid://c7k3mqqy4vbr5" path="res://Assets/kenney_platformer-kit/Starbasesnow.png" id="2_h2lrg"]
+[ext_resource type="MeshLibrary" uid="uid://ctb70cp5pqvdy" path="res://Assets/Tiles/tilesv2.tres" id="4_wdqsn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohyju"]
+albedo_color = Color(1, 1, 0.47451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7iv6b"]
+albedo_color = Color(0.305882, 1, 1, 1)
+metallic = 1.0
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5131m"]
+panorama = ExtResource("2_h2lrg")
+
+[sub_resource type="Sky" id="Sky_cl7kr"]
+sky_material = SubResource("PanoramaSkyMaterial_5131m")
 
 [sub_resource type="Environment" id="Environment_ad2gg"]
-background_mode = 1
+background_mode = 2
+sky = SubResource("Sky_cl7kr")
 ambient_light_source = 2
 ambient_light_energy = 8.6
 
@@ -17,11 +33,18 @@ script = ExtResource("1_o0frg")
 transform = Transform3D(2.52259, 0, 0, 0, 2.52259, 0, 0, 0, 2.52259, 1.24497, 0.0655823, 13.6631)
 use_collision = true
 size = Vector3(5.1604, 0.0513306, 17.0024)
+material = SubResource("StandardMaterial3D_ohyju")
 
 [node name="Wall3D" type="CSGBox3D" parent="AreaForPlay"]
 transform = Transform3D(1, 0, 0, 0, 1.62378, 0, 0, 0, 1, 1.24149, 1.54742, -7.8453)
 use_collision = true
 size = Vector3(13.0155, 1.86652, 0.132324)
+
+[node name="Wall3D5" type="CSGBox3D" parent="AreaForPlay"]
+transform = Transform3D(1, 0, 0, 0, 0.0193276, -0.999929, 0, 1.62366, 0.0119028, 1.0859, 0.895566, 9.62874)
+use_collision = true
+size = Vector3(6.69467, 1.86652, 0.132324)
+material = SubResource("StandardMaterial3D_7iv6b")
 
 [node name="Wall3D2" type="CSGBox3D" parent="AreaForPlay"]
 transform = Transform3D(1, 0, 0, 0, 0.747885, 0, 0, 0, 1, 1.24149, 1.42243, 35.1589)
@@ -43,8 +66,21 @@ environment = SubResource("Environment_ad2gg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.93274, 0.357209, -0.0489593, -0.24615, 0.730115, 0.63745, 0.263449, -0.582524, 0.768935, 0, 11.6931, 42.5433)
+shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_b84w2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.26458, 28.4349)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.836468, -0.292251, 0.463585, 0, 0.845933, 0.53329, -0.548016, -0.44608, 0.707596, 6.68327, 7.08603, 11.8973)
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(0.92272, -0.205568, 0.326083, 5.4188e-08, 0.845933, 0.53329, -0.385471, -0.492077, 0.780559, 3.55209, 7.08603, 8.20143)
+fov = 42.9
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("4_wdqsn")
+cell_size = Vector3(0.5, 0.25, 0.5)
+data = {
+"cells": PackedInt32Array(65471, 65298, 25, 6, 42, 20, 65534, 44, 20, 393223, 39, 20, 393216, 39, 20, 720901, 56, 20, 9, 29, 655360, 9, 26, 1441792)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
