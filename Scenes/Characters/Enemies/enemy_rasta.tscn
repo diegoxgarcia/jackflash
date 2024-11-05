@@ -24,7 +24,8 @@ radius = 0.784501
 [node name="EnemyRasta" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_t27xc")
 
-[node name="StateMachine" parent="." instance=ExtResource("2_pds7h")]
+[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("2_pds7h")]
+initial_state = NodePath("idle")
 
 [node name="idle" type="Node" parent="StateMachine"]
 script = ExtResource("3_kn182")

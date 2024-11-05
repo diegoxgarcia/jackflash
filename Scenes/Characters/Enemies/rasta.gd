@@ -1,6 +1,7 @@
 extends CharacterBody3D 
+class_name Enemy
 
-@export var speed:float = 5.0
+@export var SPEED:float = 5.0
 @export var detection_range:float =10.0
 @export var attack_damage:int = 10
 @export var hp:int =100
@@ -36,8 +37,5 @@ func _on_attack_area_body_entered(body: Node3D) -> void:
 func _on_detection_area_body_entered(body: Node3D) -> void:
 	#ver no funciona
 	print("iniciando persecucion")
-	look_at(-player.global_position)
-	velocity.x = dir.x * speed
-	velocity.z = dir.z * speed
-	move_and_slide()
+	
 	pass # Replace with function body.

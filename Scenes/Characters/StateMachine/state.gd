@@ -38,3 +38,10 @@ func go_to(player : Player, direction : Vector3, speed : float):
 	pass
 
 ### Funciones del Enemy ###
+func enemy_chase(enemy: Enemy):
+	
+	pass
+func go_idle_enemy(enemy : Enemy):
+	enemy.velocity.x = move_toward(enemy.velocity.x, 0, enemy.SPEED)
+	enemy.velocity.z = move_toward(enemy.velocity.z, 0, enemy.SPEED)
+	pass
