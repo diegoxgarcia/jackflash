@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds2oeo773ylca"]
+
+[ext_resource type="Script" path="res://Test/enemy_test.gd" id="1_dpkma"]
+[ext_resource type="PackedScene" uid="uid://djdldu26nyhbc" path="res://Scenes/Characters/Player/player.tscn" id="3_cef5p"]
+[ext_resource type="PackedScene" uid="uid://dh6m6hocwypc0" path="res://Scenes/Characters/Enemies/enemy_Rasta.tscn" id="3_jfir5"]
+
+[sub_resource type="Environment" id="Environment_4jnd8"]
+
+[node name="EnemyTest" type="Node3D"]
+script = ExtResource("1_dpkma")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4jnd8")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9698, 0.243903, 0, -0.243903, 0.9698, 0, 3.67167, 7.44812)
+
+[node name="Player" parent="." instance=ExtResource("3_cef5p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.80997, 0, 0)
+
+[node name="EnemyRasta" parent="." instance=ExtResource("3_jfir5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486156, 0)
