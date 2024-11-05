@@ -15,7 +15,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1qwxv"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_n0nwc")
 metadata/_edit_group_ = true
 
