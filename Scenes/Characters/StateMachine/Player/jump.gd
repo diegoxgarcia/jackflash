@@ -10,9 +10,15 @@ func physics_update(delta : float):
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta
 		if direction:
+			go_to(player, direction, player.SPEED)
 			change_direction_velocity(jackflash, direction)
 	else:
 		transitioned.emit(self, "idle")
+	pass
+	
+func update(delta : float):
+	if Input.is_action_just_pressed("attack"):
+		transitioned.emit(self, "stomp")
 	pass
 	
 func enter():

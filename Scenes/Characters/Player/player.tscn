@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://djdldu26nyhbc"]
+[gd_scene load_steps=18 format=3 uid="uid://djdldu26nyhbc"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/Player/player.gd" id="1_n0nwc"]
 [ext_resource type="PackedScene" uid="uid://doyksevus16f" path="res://Scenes/Characters/StateMachine/state_machine.tscn" id="2_eiog5"]
@@ -10,8 +10,12 @@
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/jump.gd" id="8_fwlt2"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/fall.gd" id="9_n8ybp"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/hit.gd" id="10_ko4ne"]
-[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/jumpandstay.gd" id="11_e5i4q"]
 [ext_resource type="PackedScene" uid="uid://ij55h76o6gpt" path="res://Assets/Player/jackflash.glb" id="11_mht60"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/stomp.gd" id="11_tp26j"]
+[ext_resource type="PackedScene" uid="uid://y65bdhojbflr" path="res://Scenes/Components/collecter.tscn" id="13_dmwfb"]
+[ext_resource type="PackedScene" uid="uid://bleopqiwbkc2j" path="res://Scenes/Components/damager.tscn" id="14_lcs70"]
+[ext_resource type="PackedScene" uid="uid://b4got68cjiyts" path="res://Scenes/Components/stomper.tscn" id="15_xejk6"]
+[ext_resource type="PackedScene" uid="uid://ymwkvva7ij8p" path="res://Scenes/Components/attacker.tscn" id="16_veng2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1qwxv"]
 
@@ -46,8 +50,8 @@ script = ExtResource("9_n8ybp")
 [node name="hit" type="Node" parent="StateMachine"]
 script = ExtResource("10_ko4ne")
 
-[node name="jumpandstay" type="Node" parent="StateMachine"]
-script = ExtResource("11_e5i4q")
+[node name="stomp" type="Node" parent="StateMachine"]
+script = ExtResource("11_tp26j")
 
 [node name="Visual" type="Node3D" parent="."]
 
@@ -182,7 +186,15 @@ bones/84/position = Vector3(0.0128612, 30.2208, 0.109883)
 bones/84/rotation = Quaternion(0.968325, 0.0170453, -0.060384, 0.241681)
 bones/85/position = Vector3(-5.35651e-05, 0.569594, -15.8093)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Collecter" parent="Visual" instance=ExtResource("13_dmwfb")]
+
+[node name="Damager" parent="Visual" instance=ExtResource("14_lcs70")]
+
+[node name="Stomper" parent="Visual" instance=ExtResource("15_xejk6")]
+
+[node name="Attacker" parent="Visual" instance=ExtResource("16_veng2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994719, 0)
 shape = SubResource("CapsuleShape3D_1qwxv")
 

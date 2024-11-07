@@ -33,3 +33,4 @@ Para que se sepa cual es la combinacion de colores que hay que completar, se deb
 La baldoza tiene que ser un StaticBody, ya que cambiara de color. Esa baldoza y su comportamiento sera una escena, esa escena se reutilizara en otra escena que sera el puzzle de x cantidad de baldozas que tienen que cumplir la condicion.
 
 Se coleccionaran partituras que al completar todas las partituras, terminaras agarrando un CD con la cancion completa.
+Las partituras se van a poder agarrar con un boton y soltar con el mismo boton. Si la partitura entra en un atril suena la pista de audio. Si el player tiene la partitura no puede atacar, solo podra atacar cuando suelte el coleccionable.

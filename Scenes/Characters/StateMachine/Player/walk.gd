@@ -17,8 +17,8 @@ func physics_update(delta : float):
 	pass
 	
 func update(delta : float):
-	if Input.is_action_just_pressed("jump_and_stay"):
-		transitioned.emit(self, "jumpandstay")
+	if Input.is_action_just_pressed("jump"):
+		transitioned.emit(self, "jump")
 	if Input.is_action_just_pressed("attack"):
 		transitioned.emit(self, "attack")
 	if Input.is_action_just_pressed("run"):

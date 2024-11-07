@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpvts8nyidsgq"]
+
+[ext_resource type="Script" path="res://Scenes/Collectables/interactive_tile.gd" id="1_37he4"]
+[ext_resource type="Texture2D" uid="uid://brs15fywtmq1e" path="res://Assets/Collectables/InteractiveTile/Marble tile beige.png" id="1_ugfrv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ym7px"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7oqs"]
+albedo_texture = ExtResource("1_ugfrv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hvm4n"]
+material = SubResource("StandardMaterial3D_j7oqs")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1tmw8"]
+size = Vector3(2.02172, 0.0926514, 2.02338)
+
+[node name="InteractiveTile" type="StaticBody3D" groups=["InteractiveTile"]]
+physics_material_override = SubResource("PhysicsMaterial_ym7px")
+script = ExtResource("1_37he4")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_hvm4n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999727, 0, 0, 0, 0.999727, 0, 0, 0, 0.999727, 0, 0, 0)
+shape = SubResource("BoxShape3D_1tmw8")

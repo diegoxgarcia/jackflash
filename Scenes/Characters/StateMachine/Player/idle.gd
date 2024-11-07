@@ -8,8 +8,6 @@ func update(delta : float):
 	var direction = get_direction(player)
 	if direction:
 		transitioned.emit(self, "walk")
-	if Input.is_action_just_pressed("jump_and_stay") && player.is_on_floor():
-		transitioned.emit(self, "jumpandstay")
 	if Input.is_action_just_pressed("jump") && player.is_on_floor():
 		transitioned.emit(self, "jump")
 	if not player.is_on_floor():
