@@ -1,0 +1,2 @@
+class_name take_damage_enemy
+extends State

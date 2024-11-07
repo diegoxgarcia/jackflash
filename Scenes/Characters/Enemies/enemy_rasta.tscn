@@ -1,10 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://dh6m6hocwypc0"]
+[gd_scene load_steps=14 format=3 uid="uid://dh6m6hocwypc0"]
 
 [ext_resource type="PackedScene" uid="uid://edy4bdnknf5d" path="res://Assets/Enemies/Rasta/Rasta.glb" id="1_5wq2a"]
+[ext_resource type="Script" path="res://Scenes/Characters/Enemies/enemy_rasta.gd" id="1_ecqye"]
+[ext_resource type="PackedScene" uid="uid://doyksevus16f" path="res://Scenes/Characters/StateMachine/state_machine.tscn" id="2_sbgte"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/idle.gd" id="3_jq5xo"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/attack.gd" id="4_wq2o6"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/dead.gd" id="5_ief7n"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/fall_idle.gd" id="6_4ls7k"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/landing.gd" id="7_jktti"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/take_damage.gd" id="8_ybyyf"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/walk.gd" id="9_73xvo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ecylj"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ykc76"]
+size = Vector3(10, 2, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_olpcj"]
+size = Vector3(1, 1.8, 1)
+
 [node name="EnemyRasta" type="CharacterBody3D"]
+script = ExtResource("1_ecqye")
 
 [node name="visual" type="Node3D" parent="."]
 
@@ -132,6 +148,47 @@ bones/86/rotation = Quaternion(0.28896, -0.0441674, -0.00838857, 0.956285)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.991942, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_ecylj")
+
+[node name="PlayerDetectionArea" type="Area3D" parent="."]
+
+[node name="PlayerDetectionCollision" type="CollisionShape3D" parent="PlayerDetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0110703, 0.646057, -1.24539)
+shape = SubResource("BoxShape3D_ykc76")
+
+[node name="hitArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.607168, 0)
+
+[node name="hitCollision" type="CollisionShape3D" parent="hitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387, 0)
+shape = SubResource("BoxShape3D_olpcj")
+
+[node name="StateMachine" parent="." instance=ExtResource("2_sbgte")]
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_jq5xo")
+
+[node name="attack" type="Node" parent="StateMachine"]
+script = ExtResource("4_wq2o6")
+
+[node name="dead" type="Node" parent="StateMachine"]
+script = ExtResource("5_ief7n")
+
+[node name="fallIdle" type="Node" parent="StateMachine"]
+script = ExtResource("6_4ls7k")
+
+[node name="landing" type="Node" parent="StateMachine"]
+script = ExtResource("7_jktti")
+
+[node name="takeDamage" type="Node" parent="StateMachine"]
+script = ExtResource("8_ybyyf")
+
+[node name="walk" type="Node" parent="StateMachine"]
+script = ExtResource("9_73xvo")
+
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]
+[connection signal="area_entered" from="hitArea" to="." method="_on_hit_area_area_entered"]
 
 [editable path="visual/Rasta"]
