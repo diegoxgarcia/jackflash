@@ -79,6 +79,15 @@ run={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="Damager"
+3d_physics/layer_3="Collecter"
+3d_physics/layer_4="Stomper"
+3d_physics/layer_5="InteractiveTile"
+3d_physics/layer_6="Platform"
+
 [rendering]
 
 global_illumination/voxel_gi/quality=1

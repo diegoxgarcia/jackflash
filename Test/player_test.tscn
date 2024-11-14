@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://bc6vec73m7qnt"]
+[gd_scene load_steps=15 format=3 uid="uid://bc6vec73m7qnt"]
 
 [ext_resource type="Script" path="res://Test/player_test.gd" id="1_o0frg"]
 [ext_resource type="PackedScene" uid="uid://djdldu26nyhbc" path="res://Scenes/Characters/Player/player.tscn" id="2_b84w2"]
 [ext_resource type="Texture2D" uid="uid://c7k3mqqy4vbr5" path="res://Assets/kenney_platformer-kit/Starbasesnow.png" id="2_h2lrg"]
 [ext_resource type="MeshLibrary" uid="uid://ctb70cp5pqvdy" path="res://Assets/Tiles/tilesv2.tres" id="4_wdqsn"]
 [ext_resource type="PackedScene" uid="uid://bpvts8nyidsgq" path="res://Scenes/Collectables/interactive_tile.tscn" id="5_yhsgc"]
+[ext_resource type="PackedScene" uid="uid://sjor4gr1h4ih" path="res://Scenes/Collectables/interac_tile.tscn" id="6_e6w55"]
+[ext_resource type="Script" path="res://Scenes/Resources/interactive_tile_data.gd" id="6_lsvoi"]
+[ext_resource type="PackedScene" uid="uid://cfvaluygx5vyk" path="res://Scenes/Collectables/interac_tile_l.tscn" id="8_xcc87"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohyju"]
 albedo_color = Color(1, 1, 0.47451, 1)
@@ -25,6 +28,11 @@ sky = SubResource("Sky_cl7kr")
 ambient_light_source = 2
 ambient_light_energy = 8.6
 
+[sub_resource type="Resource" id="Resource_1tkbh"]
+resource_local_to_scene = true
+script = ExtResource("6_lsvoi")
+tile_color = [Color(1, 1, 1, 0), Color(1, 0.647059, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
+
 [node name="PlayerTest" type="Node3D"]
 script = ExtResource("1_o0frg")
 
@@ -33,33 +41,39 @@ script = ExtResource("1_o0frg")
 [node name="Floor3D" type="CSGBox3D" parent="AreaForPlay"]
 transform = Transform3D(2.52259, 0, 0, 0, 2.52259, 0, 0, 0, 2.52259, 1.24497, 0.0655823, 13.6631)
 use_collision = true
+collision_layer = 32
 size = Vector3(5.1604, 0.0513306, 17.0024)
 material = SubResource("StandardMaterial3D_ohyju")
 
 [node name="Wall3D" type="CSGBox3D" parent="AreaForPlay"]
 transform = Transform3D(1, 0, 0, 0, 1.62378, 0, 0, 0, 1, 1.24149, 1.54742, -7.8453)
 use_collision = true
+collision_layer = 32
 size = Vector3(13.0155, 1.86652, 0.132324)
 
 [node name="Wall3D5" type="CSGBox3D" parent="AreaForPlay"]
 transform = Transform3D(1, 0, 0, 0, 0.0193276, -0.999929, 0, 1.62366, 0.0119028, 1.0859, 0.895566, 9.62874)
 use_collision = true
+collision_layer = 32
 size = Vector3(6.69467, 1.86652, 0.132324)
 material = SubResource("StandardMaterial3D_7iv6b")
 
 [node name="Wall3D2" type="CSGBox3D" parent="AreaForPlay"]
 transform = Transform3D(1, 0, 0, 0, 0.747885, 0, 0, 0, 1, 1.24149, 1.42243, 35.1589)
 use_collision = true
+collision_layer = 32
 size = Vector3(13.0155, 3.45265, 0.132324)
 
 [node name="Wall3D3" type="CSGBox3D" parent="AreaForPlay"]
 transform = Transform3D(0.00720819, 0, 0.999974, 0, 1, 0, -0.999974, 0, 0.00720819, 7.57505, 0.648492, 13.5904)
 use_collision = true
+collision_layer = 32
 size = Vector3(42.6911, 1.03662, 0.132324)
 
 [node name="Wall3D4" type="CSGBox3D" parent="AreaForPlay"]
 transform = Transform3D(0.00720819, 0, 0.999974, 0, 1, 0, -0.999974, 0, 0.00720819, -5.35161, 0.648492, 13.5538)
 use_collision = true
+collision_layer = 32
 size = Vector3(42.6178, 1.03662, 0.132324)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -79,6 +93,7 @@ fov = 42.9
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("4_wdqsn")
 cell_size = Vector3(0.5, 0.25, 0.5)
+collision_layer = 32
 data = {
 "cells": PackedInt32Array(65471, 65298, 25, 6, 42, 20, 65534, 44, 20, 393223, 39, 20, 393216, 39, 20, 720901, 56, 20, 9, 29, 655360, 9, 26, 1441792)
 }
@@ -86,3 +101,10 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="InteractiveTile" parent="." instance=ExtResource("5_yhsgc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03388, 0.50275, 17.9865)
+interactive_tile_data = SubResource("Resource_1tkbh")
+
+[node name="InteracTile" parent="." instance=ExtResource("6_e6w55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.517103, 0)
+
+[node name="InteracTileL" parent="." instance=ExtResource("8_xcc87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.369285, 0.626737, 15.0848)
