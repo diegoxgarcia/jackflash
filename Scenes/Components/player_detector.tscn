@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6bek0ab6i4wg"]
+
+[ext_resource type="Script" path="res://Scenes/Components/player_detector.gd" id="1_2lks6"]
+
+[node name="PlayerDetector" type="Area3D"]
+script = ExtResource("1_2lks6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv3c47mjv611c"]
+
+[ext_resource type="Script" path="res://Scenes/Components/take_damage_enemy.gd" id="1_5btwq"]
+
+[node name="TakeDamageEnemy" type="Area3D"]
+script = ExtResource("1_5btwq")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
