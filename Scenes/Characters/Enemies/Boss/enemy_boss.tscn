@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://del5wxlj8dfp2"]
+
+[ext_resource type="PackedScene" uid="uid://cjac4nhnkmaup" path="res://Scenes/Characters/Enemies/Boss/CharacterBoss.tscn" id="1_hnewn"]
+[ext_resource type="PackedScene" uid="uid://cv3c47mjv611c" path="res://Scenes/Components/take_damage_enemy.tscn" id="2_cdbr8"]
+[ext_resource type="PackedScene" uid="uid://b6bek0ab6i4wg" path="res://Scenes/Components/player_detector.tscn" id="3_xht30"]
+[ext_resource type="PackedScene" uid="uid://doyksevus16f" path="res://Scenes/Characters/StateMachine/state_machine.tscn" id="4_qtdll"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_660sh"]
+radius = 0.7
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_df71p"]
+size = Vector3(10, 2.76282, 10)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yvcvq"]
+
+[node name="EnemyBoss" type="CharacterBody3D"]
+
+[node name="visual" type="Node3D" parent="."]
+
+[node name="Boss" parent="visual" instance=ExtResource("1_hnewn")]
+
+[node name="components" type="Node3D" parent="visual"]
+
+[node name="TakeDamageEnemy" parent="visual/components" instance=ExtResource("2_cdbr8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="visual/components/TakeDamageEnemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19066, 0)
+shape = SubResource("CylinderShape3D_660sh")
+
+[node name="PlayerDetector" parent="visual/components" instance=ExtResource("3_xht30")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="visual/components/PlayerDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59748, 0)
+shape = SubResource("BoxShape3D_df71p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.853066, 0)
+shape = SubResource("CapsuleShape3D_yvcvq")
+
+[node name="StateMachine" parent="." instance=ExtResource("4_qtdll")]

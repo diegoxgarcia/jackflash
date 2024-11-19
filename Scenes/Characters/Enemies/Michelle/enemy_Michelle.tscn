@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm6modg5kpa0"]
+
+[ext_resource type="PackedScene" uid="uid://b70tjs07fyiws" path="res://Scenes/Characters/Enemies/Michelle/characterMichelle.tscn" id="1_hrifr"]
+[ext_resource type="PackedScene" uid="uid://cv3c47mjv611c" path="res://Scenes/Components/take_damage_enemy.tscn" id="2_gbi8b"]
+[ext_resource type="PackedScene" uid="uid://b6bek0ab6i4wg" path="res://Scenes/Components/player_detector.tscn" id="3_i1sou"]
+[ext_resource type="PackedScene" uid="uid://doyksevus16f" path="res://Scenes/Characters/StateMachine/state_machine.tscn" id="4_5b0ik"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yknpj"]
+radius = 0.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pf0mk"]
+size = Vector3(10, 2, 10)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0qhxj"]
+
+[node name="EnemyMichelle" type="CharacterBody3D"]
+
+[node name="visual" type="Node3D" parent="."]
+
+[node name="Michelle" parent="visual" instance=ExtResource("1_hrifr")]
+
+[node name="Components" type="Node3D" parent="visual"]
+
+[node name="TakeDamageEnemy" parent="visual/Components" instance=ExtResource("2_gbi8b")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="visual/Components/TakeDamageEnemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05805, 0)
+shape = SubResource("CylinderShape3D_yknpj")
+
+[node name="PlayerDetector" parent="visual/Components" instance=ExtResource("3_i1sou")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="visual/Components/PlayerDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455931, 0)
+shape = SubResource("BoxShape3D_pf0mk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.817392, 0)
+shape = SubResource("CapsuleShape3D_0qhxj")
+
+[node name="StateMachine" parent="." instance=ExtResource("4_5b0ik")]

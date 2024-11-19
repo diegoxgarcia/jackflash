@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://edy4bdnknf5d"
-path="res://.godot/imported/Rasta.glb-7a34b2ee57b6eec8875528aeb931dfdb.scn"
+path="res://.godot/imported/rasta.glb-4168c0b800238f2f30e7fd76eacc1444.scn"
 
 [deps]
 
-source_file="res://Assets/Enemies/Rasta/Rasta.glb"
-dest_files=["res://.godot/imported/Rasta.glb-7a34b2ee57b6eec8875528aeb931dfdb.scn"]
+source_file="res://Assets/Enemies/Rasta/rasta.glb"
+dest_files=["res://.godot/imported/rasta.glb-4168c0b800238f2f30e7fd76eacc1444.scn"]
 
 [params]
 
