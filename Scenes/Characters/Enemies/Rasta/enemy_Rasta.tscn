@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dh6m6hocwypc0"]
+[gd_scene load_steps=18 format=3 uid="uid://dh6m6hocwypc0"]
 
 [ext_resource type="PackedScene" uid="uid://edy4bdnknf5d" path="res://Assets/Enemies/Rasta/rasta.glb" id="1_5wq2a"]
 [ext_resource type="Script" path="res://Scenes/Characters/Enemies/Rasta/enemy_rasta.gd" id="1_ecqye"]
@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/attack.gd" id="4_wq2o6"]
 [ext_resource type="PackedScene" uid="uid://b6bek0ab6i4wg" path="res://Scenes/Components/player_detector.tscn" id="4_xct1x"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/dead.gd" id="5_ief7n"]
+[ext_resource type="PackedScene" uid="uid://825qsxmttfxw" path="res://Scenes/Components/enemy_attacker.tscn" id="5_yvppe"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/fall_idle.gd" id="6_4ls7k"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/landing.gd" id="7_jktti"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/take_damage.gd" id="8_ybyyf"]
-[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/patrol.gd" id="12_a2ejk"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/chase.gd" id="13_m24yl"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lj8q5"]
@@ -19,6 +19,9 @@ radius = 0.705
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w5d84"]
 size = Vector3(10, 1.5, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hlr2b"]
+size = Vector3(0.20752, 0.289063, 0.528198)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ecylj"]
 
@@ -163,6 +166,12 @@ shape = SubResource("CylinderShape3D_lj8q5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24599, 0)
 shape = SubResource("BoxShape3D_w5d84")
 
+[node name="EnemyAttacker" parent="visual/Components" instance=ExtResource("5_yvppe")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="visual/Components/EnemyAttacker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114502, 0.90378, 0.688021)
+shape = SubResource("BoxShape3D_hlr2b")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.991942, 0)
 shape = SubResource("CapsuleShape3D_ecylj")
@@ -188,13 +197,13 @@ script = ExtResource("7_jktti")
 [node name="takeDamage" type="Node" parent="StateMachine"]
 script = ExtResource("8_ybyyf")
 
-[node name="patrol" type="Node" parent="StateMachine"]
-script = ExtResource("12_a2ejk")
-
 [node name="chase" type="Node" parent="StateMachine"]
 script = ExtResource("13_m24yl")
 
+[connection signal="animation_finished" from="visual/Rasta/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="enemy_take_damage" from="visual/Components/TakeDamageEnemy" to="." method="_on_take_damage_enemy_enemy_take_damage"]
 [connection signal="player_detected" from="visual/Components/PlayerDetector" to="." method="_on_player_detector_player_detected"]
+[connection signal="player_undetected" from="visual/Components/PlayerDetector" to="." method="_on_player_detector_player_undetected"]
+[connection signal="attacking" from="visual/Components/EnemyAttacker" to="." method="_on_enemy_attacker_attacking"]
 
 [editable path="visual/Rasta"]
