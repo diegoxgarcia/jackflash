@@ -18,7 +18,7 @@ func physics_update(delta : float):
 	pass
 	
 func update(delta : float):
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack")  && !player.has_musical_score():
 		transitioned.emit(self, "stomp")
 	pass
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://djdldu26nyhbc"]
+[gd_scene load_steps=24 format=3 uid="uid://djdldu26nyhbc"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/Player/player.gd" id="1_n0nwc"]
 [ext_resource type="PackedScene" uid="uid://doyksevus16f" path="res://Scenes/Characters/StateMachine/state_machine.tscn" id="2_eiog5"]
@@ -12,7 +12,9 @@
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/hit.gd" id="10_ko4ne"]
 [ext_resource type="PackedScene" uid="uid://ij55h76o6gpt" path="res://Assets/Player/jackflash.glb" id="11_mht60"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/stomp.gd" id="11_tp26j"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/take.gd" id="12_vcotw"]
 [ext_resource type="PackedScene" uid="uid://y65bdhojbflr" path="res://Scenes/Components/collecter.tscn" id="13_dmwfb"]
+[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/drop.gd" id="13_ojjwm"]
 [ext_resource type="PackedScene" uid="uid://bleopqiwbkc2j" path="res://Scenes/Components/damager.tscn" id="14_lcs70"]
 [ext_resource type="PackedScene" uid="uid://b4got68cjiyts" path="res://Scenes/Components/stomper.tscn" id="15_xejk6"]
 [ext_resource type="PackedScene" uid="uid://ymwkvva7ij8p" path="res://Scenes/Components/attacker.tscn" id="16_veng2"]
@@ -33,7 +35,7 @@ size = Vector3(0.35, 0.33, 1.87)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1qwxv"]
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
-collision_mask = 48
+collision_mask = 176
 script = ExtResource("1_n0nwc")
 metadata/_edit_group_ = true
 
@@ -67,7 +69,16 @@ script = ExtResource("10_ko4ne")
 [node name="stomp" type="Node" parent="StateMachine"]
 script = ExtResource("11_tp26j")
 
+[node name="take" type="Node" parent="StateMachine"]
+script = ExtResource("12_vcotw")
+
+[node name="drop" type="Node" parent="StateMachine"]
+script = ExtResource("13_ojjwm")
+
 [node name="Visual" type="Node3D" parent="."]
+
+[node name="InfoAction" type="Label3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12736, 0)
 
 [node name="jackflash" parent="Visual" instance=ExtResource("11_mht60")]
 
@@ -204,6 +215,9 @@ bones/85/position = Vector3(-4.77202e-05, 0.569594, -15.8093)
 
 [node name="Collecter" parent="Visual/Components" instance=ExtResource("13_dmwfb")]
 
+[node name="TakerMarker" type="Marker3D" parent="Visual/Components/Collecter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0447026, 2.12339, 0.0465897)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visual/Components/Collecter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.967056, 0)
 shape = SubResource("CylinderShape3D_scpy4")
@@ -236,5 +250,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994719, 0)
 shape = SubResource("CapsuleShape3D_1qwxv")
 
 [connection signal="animation_finished" from="Visual/jackflash/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="player_collected" from="Visual/Components/Collecter" to="." method="_on_collecter_player_collected"]
+[connection signal="player_uncollected" from="Visual/Components/Collecter" to="." method="_on_collecter_player_uncollected"]
 
 [editable path="Visual/jackflash"]

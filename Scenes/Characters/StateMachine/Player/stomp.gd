@@ -13,9 +13,6 @@ func physics_update(delta : float):
 		transitioned.emit(self, "Idle")
 	pass
 	
-func update(delta : float):
-	pass
-	
 func enter():
 	animation_player.play("Fall")
 	stomper_collision_shape_3d.disabled = false

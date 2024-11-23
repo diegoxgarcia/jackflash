@@ -1,20 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://bc6vec73m7qnt"]
+[gd_scene load_steps=13 format=3 uid="uid://bc6vec73m7qnt"]
 
 [ext_resource type="Script" path="res://Test/player_test.gd" id="1_o0frg"]
 [ext_resource type="PackedScene" uid="uid://djdldu26nyhbc" path="res://Scenes/Characters/Player/player.tscn" id="2_b84w2"]
 [ext_resource type="Texture2D" uid="uid://c7k3mqqy4vbr5" path="res://Assets/kenney_platformer-kit/Starbasesnow.png" id="2_h2lrg"]
 [ext_resource type="MeshLibrary" uid="uid://ctb70cp5pqvdy" path="res://Assets/Tiles/tilesv2.tres" id="4_wdqsn"]
-[ext_resource type="PackedScene" uid="uid://bpvts8nyidsgq" path="res://Scenes/Collectables/interactive_tile.tscn" id="5_yhsgc"]
 [ext_resource type="PackedScene" uid="uid://sjor4gr1h4ih" path="res://Scenes/Collectables/interac_tile.tscn" id="6_e6w55"]
-[ext_resource type="Script" path="res://Scenes/Resources/interactive_tile_data.gd" id="6_lsvoi"]
+[ext_resource type="PackedScene" uid="uid://dkx6jstoduq7u" path="res://Scenes/Collectables/interac_tile_x.tscn" id="7_obpvp"]
+[ext_resource type="PackedScene" uid="uid://dilqfaywssqu6" path="res://Scenes/Collectables/musical_stand_rb.tscn" id="8_4ghbv"]
 [ext_resource type="PackedScene" uid="uid://cfvaluygx5vyk" path="res://Scenes/Collectables/interac_tile_l.tscn" id="8_xcc87"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohyju"]
-albedo_color = Color(1, 1, 0.47451, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7iv6b"]
-albedo_color = Color(0.305882, 1, 1, 1)
-metallic = 1.0
+albedo_color = Color(0, 1, 0, 1)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5131m"]
 panorama = ExtResource("2_h2lrg")
@@ -27,11 +23,6 @@ background_mode = 2
 sky = SubResource("Sky_cl7kr")
 ambient_light_source = 2
 ambient_light_energy = 8.6
-
-[sub_resource type="Resource" id="Resource_1tkbh"]
-resource_local_to_scene = true
-script = ExtResource("6_lsvoi")
-tile_color = [Color(1, 1, 1, 0), Color(1, 0.647059, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
 
 [node name="PlayerTest" type="Node3D"]
 script = ExtResource("1_o0frg")
@@ -50,13 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1.62378, 0, 0, 0, 1, 1.24149, 1.54742, -7.84
 use_collision = true
 collision_layer = 32
 size = Vector3(13.0155, 1.86652, 0.132324)
-
-[node name="Wall3D5" type="CSGBox3D" parent="AreaForPlay"]
-transform = Transform3D(1, 0, 0, 0, 0.0193276, -0.999929, 0, 1.62366, 0.0119028, 1.0859, 0.895566, 9.62874)
-use_collision = true
-collision_layer = 32
-size = Vector3(6.69467, 1.86652, 0.132324)
-material = SubResource("StandardMaterial3D_7iv6b")
 
 [node name="Wall3D2" type="CSGBox3D" parent="AreaForPlay"]
 transform = Transform3D(1, 0, 0, 0, 0.747885, 0, 0, 0, 1, 1.24149, 1.42243, 35.1589)
@@ -99,12 +83,18 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="InteractiveTile" parent="." instance=ExtResource("5_yhsgc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03388, 0.50275, 17.9865)
-interactive_tile_data = SubResource("Resource_1tkbh")
-
 [node name="InteracTile" parent="." instance=ExtResource("6_e6w55")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.517103, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.517103, -2.31513)
 
 [node name="InteracTileL" parent="." instance=ExtResource("8_xcc87")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.369285, 0.626737, 15.0848)
+
+[node name="InteracTileX" parent="." instance=ExtResource("7_obpvp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.329119, 6.36595)
+
+[node name="MusicalStandRB" parent="." instance=ExtResource("8_4ghbv")]
+transform = Transform3D(0.999643, 0, 0.0267178, 0, 1, 0, -0.0267178, 0, 0.999643, 4.76724, 0.226402, 3.93717)
+
+[connection signal="turn_off_lights" from="InteracTile" to="." method="_on_interac_tile_turn_off_lights"]
+[connection signal="turn_off_lights" from="InteracTileL" to="." method="_on_interac_tile_turn_off_lights"]
+[connection signal="turn_off_lights" from="InteracTileX" to="." method="_on_interac_tile_turn_off_lights"]

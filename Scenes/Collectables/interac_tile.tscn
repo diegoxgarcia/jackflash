@@ -7,18 +7,18 @@
 
 [sub_resource type="Resource" id="Resource_ve7br"]
 script = ExtResource("3_ci2q4")
-tile_color = [Color(1, 1, 1, 0), Color(1, 0.647059, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
+tile_color = [Color(1, 1, 1, 0), Color(1, 0, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
 
 [sub_resource type="Resource" id="Resource_ki2ei"]
 script = ExtResource("3_ci2q4")
-tile_color = [Color(1, 1, 1, 0), Color(1, 0.647059, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
+tile_color = [Color(1, 1, 1, 0), Color(1, 0, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
 
 [sub_resource type="Resource" id="Resource_thjoh"]
 script = ExtResource("3_ci2q4")
-tile_color = [Color(1, 1, 1, 0), Color(1, 0.647059, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
+tile_color = [Color(1, 1, 1, 0), Color(1, 0, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lgnpe"]
-size = Vector3(9.07, 1.7, 4.44)
+size = Vector3(9.07, 2, 4.44)
 
 [node name="InteracTile" type="Node3D"]
 script = ExtResource("1_isnwc")
@@ -39,5 +39,18 @@ interactive_tile_data = SubResource("Resource_thjoh")
 [node name="TileLighter" parent="." instance=ExtResource("4_cfuvw")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileLighter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84781, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00492, 0)
 shape = SubResource("BoxShape3D_lgnpe")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.104025, 0.994575, 0, -0.994575, -0.104025, -0.233419, 3.62151, -0.394691)
+visible = false
+light_energy = 25.31
+shadow_enabled = true
+spot_angle_attenuation = 0.0544094
+
+[node name="MusicalScoreHandler" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09666, 0, 0)
+
+[connection signal="darken_player" from="TileLighter" to="." method="_on_tile_lighter_darken_player"]
+[connection signal="illuminate_player" from="TileLighter" to="." method="_on_tile_lighter_illuminate_player"]

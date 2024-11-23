@@ -33,6 +33,7 @@ folder_colors={
 
 Player=""
 InteractiveTile=""
+Collectable=""
 
 [input]
 
@@ -78,6 +79,12 @@ run={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":10,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+take={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -87,6 +94,10 @@ run={
 3d_physics/layer_4="Stomper"
 3d_physics/layer_5="InteractiveTile"
 3d_physics/layer_6="Platform"
+3d_physics/layer_7="Lighter"
+3d_physics/layer_8="MusicStand"
+3d_physics/layer_9="Collectable"
+3d_physics/layer_10="MusicStandDetector"
 
 [rendering]
 

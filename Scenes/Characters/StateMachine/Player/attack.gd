@@ -10,6 +10,14 @@ func physics_update(delta : float):
 	if direction:
 		go_idle(player)
 	pass
+	
+func update(delta : float):
+	var direction = get_direction(player)
+	if direction:
+		transitioned.emit(self, "walk")
+	if Input.is_action_just_pressed("jump"):
+		transitioned.emit(self, "jump")
+	pass
 
 func enter():
 	animation_player.play("Attack")
