@@ -4,6 +4,7 @@ extends State
 @onready var player = $"../.."
 @onready var jackflash = $"../../Visual/jackflash"
 @onready var animation_player = $"../../Visual/jackflash/AnimationPlayer"
+@onready var components = $"../../Visual/Components"
 
 func physics_update(delta : float):
 	var direction = get_direction(player)
@@ -11,7 +12,7 @@ func physics_update(delta : float):
 		player.velocity += player.get_gravity() * delta
 		if direction:
 			go_to(player, direction, player.SPEED)
-			change_direction_velocity(jackflash, direction)
+			change_direction_velocity(jackflash, components, direction)
 	else:
 		transitioned.emit(self, "Idle")
 	pass

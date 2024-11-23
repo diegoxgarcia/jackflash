@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfvaluygx5vyk"]
+
+[ext_resource type="PackedScene" uid="uid://bpvts8nyidsgq" path="res://Scenes/Collectables/interactive_tile.tscn" id="1_bfnbj"]
+[ext_resource type="Script" path="res://Scenes/Collectables/interac_tile_l.gd" id="1_imbnu"]
+[ext_resource type="Script" path="res://Scenes/Resources/interactive_tile_data.gd" id="2_fu03h"]
+[ext_resource type="PackedScene" uid="uid://w6v3i5oomj5k" path="res://Scenes/Components/tile_lighter.tscn" id="4_pnebv"]
+
+[sub_resource type="Resource" id="Resource_x736a"]
+resource_local_to_scene = true
+script = ExtResource("2_fu03h")
+tile_color = [Color(1, 1, 1, 0), Color(1, 0, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
+
+[sub_resource type="Resource" id="Resource_1qdkx"]
+resource_local_to_scene = true
+script = ExtResource("2_fu03h")
+tile_color = [Color(1, 1, 1, 0), Color(1, 0, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
+
+[sub_resource type="Resource" id="Resource_akp3b"]
+resource_local_to_scene = true
+script = ExtResource("2_fu03h")
+tile_color = [Color(1, 1, 1, 0), Color(1, 0, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
+
+[sub_resource type="Resource" id="Resource_ccgn7"]
+resource_local_to_scene = true
+script = ExtResource("2_fu03h")
+tile_color = [Color(1, 1, 1, 0), Color(1, 0, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rpk84"]
+size = Vector3(8.01, 2, 6.55)
+
+[node name="InteracTileL" type="Node3D"]
+script = ExtResource("1_imbnu")
+
+[node name="Tiles" type="Node3D" parent="."]
+
+[node name="InteractiveTile" parent="Tiles" instance=ExtResource("1_bfnbj")]
+interactive_tile_data = SubResource("Resource_x736a")
+
+[node name="InteractiveTile2" parent="Tiles" instance=ExtResource("1_bfnbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07343, 0, 0)
+interactive_tile_data = SubResource("Resource_1qdkx")
+
+[node name="InteractiveTile3" parent="Tiles" instance=ExtResource("1_bfnbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07287, 0, 0)
+interactive_tile_data = SubResource("Resource_akp3b")
+
+[node name="InteractiveTile4" parent="Tiles" instance=ExtResource("1_bfnbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06846, 0, -2.0775)
+interactive_tile_data = SubResource("Resource_ccgn7")
+
+[node name="TileLighter" parent="." instance=ExtResource("4_pnebv")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileLighter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00819, -0.742877)
+shape = SubResource("BoxShape3D_rpk84")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00989587, 0.999951, 0, -0.999951, -0.00989587, -0.203495, 3.2843, -0.6739)
+visible = false
+light_energy = 25.31
+shadow_enabled = true
+spot_angle = 71.552
+spot_angle_attenuation = 0.0544094
+
+[node name="MusicalScoreHandler" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09666, 0, 0)
+
+[connection signal="darken_player" from="TileLighter" to="." method="_on_tile_lighter_darken_player"]
+[connection signal="illuminate_player" from="TileLighter" to="." method="_on_tile_lighter_illuminate_player"]

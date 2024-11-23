@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dilqfaywssqu6"]
+
+[ext_resource type="Script" path="res://Scenes/Collectables/musical_stand_rb.gd" id="1_3msi3"]
+[ext_resource type="PackedScene" uid="uid://cnj38vfnh4ygc" path="res://Scenes/Collectables/musical_stand.tscn" id="1_o0mx0"]
+[ext_resource type="PackedScene" uid="uid://d3uxf1hs4xqhr" path="res://Scenes/Components/musical_stand_player_detector.tscn" id="2_h3ikq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3cdax"]
+size = Vector3(0.54, 1.23, 0.41)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yahfo"]
+size = Vector3(0.81, 1.1, 0.81)
+
+[node name="MusicalStandRB" type="RigidBody3D"]
+collision_layer = 128
+collision_mask = 33
+script = ExtResource("1_3msi3")
+
+[node name="InfoAction" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69383, 0)
+
+[node name="musical_stand" parent="." instance=ExtResource("1_o0mx0")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 1.69407e-21, 0, 1, 0, 1.69407e-21, 0, 1, 0, 0.618316, -0.0520311)
+shape = SubResource("BoxShape3D_3cdax")
+
+[node name="MusicalStandPlayerDetector" parent="." instance=ExtResource("2_h3ikq")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MusicalStandPlayerDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.663334, -0.049019)
+shape = SubResource("BoxShape3D_yahfo")
+
+[connection signal="music_score_entered" from="MusicalStandPlayerDetector" to="." method="_on_musical_stand_player_detector_music_score_entered"]
+[connection signal="player_music_score_entered" from="MusicalStandPlayerDetector" to="." method="_on_musical_stand_player_detector_player_music_score_entered"]
+[connection signal="player_music_score_exited" from="MusicalStandPlayerDetector" to="." method="_on_musical_stand_player_detector_player_music_score_exited"]

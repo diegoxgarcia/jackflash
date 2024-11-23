@@ -4,12 +4,13 @@ extends State
 @onready var player = $"../.."
 @onready var animation_player = $"../../Visual/jackflash/AnimationPlayer"
 @onready var jackflash = $"../../Visual/jackflash"
+@onready var components = $"../../Visual/Components"
 
 func physics_update(delta : float):
 	var direction = get_direction(player)
 	if direction:
 		go_to(player, direction, player.SPEED)
-		change_direction_velocity(jackflash, direction)
+		change_direction_velocity(jackflash, components, direction)
 	else:
 		transitioned.emit(self, "idle")
 	if not player.is_on_floor():
@@ -17,9 +18,9 @@ func physics_update(delta : float):
 	pass
 	
 func update(delta : float):
-	if Input.is_action_just_pressed("jump_and_stay"):
-		transitioned.emit(self, "jumpandstay")
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("jump"):
+		transitioned.emit(self, "jump")
+	if Input.is_action_just_pressed("attack") && !player.has_musical_score():
 		transitioned.emit(self, "attack")
 	if Input.is_action_just_pressed("run"):
 		transitioned.emit(self, "run")		

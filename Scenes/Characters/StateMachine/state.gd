@@ -17,8 +17,9 @@ func exit():
 	
 ### Funciones del Player ###	
 	
-func change_direction_velocity(jackflash : Node3D, direction : Vector3):
+func change_direction_velocity(jackflash : Node3D, components: Node3D, direction : Vector3):
 	jackflash.rotation.y = atan2(direction.x, direction.z)
+	components.rotation.y = atan2(direction.x, direction.z)
 	pass
 
 func get_direction(player : Player) -> Vector3:

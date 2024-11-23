@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://sjor4gr1h4ih"]
+
+[ext_resource type="Script" path="res://Scenes/Collectables/interac_tile.gd" id="1_isnwc"]
+[ext_resource type="PackedScene" uid="uid://bpvts8nyidsgq" path="res://Scenes/Collectables/interactive_tile.tscn" id="1_pwn3a"]
+[ext_resource type="Script" path="res://Scenes/Resources/interactive_tile_data.gd" id="3_ci2q4"]
+[ext_resource type="PackedScene" uid="uid://w6v3i5oomj5k" path="res://Scenes/Components/tile_lighter.tscn" id="4_cfuvw"]
+
+[sub_resource type="Resource" id="Resource_ve7br"]
+script = ExtResource("3_ci2q4")
+tile_color = [Color(1, 1, 1, 0), Color(1, 0, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
+
+[sub_resource type="Resource" id="Resource_ki2ei"]
+script = ExtResource("3_ci2q4")
+tile_color = [Color(1, 1, 1, 0), Color(1, 0, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
+
+[sub_resource type="Resource" id="Resource_thjoh"]
+script = ExtResource("3_ci2q4")
+tile_color = [Color(1, 1, 1, 0), Color(1, 0, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lgnpe"]
+size = Vector3(9.07, 2, 4.44)
+
+[node name="InteracTile" type="Node3D"]
+script = ExtResource("1_isnwc")
+
+[node name="Tiles" type="Node3D" parent="."]
+
+[node name="InteractiveTile" parent="Tiles" instance=ExtResource("1_pwn3a")]
+interactive_tile_data = SubResource("Resource_ve7br")
+
+[node name="InteractiveTile2" parent="Tiles" instance=ExtResource("1_pwn3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06119, 0, 0)
+interactive_tile_data = SubResource("Resource_ki2ei")
+
+[node name="InteractiveTile3" parent="Tiles" instance=ExtResource("1_pwn3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06089, 0, 0)
+interactive_tile_data = SubResource("Resource_thjoh")
+
+[node name="TileLighter" parent="." instance=ExtResource("4_cfuvw")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileLighter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00492, 0)
+shape = SubResource("BoxShape3D_lgnpe")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.104025, 0.994575, 0, -0.994575, -0.104025, -0.233419, 3.62151, -0.394691)
+visible = false
+light_energy = 25.31
+shadow_enabled = true
+spot_angle_attenuation = 0.0544094
+
+[node name="MusicalScoreHandler" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09666, 0, 0)
+
+[connection signal="darken_player" from="TileLighter" to="." method="_on_tile_lighter_darken_player"]
+[connection signal="illuminate_player" from="TileLighter" to="." method="_on_tile_lighter_illuminate_player"]
