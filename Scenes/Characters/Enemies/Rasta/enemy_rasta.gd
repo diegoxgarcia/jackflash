@@ -47,5 +47,5 @@ func _on_enemy_attacker_attacking(body) -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		"Attack":
-			state_machine.current_state.transitioned.emit(state_machine.current_state, "Idle")
+			state_machine.current_state.transitioned.emit(state_machine.current_state, "chase")
 	pass # Replace with function body.

@@ -2,6 +2,9 @@ class_name IdleEnemy
 extends State
 @onready var animation_player: AnimationPlayer = $"../../visual/Rasta/AnimationPlayer"
 @onready var enemy_rasta: EnemyRasta = $"../.."
+@onready var rasta: Node3D = $"../../visual/Rasta"
+@onready var components: Node3D = $"../../visual/Components"
+
 var wander_time: float
 var move_direction: Vector3
 
@@ -13,6 +16,7 @@ func randomize_wander():
 func physics_update(delta : float):
 	if enemy_rasta:
 		enemy_rasta.velocity = move_direction * enemy_rasta.speed
+		change_direction_enemy_velocity(rasta,components,move_direction)
 	pass
 
 func update(delta : float):
@@ -32,7 +36,11 @@ func enter():
 func exit():
 	animation_player.stop()
 	pass
-
+	
+func change_direction_enemy_velocity(enemy : Node3D,components:Node3D,direction : Vector3):
+	enemy.rotation.y = atan2(direction.x, direction.z)
+	components.rotation.y = atan2(direction.x, direction.z)
+	
 
 
 	

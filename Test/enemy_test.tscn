@@ -16,13 +16,16 @@ environment = SubResource("Environment_4jnd8")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 use_collision = true
+collision_layer = 32
 size = Vector3(50, 1, 50)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9698, 0.243903, 0, -0.243903, 0.9698, 0, 3.67167, 7.44812)
 
 [node name="Player" parent="." instance=ExtResource("3_cef5p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.80997, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.80997, 0.535931, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
 
 [node name="EnemyRasta" parent="." instance=ExtResource("3_jfir5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486156, 0)
