@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpvts8nyidsgq"]
+
+[ext_resource type="Script" path="res://Scenes/Collectables/interactive_tile.gd" id="1_37he4"]
+[ext_resource type="Texture2D" uid="uid://brs15fywtmq1e" path="res://Assets/Collectables/InteractiveTile/Marble tile beige.png" id="1_ugfrv"]
+[ext_resource type="Script" path="res://Scenes/Resources/interactive_tile_data.gd" id="2_f6wnf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ym7px"]
+
+[sub_resource type="Resource" id="Resource_tqsrn"]
+resource_local_to_scene = true
+script = ExtResource("2_f6wnf")
+tile_color = [Color(1, 1, 1, 0), Color(1, 0, 0, 1), Color(0, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7oqs"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("1_ugfrv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hvm4n"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_j7oqs")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1tmw8"]
+size = Vector3(2.02172, 0.0926514, 2.02338)
+
+[node name="InteractiveTile" type="StaticBody3D" groups=["InteractiveTile"]]
+collision_layer = 16
+collision_mask = 8
+physics_material_override = SubResource("PhysicsMaterial_ym7px")
+script = ExtResource("1_37he4")
+interactive_tile_data = SubResource("Resource_tqsrn")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_hvm4n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999727, 0, 0, 0, 0.999727, 0, 0, 0, 0.999727, 0, 0, 0)
+shape = SubResource("BoxShape3D_1tmw8")

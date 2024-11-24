@@ -3,13 +3,13 @@ Jack Flash:
 Juego en 3era persona en donde al pisar distintas plataformas de colores, se desbloquean items que van a ir completando una cancion.
 
 - Personaje:
-	- Salta
+	- Salta (si salta y ataca cae mas rapido y cambia el color de la baldoza)
 	- Ataca con un rayo
 	- Corre
 	- Camina
 	- Agarra items (CD, Cassette o instrumento)
-	- En mixamo hay que ver el mejor para este juego. (Big Vegas)
-
+No tendra barra de vida, tendra vidas. La vida se pierde al contacto del ataque del Enemy.
+El enemy muere al contacto de la trompada de Elvis
 
 - Enemigos:
 	- 3 enemigos dividos en dificultad:
@@ -28,11 +28,13 @@ Juego en 3era persona en donde al pisar distintas plataformas de colores, se des
 
 
 Mini Juego cuando entras a una ventana o portal:
-
 Escape Room pasa a primera persona y tiene que buscar una llave o dibujar un path para desbloquear una puerta. (Path3D?)
 
 
+Para que se sepa cual es la combinacion de colores que hay que completar, se debera iluminar a Elvis con un spotlight del color que tiene que completar.
+La baldoza tiene que ser un StaticBody, ya que cambiara de color. Esa baldoza y su comportamiento sera una escena, esa escena se reutilizara en otra escena que sera el puzzle de x cantidad de baldozas que tienen que cumplir la condicion.
 
+Si se puede, habria que ver si puede aparecer la combinacion (tipo Memotec) de las baldozas.
 
-
-Agregar archivo con fix
+Se coleccionaran partituras que al completar todas las partituras, terminaras agarrando un CD con la cancion completa.
+Las partituras se van a poder agarrar con un boton y soltar con el mismo boton. Si la partitura entra en un atril suena la pista de audio. Si el player tiene la partitura no puede atacar, solo podra atacar cuando suelte el coleccionable.
