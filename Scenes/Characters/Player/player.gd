@@ -9,6 +9,10 @@ const JUMP_VELOCITY = 5.5
 var musical_score : MusicalScore
 @onready var taker_marker = $Visual/Components/Collecter/TakerMarker
 
+func _ready():
+	# Tomar la posicion global y cuando respawnea llevarlo a esa posicion|
+	pass
+
 func _physics_process(delta):
 	move_and_slide()
 

@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://f6jxa1uxsimw"]
+
+[ext_resource type="Script" path="res://Scenes/Menu/game_menu.gd" id="1_v8iiw"]
+[ext_resource type="Texture2D" uid="uid://bkf6ck5kweggc" path="res://Assets/GameMenu/GameTitle2.jpg" id="1_x2dr5"]
+[ext_resource type="FontFile" uid="uid://dndckiai2p8e8" path="res://Assets/Fonts/kirifont/KiriFont.otf" id="2_au42a"]
+[ext_resource type="PackedScene" uid="uid://mo4be646d1ah" path="res://Scenes/Menu/audio_menu.tscn" id="4_2p258"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_od3yk"]
+
+[node name="GameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v8iiw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 51.2
+anchor_bottom = 28.8
+texture = ExtResource("1_x2dr5")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.262
+anchor_right = 0.378
+anchor_bottom = 0.676
+offset_left = -7.768
+offset_top = -47.824
+offset_right = 3.85596
+offset_bottom = 103.248
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_pressed_color = Color(0.968627, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_au42a")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_od3yk")
+text = "Start Game
+"
+flat = true
+
+[node name="AudioButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_pressed_color = Color(0.968627, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_au42a")
+theme_override_font_sizes/font_size = 60
+text = "Audio Menu"
+flat = true
+
+[node name="HowToPlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_pressed_color = Color(0.968627, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_au42a")
+theme_override_font_sizes/font_size = 60
+text = "How To Play"
+flat = true
+
+[node name="CreditButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_pressed_color = Color(0.968627, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_au42a")
+theme_override_font_sizes/font_size = 60
+text = "Credits"
+flat = true
+
+[node name="AudioMenu" parent="." instance=ExtResource("4_2p258")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/AudioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditButton" to="." method="_on_credit_button_pressed"]
