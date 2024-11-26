@@ -9,10 +9,15 @@ var speed: float = 2.0
 var attack_range: float = 2.0
 var attack_timer: float = 0.0
 var attack_cooldown: float = 1.0
+var hp=3
 #instancia
 
 func _on_take_damage_enemy_enemy_take_damage(area) -> void:
 	#bajar vida al rasta
+	if area.is_in_group("Player"):
+		
+		state_machine.current_state.transitioned.emit(state_machine.current_state, "TakeDamage")
+		
 	pass # Replace with function body.
 
 
@@ -47,5 +52,7 @@ func _on_enemy_attacker_attacking(body) -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		"Attack":
+			state_machine.current_state.transitioned.emit(state_machine.current_state, "chase")
+		"TakeDamage":
 			state_machine.current_state.transitioned.emit(state_machine.current_state, "chase")
 	pass # Replace with function body.

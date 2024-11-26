@@ -27,11 +27,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.80997, 0.535931, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 
-[node name="EnemyRasta" parent="." instance=ExtResource("3_jfir5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486156, 0)
+[node name="EnemyMichelle" parent="." instance=ExtResource("5_ojd3n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -12)
+axis_lock_linear_y = true
 
 [node name="EnemyBoss" parent="." instance=ExtResource("4_cx52w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.16551, 0.468147, -2.78947)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.468843, 0)
 
-[node name="EnemyMichelle" parent="." instance=ExtResource("5_ojd3n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.14932, 0.564449, -2.78947)
+[node name="EnemyRasta" parent="." instance=ExtResource("3_jfir5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.562808, -4.56365)
+axis_lock_linear_y = true

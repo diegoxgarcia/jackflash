@@ -1,8 +1,8 @@
 class_name ChaseEnemy
 extends State
-@onready var animation_player: AnimationPlayer = $"../../visual/Rasta/AnimationPlayer"
+@onready var animation_player: AnimationPlayer = $"../../visual/Enemy/AnimationPlayer"
 @onready var enemy_rasta: EnemyRasta = $"../.."
-@onready var rasta: Node3D = $"../../visual/Rasta"
+@onready var rasta: Node3D = $"../../visual/Enemy"
 @onready var components: Node3D = $"../../visual/Components"
 
 var player: Player
