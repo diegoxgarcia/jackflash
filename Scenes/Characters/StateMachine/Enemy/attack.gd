@@ -23,6 +23,8 @@ func enter():
 			animation_player.play("Attack")
 		"EnemyMichelle":
 			animation_player.play("Attack_punch")
+		"EnemyBoss":
+			animation_player.play("punch")
 	
 	
 	player = get_tree().get_first_node_in_group("Player")

@@ -36,4 +36,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.468843, 0)
 
 [node name="EnemyRasta" parent="." instance=ExtResource("3_jfir5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.562808, -4.56365)
+visible = false
 axis_lock_linear_y = true

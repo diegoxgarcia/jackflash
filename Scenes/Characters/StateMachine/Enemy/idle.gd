@@ -29,7 +29,14 @@ func update(delta : float):
 
 func enter():
 	randomize_wander()
-	animation_player.play("Walk")
+	match is_type_enemy(animation_player):
+		"EnemyRasta":
+			animation_player.play("Walk")
+		"EnemyMichelle":
+			animation_player.play("Walk")
+		"EnemyBoss":
+			animation_player.play("Walk")
+	
 	
 	pass
 
@@ -40,6 +47,11 @@ func exit():
 func change_direction_enemy_velocity(enemy : Node3D,components:Node3D,direction : Vector3):
 	enemy.rotation.y = atan2(direction.x, direction.z)
 	components.rotation.y = atan2(direction.x, direction.z)
+
+func is_type_enemy(animation_player:AnimationPlayer) -> String:
+	
+	return animation_player.get_parent().get_parent().get_parent().name
+	pass
 	
 
 
