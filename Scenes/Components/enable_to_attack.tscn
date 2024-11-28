@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://domy66iulpckq"]
+
+[ext_resource type="Script" path="res://Scenes/Components/enable_to_attack.gd" id="1_6bokg"]
+
+[node name="EnableToAttack" type="Area3D"]
+script = ExtResource("1_6bokg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

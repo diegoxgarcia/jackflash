@@ -3,6 +3,9 @@ extends CharacterBody3D
 var player : Player
 @onready var visual: Node3D = $visual
 @onready var state_machine: StateMachine = $StateMachine
+@onready var enemy_ataquer_shape: CollisionShape3D = $visual/Components/EnemyAttacker/CollisionShape3D
+
+
 
 # Variables para el enemigo
 var speed: float = 2.0
@@ -51,8 +54,13 @@ func _on_enemy_attacker_attacking(body) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
-		"Attack":
+		"Attack","TakeDamage","Punch","Attack_punch":
 			state_machine.current_state.transitioned.emit(state_machine.current_state, "chase")
-		"TakeDamage":
-			state_machine.current_state.transitioned.emit(state_machine.current_state, "chase")
+		
+	pass # Replace with function body.
+
+
+func _on_enable_to_attack_enable_to_attack() -> void:
+	enemy_ataquer_shape.disabled=true
+	print("ataquer encendido")
 	pass # Replace with function body.

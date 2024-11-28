@@ -8,7 +8,8 @@ extends State
 var player: Player
 func physics_update(delta : float):
 	var direction = player.global_position-enemy_rasta.global_position
-	enemy_rasta.velocity = direction.normalized() * 5 #enemy_rasta.speed
+	enemy_rasta.velocity = direction.normalized()
+	
 	pass
 
 func update(delta : float):
