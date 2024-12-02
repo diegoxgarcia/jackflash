@@ -61,6 +61,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_enable_to_attack_enable_to_attack() -> void:
-	enemy_ataquer_shape.disabled=true
+	enemy_ataquer_shape.disabled = false
 	print("ataquer encendido")
 	pass # Replace with function body.

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds2oeo773ylca"]
+[gd_scene load_steps=7 format=3 uid="uid://ds2oeo773ylca"]
 
 [ext_resource type="Script" path="res://Test/enemy_test.gd" id="1_dpkma"]
 [ext_resource type="PackedScene" uid="uid://djdldu26nyhbc" path="res://Scenes/Characters/Player/player.tscn" id="3_cef5p"]
 [ext_resource type="PackedScene" uid="uid://dh6m6hocwypc0" path="res://Scenes/Characters/Enemies/Rasta/enemy_Rasta.tscn" id="3_jfir5"]
+[ext_resource type="PackedScene" uid="uid://cm6modg5kpa0" path="res://Scenes/Characters/Enemies/Michelle/enemy_Michelle.tscn" id="4_5xr0k"]
+[ext_resource type="PackedScene" uid="uid://del5wxlj8dfp2" path="res://Scenes/Characters/Enemies/Boss/enemy_boss.tscn" id="5_5k43o"]
 
 [sub_resource type="Environment" id="Environment_4jnd8"]
 
@@ -25,3 +27,9 @@ transform = Transform3D(1, 0, 0, 0, 0.975018, 0.222127, 0, -0.222127, 0.975018, 
 
 [node name="EnemyRasta" parent="." instance=ExtResource("3_jfir5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.563308, 0)
+
+[node name="EnemyMichelle" parent="." instance=ExtResource("4_5xr0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22878, 0.48338, 0)
+
+[node name="EnemyBoss" parent="." instance=ExtResource("5_5k43o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.518028, 6.31326)
