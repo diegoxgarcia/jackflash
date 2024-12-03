@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://drr2rch56xnr8"]
+
+[ext_resource type="Texture2D" uid="uid://c5spodcc6noyv" path="res://Assets/GUI/music_note.png" id="1_si0ju"]
+
+[sub_resource type="Gradient" id="Gradient_yy13v"]
+offsets = PackedFloat32Array(0.00668896, 0.220736, 0.516722, 0.750836, 0.991639)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vlwpm"]
+gradient = SubResource("Gradient_yy13v")
+
+[sub_resource type="Curve" id="Curve_2uek0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.970519, 0.151544), -2.72289, -2.72289, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ayxo2"]
+curve = SubResource("Curve_2uek0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5f7sx"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 0.2
+angle_min = -720.0
+angle_max = -720.0
+direction = Vector3(0, 1, 0)
+spread = 40.0
+initial_velocity_max = 0.65
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_ayxo2")
+color_ramp = SubResource("GradientTexture1D_vlwpm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kh2i3"]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_si0ju")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uoaf0"]
+material = SubResource("StandardMaterial3D_kh2i3")
+
+[node name="MusicStandParticles" type="GPUParticles3D"]
+emitting = false
+amount = 40
+lifetime = 2.4
+one_shot = true
+explosiveness = 0.43
+process_material = SubResource("ParticleProcessMaterial_5f7sx")
+draw_pass_1 = SubResource("PlaneMesh_uoaf0")

@@ -1,0 +1,186 @@
+[gd_scene load_steps=10 format=3 uid="uid://cvcmyoym05dnd"]
+
+[ext_resource type="FontFile" uid="uid://dndckiai2p8e8" path="res://Assets/Fonts/kirifont/KiriFont.otf" id="1_pgyy7"]
+[ext_resource type="Script" path="res://Scenes/Menu/inside_game_menu.gd" id="1_sl8f3"]
+[ext_resource type="Texture2D" uid="uid://bs3rnrxqbog5b" path="res://Assets/GUI/barBlue_horizontalBlue.png" id="5_hmjea"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2fbhi"]
+texture = ExtResource("5_hmjea")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gagaw"]
+texture = ExtResource("5_hmjea")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_303xh"]
+texture = ExtResource("5_hmjea")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jlj3e"]
+texture = ExtResource("5_hmjea")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ver6n"]
+texture = ExtResource("5_hmjea")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ya0ha"]
+texture = ExtResource("5_hmjea")
+
+[node name="InsideGameMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_sl8f3")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.328
+anchor_top = 0.295
+anchor_right = 0.672
+anchor_bottom = 0.705
+offset_left = 0.255981
+offset_top = 0.159973
+offset_right = -0.256104
+offset_bottom = -0.160034
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonsOptionsContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOptionsLabel" type="Label" parent="Control/Panel/ButtonsOptionsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_font_sizes/font_size = 60
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Control/Panel/ButtonsOptionsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_font_sizes/font_size = 50
+text = "Continue"
+
+[node name="AudioButton" type="Button" parent="Control/Panel/ButtonsOptionsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_font_sizes/font_size = 50
+text = "Audio Menu"
+
+[node name="ExitButton" type="Button" parent="Control/Panel/ButtonsOptionsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_font_sizes/font_size = 50
+text = "Exit Game"
+
+[node name="AudioPanel" type="Panel" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -313.5
+offset_right = 375.0
+offset_bottom = 313.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioContainer" type="VBoxContainer" parent="Control/AudioPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -300.0
+offset_right = 350.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioOptionsLabel" type="Label" parent="Control/AudioPanel/AudioContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_font_sizes/font_size = 60
+text = "Audio Options"
+horizontal_alignment = 1
+
+[node name="MasterLabel" type="Label" parent="Control/AudioPanel/AudioContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_font_sizes/font_size = 50
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="MasterAudioSlider" type="HSlider" parent="Control/AudioPanel/AudioContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_2fbhi")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_gagaw")
+min_value = -80.0
+max_value = 0.0
+
+[node name="MusicLabel" type="Label" parent="Control/AudioPanel/AudioContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_font_sizes/font_size = 50
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="MusicAudioSlider" type="HSlider" parent="Control/AudioPanel/AudioContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_303xh")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_jlj3e")
+min_value = -80.0
+max_value = 0.0
+
+[node name="SFXLabel" type="Label" parent="Control/AudioPanel/AudioContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_font_sizes/font_size = 50
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="SFXAudioSlider" type="HSlider" parent="Control/AudioPanel/AudioContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_ver6n")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_ya0ha")
+min_value = -80.0
+max_value = 0.0
+
+[node name="BackButton" type="Button" parent="Control/AudioPanel/AudioContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[connection signal="pressed" from="Control/Panel/ButtonsOptionsContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Control/Panel/ButtonsOptionsContainer/AudioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="Control/Panel/ButtonsOptionsContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="value_changed" from="Control/AudioPanel/AudioContainer/MasterAudioSlider" to="." method="_on_master_audio_slider_value_changed"]
+[connection signal="value_changed" from="Control/AudioPanel/AudioContainer/MusicAudioSlider" to="." method="_on_music_audio_slider_value_changed"]
+[connection signal="value_changed" from="Control/AudioPanel/AudioContainer/SFXAudioSlider" to="." method="_on_sfx_audio_slider_value_changed"]
+[connection signal="pressed" from="Control/AudioPanel/AudioContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -2,6 +2,7 @@ extends Control
 
 @onready var audio_menu = $AudioMenu
 @onready var v_box_container = $VBoxContainer
+@onready var credits_menu = $CreditsMenu
 
 func _ready():
 	pass
@@ -19,4 +20,5 @@ func _on_how_to_play_button_pressed():
 	pass 
 
 func _on_credit_button_pressed():
+	credits_menu.show_hide_play(v_box_container)
 	pass 

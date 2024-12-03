@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6eqtywr156qj"]
+[gd_scene load_steps=18 format=3 uid="uid://c6eqtywr156qj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level_1.gd" id="1_aa1yu"]
 [ext_resource type="Texture2D" uid="uid://c7k3mqqy4vbr5" path="res://Assets/kenney_platformer-kit/Starbasesnow.png" id="1_wv27l"]
 [ext_resource type="PackedScene" uid="uid://d3ddy7rurt8pq" path="res://Scenes/UI/gui_play_screen.tscn" id="2_ep6t1"]
 [ext_resource type="MeshLibrary" uid="uid://ctb70cp5pqvdy" path="res://Assets/Tiles/tilesv2.tres" id="2_rwnqx"]
 [ext_resource type="PackedScene" uid="uid://djdldu26nyhbc" path="res://Scenes/Characters/Player/player.tscn" id="2_tesls"]
+[ext_resource type="PackedScene" uid="uid://cvcmyoym05dnd" path="res://Scenes/Menu/inside_game_menu.tscn" id="3_57aqv"]
 [ext_resource type="PackedScene" uid="uid://dilqfaywssqu6" path="res://Scenes/Collectables/musical_stand_rb.tscn" id="3_baxpw"]
 [ext_resource type="PackedScene" uid="uid://sjor4gr1h4ih" path="res://Scenes/Collectables/interac_tile.tscn" id="5_bq8hu"]
+[ext_resource type="PackedScene" uid="uid://itbxj17si8em" path="res://Scenes/UI/game_over.tscn" id="5_hiafo"]
 [ext_resource type="PackedScene" uid="uid://cfvaluygx5vyk" path="res://Scenes/Collectables/interac_tile_l.tscn" id="7_h62sf"]
 [ext_resource type="PackedScene" uid="uid://dkx6jstoduq7u" path="res://Scenes/Collectables/interac_tile_x.tscn" id="8_ec3ad"]
 
@@ -22,16 +24,57 @@ sky = SubResource("Sky_cl7kr")
 ambient_light_source = 2
 ambient_light_energy = 8.6
 
+[sub_resource type="Animation" id="Animation_rp64b"]
+resource_name = "flash_color_lights"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight3D:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.95629, 0.355167, 0.208342, 1), Color(1, 0.105882, 0.968627, 1), Color(0.278574, 0.689228, 0.749286, 1), Color(1, 0, 0, 1), Color(0.882353, 0.858824, 0, 1), Color(0.94387, 0.419084, 0.883077, 1), Color(0.667979, 0.00240365, 0.891501, 1), Color(0.0705882, 0.00392157, 0.890196, 1), Color(0.517774, 0.914903, 0.0511068, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_st78e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight3D:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pl5xe"]
+_data = {
+"RESET": SubResource("Animation_st78e"),
+"flash_color_lights": SubResource("Animation_rp64b")
+}
+
 [node name="Level_1" type="Node3D"]
 script = ExtResource("1_aa1yu")
 
 [node name="GUIPlayScreen" parent="." instance=ExtResource("2_ep6t1")]
+
+[node name="InsideGameMenu" parent="." instance=ExtResource("3_57aqv")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_u7tcm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.93274, 0.357209, -0.0489593, -0.24615, 0.730115, 0.63745, 0.263449, -0.582524, 0.768935, 0, 11.6931, 42.5433)
+light_energy = 0.8
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_tesls")]
@@ -40,6 +83,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 48)
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(0.92272, -0.205568, 0.326083, 5.4188e-08, 0.845933, 0.53329, -0.385471, -0.492077, 0.780559, 3.55209, 7.08603, 8.20143)
 fov = 42.9
+
+[node name="GameOver" parent="Player" instance=ExtResource("5_hiafo")]
+visible = false
 
 [node name="MusicalStandRB" parent="." instance=ExtResource("3_baxpw")]
 transform = Transform3D(0.618024, 0, 0.786159, 0, 1, 0, -0.786159, 0, 0.618024, -15.2275, 1.02468, 47.1901)
@@ -54,10 +100,10 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [node name="InteracTile" parent="GridMap" instance=ExtResource("5_bq8hu")]
-transform = Transform3D(0.565802, 0, 0.824541, 0, 1, 0, -0.824541, 0, 0.565802, -27.7481, 1.75869, 43.4558)
+transform = Transform3D(0.565802, 0, 0.824541, 0, 1, 0, -0.824541, 0, 0.565802, -27.7481, 1.67566, 43.4558)
 
 [node name="InteracTileL" parent="GridMap" instance=ExtResource("7_h62sf")]
-transform = Transform3D(0.00479966, 0, 0.999988, 0, 1, 0, -0.999988, 0, 0.00479966, 15.8038, 1.01763, 17.2751)
+transform = Transform3D(0.00479966, 0, 0.999988, 0, 1, 0, -0.999988, 0, 0.00479966, 15.8038, 0.884602, 17.2751)
 
 [node name="InteracTileX" parent="GridMap" instance=ExtResource("8_ec3ad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1563, 3.69345, -1.7031)
@@ -68,6 +114,12 @@ transform = Transform3D(0.00123924, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.001239
 [node name="InteracTileL2" parent="GridMap" instance=ExtResource("7_h62sf")]
 transform = Transform3D(0.0152535, 0, 0.999884, 0, 1, 0, -0.999884, 0, 0.0152535, 13.0896, 6.05134, -2.47324)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pl5xe")
+}
+
+[connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="update_life_data" from="Player" to="." method="_on_player_update_life_data"]
 [connection signal="musical_score_collected" from="MusicalStandRB" to="." method="_on_musical_stand_rb_musical_score_collected"]
 [connection signal="turn_off_lights" from="GridMap/InteracTile" to="." method="_on_interac_tile_turn_off_lights"]
@@ -75,3 +127,4 @@ transform = Transform3D(0.0152535, 0, 0.999884, 0, 1, 0, -0.999884, 0, 0.0152535
 [connection signal="turn_off_lights" from="GridMap/InteracTileX" to="." method="_on_interac_tile_turn_off_lights"]
 [connection signal="turn_off_lights" from="GridMap/InteracTile2" to="." method="_on_interac_tile_turn_off_lights"]
 [connection signal="turn_off_lights" from="GridMap/InteracTileL2" to="." method="_on_interac_tile_turn_off_lights"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

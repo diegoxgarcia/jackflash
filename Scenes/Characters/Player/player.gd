@@ -13,10 +13,10 @@ var musical_score : MusicalScore
 var player_global_position : Vector3
 
 signal update_life_data(life : int)
+signal player_dead
 
 func _ready():
 	player_global_position = global_position
-	# Tomar la posicion global y cuando respawnea llevarlo a esa posicion|
 	pass
 
 func _physics_process(delta):
@@ -36,8 +36,7 @@ func _on_animation_player_animation_finished(anim_name):
 				global_position = player_global_position
 				state_machine.current_state.transitioned.emit(state_machine.current_state, "Idle")
 			else:
-				pass
-				#GameOver
+				player_dead.emit()
 	pass
 
 func has_musical_score() -> bool:
