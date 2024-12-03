@@ -4,6 +4,7 @@ extends State
 @onready var animation_player: AnimationPlayer = $"../../visual/Enemy/AnimationPlayer"
 @onready var enemy_rasta: EnemyRasta = $"../.."
 @onready var enemy_attacker_shape_3d: CollisionShape3D = $"../../visual/Components/EnemyAttacker/CollisionShape3D"
+@onready var blood: GPUParticles3D = $"../../Blood"
 
 var player: Player
 func physics_update(delta : float):
@@ -24,6 +25,7 @@ func enter():
 			animation_player.play("Attack")
 			await get_tree().create_timer(0.7).timeout
 			enemy_attacker_shape_3d.disabled = true
+			blood.emitting = true
 			await get_tree().create_timer(0.5).timeout
 			enemy_attacker_shape_3d.disabled = false
 		"EnemyMichelle":
