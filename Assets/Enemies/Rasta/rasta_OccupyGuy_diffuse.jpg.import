@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jxp8hc1ifw4h"
-path.s3tc="res://.godot/imported/rasta_OccupyGuy_diffuse.jpg-19cf5230eaefd8fa05b770d97288391a.s3tc.ctex"
+uid="uid://cwdsfc4i4pii"
+path.s3tc="res://.godot/imported/Rasta_OccupyGuy_diffuse.jpg-5367d64478905f6aff37aade50a4f8fa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "baf1ceddb0318f667a9c75290609b2f5"
+"md5": "8e13323931356b144ed80da013f65517"
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Rasta/rasta_OccupyGuy_diffuse.jpg"
-dest_files=["res://.godot/imported/rasta_OccupyGuy_diffuse.jpg-19cf5230eaefd8fa05b770d97288391a.s3tc.ctex"]
+source_file="res://Assets/Enemies/Rasta/Rasta_OccupyGuy_diffuse.jpg"
+dest_files=["res://.godot/imported/Rasta_OccupyGuy_diffuse.jpg-5367d64478905f6aff37aade50a4f8fa.s3tc.ctex"]
 
 [params]
 

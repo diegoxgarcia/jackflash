@@ -1,0 +1,2 @@
+class_name fall_idle_enemy
+extends State

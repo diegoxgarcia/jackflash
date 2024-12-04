@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cscltl6ewfnjh"
-path.s3tc="res://.godot/imported/rasta_OccupyGuy_FaceAnimMap.png-d6cd8e5d4d97f900e69270b9d29b2f57.s3tc.ctex"
+uid="uid://c5hscr1f0bfix"
+path.s3tc="res://.godot/imported/Rasta_OccupyGuy_FaceAnimMap.png-41b0ebadce59a892e864b9325474d71c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Enemies/Rasta/rasta_OccupyGuy_FaceAnimMap.png"
-dest_files=["res://.godot/imported/rasta_OccupyGuy_FaceAnimMap.png-d6cd8e5d4d97f900e69270b9d29b2f57.s3tc.ctex"]
+source_file="res://Assets/Enemies/Rasta/Rasta_OccupyGuy_FaceAnimMap.png"
+dest_files=["res://.godot/imported/Rasta_OccupyGuy_FaceAnimMap.png-41b0ebadce59a892e864b9325474d71c.s3tc.ctex"]
 
 [params]
 

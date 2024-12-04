@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://42f2mqlgr0tg"]
-
-[ext_resource type="PackedScene" uid="uid://b6vj202sjowjx" path="res://Assets/Enemies/Rasta/rasta.glb" id="1_7tb0u"]
-
-[node name="rasta" instance=ExtResource("1_7tb0u")]
