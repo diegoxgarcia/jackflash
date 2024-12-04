@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://l4wd1yalukmj"]
+[gd_scene load_steps=16 format=3 uid="uid://l4wd1yalukmj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level_win.gd" id="1_nby3g"]
 [ext_resource type="Texture2D" uid="uid://b24qpg3tdmvc1" path="res://Assets/kenney_platformer-kit/disco_background.webp" id="1_ngapu"]
+[ext_resource type="PackedScene" uid="uid://cvcmyoym05dnd" path="res://Scenes/Menu/inside_game_menu.tscn" id="2_i86t8"]
 [ext_resource type="MeshLibrary" uid="uid://ctb70cp5pqvdy" path="res://Assets/Tiles/tilesv2.tres" id="2_jwvj3"]
 [ext_resource type="PackedScene" uid="uid://djdldu26nyhbc" path="res://Scenes/Characters/Player/player.tscn" id="3_43ndq"]
 [ext_resource type="Texture2D" uid="uid://bobtws0g425st" path="res://Assets/kenney_platformer-kit/youwin.jpg" id="5_6a7h3"]
+[ext_resource type="AudioStream" uid="uid://cun4fskir5qfo" path="res://Assets/Music/YouWinSong.mp3" id="7_gqy05"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_28pjx"]
 panorama = ExtResource("1_ngapu")
@@ -161,6 +163,9 @@ material = SubResource("StandardMaterial3D_5g1pd")
 [node name="Level_Win" type="Node3D"]
 script = ExtResource("1_nby3g")
 
+[node name="InsideGameMenu" parent="." instance=ExtResource("2_i86t8")]
+visible = false
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_d1g1l")
 
@@ -187,18 +192,29 @@ libraries = {
 "": SubResource("AnimationLibrary_n2yt4")
 }
 
-[node name="YouWinMesh" type="MeshInstance3D" parent="."]
+[node name="YouWin" type="Node" parent="."]
+
+[node name="YouWinMesh" type="MeshInstance3D" parent="YouWin"]
 transform = Transform3D(0.39, 0, 0, 0, 0.39, 0, 0, 0, 0.39, -0.246868, 0.466929, 1.75892)
 mesh = SubResource("PlaneMesh_55i50")
+skeleton = NodePath("../..")
 
-[node name="YouWinMesh2" type="MeshInstance3D" parent="."]
+[node name="YouWinMesh2" type="MeshInstance3D" parent="YouWin"]
 transform = Transform3D(4.6507e-09, 0, -0.39, 0, 0.39, 0, 0.39, 0, 4.6507e-09, -2.26058, 0.466929, 0.293461)
 mesh = SubResource("PlaneMesh_55i50")
+skeleton = NodePath("../..")
 
-[node name="YouWinMesh3" type="MeshInstance3D" parent="."]
+[node name="YouWinMesh3" type="MeshInstance3D" parent="YouWin"]
 transform = Transform3D(-0.39, 0, -3.40949e-08, 0, 0.39, 0, 3.40949e-08, 0, -0.39, -0.284615, 0.466929, -1.21306)
 mesh = SubResource("PlaneMesh_55i50")
+skeleton = NodePath("../..")
 
-[node name="YouWinMesh4" type="MeshInstance3D" parent="."]
+[node name="YouWinMesh4" type="MeshInstance3D" parent="YouWin"]
 transform = Transform3D(-1.70474e-08, 0, 0.39, 0, 0.39, 0, -0.39, 0, -1.70474e-08, 1.71769, 0.466929, 0.264372)
 mesh = SubResource("PlaneMesh_55i50")
+skeleton = NodePath("../..")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_gqy05")
+autoplay = true
+bus = &"Music"
