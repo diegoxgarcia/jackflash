@@ -27,7 +27,9 @@ func _process(delta):
 
 func _on_interactive_tile_color_changed(color_index : int):
 	if combo_verify():
-		musical_score_handler.add_child(preload("res://Scenes/Collectables/musical_score.tscn").instantiate())
+		var musical_score = preload("res://Scenes/Collectables/musical_score.tscn").instantiate()
+		musical_score.tile_color = interactive_tile_data.tile_color[color_index]
+		musical_score_handler.add_child(musical_score)
 		turn_off_lights.emit(false)
 		spot_light_3d.visible = false
 		for child in get_child(0).get_children():

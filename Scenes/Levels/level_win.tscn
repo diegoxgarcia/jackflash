@@ -1,0 +1,220 @@
+[gd_scene load_steps=16 format=3 uid="uid://l4wd1yalukmj"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/level_win.gd" id="1_nby3g"]
+[ext_resource type="Texture2D" uid="uid://b24qpg3tdmvc1" path="res://Assets/kenney_platformer-kit/disco_background.webp" id="1_ngapu"]
+[ext_resource type="PackedScene" uid="uid://cvcmyoym05dnd" path="res://Scenes/Menu/inside_game_menu.tscn" id="2_i86t8"]
+[ext_resource type="MeshLibrary" uid="uid://ctb70cp5pqvdy" path="res://Assets/Tiles/tilesv2.tres" id="2_jwvj3"]
+[ext_resource type="PackedScene" uid="uid://djdldu26nyhbc" path="res://Scenes/Characters/Player/player.tscn" id="3_43ndq"]
+[ext_resource type="Texture2D" uid="uid://bobtws0g425st" path="res://Assets/kenney_platformer-kit/youwin.jpg" id="5_6a7h3"]
+[ext_resource type="AudioStream" uid="uid://cun4fskir5qfo" path="res://Assets/Music/YouWinSong.mp3" id="7_gqy05"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_28pjx"]
+panorama = ExtResource("1_ngapu")
+
+[sub_resource type="Sky" id="Sky_je1np"]
+sky_material = SubResource("PanoramaSkyMaterial_28pjx")
+
+[sub_resource type="Environment" id="Environment_d1g1l"]
+background_mode = 2
+sky = SubResource("Sky_je1np")
+ambient_light_source = 2
+ambient_light_energy = 4.7
+
+[sub_resource type="Animation" id="Animation_jp12f"]
+resource_name = "dance_floor"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 7, 8, 9, 10, 12, 12.1, 13, 14, 15, 16, 18, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.609349, 3.13867, 2.33084), Vector3(-0.609349, 2.55687, 2.99417), Vector3(-2.62675, 2.62152, 2.94321), Vector3(-3.60739, 2.68616, 0.407501), Vector3(-1.85404, 2.71848, 0.544882), Vector3(-1.7583, 2.22577, 0.682263), Vector3(-3.607, 2.686, 0.408), Vector3(-2.62583, 2.72715, -0.4647), Vector3(-0.350013, 2.80946, -1.31481), Vector3(-0.28028, 2.77885, -1.31327), Vector3(0.347319, 2.50344, -1.29948), Vector3(0.588, 3.29, 0.449), Vector3(-0.133794, 2.53899, 0.368829), Vector3(1.33014, 2.51117, 1.38714), Vector3(0.0144719, 2.82492, 2.24065), Vector3(-0.609349, 3.13867, 2.33084)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 7, 8, 9, 10.0333, 13, 14, 15, 16, 18, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.961484, 0, 0), Vector3(-0.351631, 0, 0), Vector3(-0.419393, -0.746599, 0), Vector3(-0.487154, -1.54186, 4.66892e-10), Vector3(-0.521035, -1.43172, 4.33542e-10), Vector3(-0.380571, -1.34305, 0.0474143), Vector3(-0.486947, -1.54113, 0), Vector3(-0.530087, -2.31732, 0), Vector3(-0.586431, -3.0072, -0.0331613), Vector3(-0.55676, -3.19395, -0.0663225), Vector3(-1.33263, 1.72739, -0.179787), Vector3(-0.69193, 1.13274, -0.0439551), Vector3(-0.826707, 0.101676, -0.0219776), Vector3(-0.961484, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OmniLight3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.92167, 1.97037, 0), Vector3(-1.92167, 1.97037, 0.9109), Vector3(-0.91673, 1.97037, 1.16842), Vector3(0.060805, 0.839811, 1.29963), Vector3(0.927368, 1.57275, 0.65292), Vector3(0.542757, 1.5976, -0.257806), Vector3(-1.44619, 2.38176, -0.240619), Vector3(-0.0982683, 2.35238, 1.07321), Vector3(0.929274, 1.23493, 0.990656), Vector3(-1.68695, 2.24721, -0.668264), Vector3(-0.854832, 1.47576, -0.607513), Vector3(0.73642, 1.82088, -0.546762), Vector3(1.24147, 2.17531, 0.995207), Vector3(-0.635557, 1.74274, 0.870806), Vector3(-1.75175, 2.03007, 1.71797), Vector3(-1.78007, 2.02012, 1.43164), Vector3(-1.80839, 3.14891, -0.62325), Vector3(-1.83671, 2.85427, -0.467437), Vector3(0.0315635, 1.38811, 1.074), Vector3(-0.945055, 1.67924, 0.537002), Vector3(-1.92167, 1.97037, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:light_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.305882, 1, 1), Color(0.46285, 0.748653, 0.541324, 1), Color(0.901961, 0.2, 0.0235294, 1), Color(0, 0, 1, 1), Color(0.721569, 0.737255, 0, 1), Color(0.741176, 0.752941, 1, 1), Color(0.0352941, 0.596078, 0, 1), Color(0, 0.929412, 1, 1), Color(0.847059, 0.0588235, 0, 1), Color(0.436293, 0.335252, 0.977298, 1), Color(0.492664, 0.401727, 0.979568, 1), Color(1, 0.552941, 1, 1), Color(0.97374, 0.732312, 0, 1), Color(0.607843, 0.0235294, 0.278431, 1), Color(0.987967, 0.830598, 1, 1), Color(0.713726, 1, 0, 1), Color(0.952941, 0, 0.917647, 1), Color(0, 0.027451, 0.321569, 1), Color(0.5, 0.513726, 0.660785, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OmniLight3D:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 7.0, 4.0, 2.0, 6.0, 3.0, 8.0, 4.0, 2.0, 10.0, 1.0, 10.0, 1.0, 7.0, 2.0, 5.0, 8.0, 2.0, 10.0, 8.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_hiapv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.609349, 3.13867, 2.33084)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.961484, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OmniLight3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.92167, 1.97037, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:light_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.305882, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OmniLight3D:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2yt4"]
+_data = {
+"RESET": SubResource("Animation_hiapv"),
+"dance_floor": SubResource("Animation_jp12f")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5g1pd"]
+albedo_texture = ExtResource("5_6a7h3")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_55i50"]
+material = SubResource("StandardMaterial3D_5g1pd")
+
+[node name="Level_Win" type="Node3D"]
+script = ExtResource("1_nby3g")
+
+[node name="InsideGameMenu" parent="." instance=ExtResource("2_i86t8")]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d1g1l")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_jwvj3")
+cell_size = Vector3(0.5, 0.25, 0.5)
+collision_layer = 32
+data = {
+"cells": PackedInt32Array(1, 1, 1441836, 1, 65535, 1441836, 65535, 1, 1441836, 65535, 65535, 1441836, 65533, 65535, 1441836, 65533, 1, 1441836, 65535, 3, 1441836, 65533, 3, 1441836, 1, 3, 1441836, 1, 65533, 1441836, 65535, 65533, 1441836, 65533, 65533, 1441836, 3, 1, 1441836, 3, 65535, 1441836, 3, 65533, 1441836, 3, 3, 1441836, 65531, 3, 1441836, 65531, 1, 1441836, 65531, 65535, 1441836, 65531, 65533, 1441836)
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92167, 1.97037, 0)
+light_color = Color(1, 0.305882, 1, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.572303, 0.820042, 0, -0.820042, 0.572303, -0.609349, 3.13867, 2.33084)
+
+[node name="Player" parent="." instance=ExtResource("3_43ndq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.214269, 0.442329, 0.459978)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n2yt4")
+}
+
+[node name="YouWin" type="Node" parent="."]
+
+[node name="YouWinMesh" type="MeshInstance3D" parent="YouWin"]
+transform = Transform3D(0.39, 0, 0, 0, 0.39, 0, 0, 0, 0.39, -0.246868, 0.466929, 1.75892)
+mesh = SubResource("PlaneMesh_55i50")
+skeleton = NodePath("../..")
+
+[node name="YouWinMesh2" type="MeshInstance3D" parent="YouWin"]
+transform = Transform3D(4.6507e-09, 0, -0.39, 0, 0.39, 0, 0.39, 0, 4.6507e-09, -2.26058, 0.466929, 0.293461)
+mesh = SubResource("PlaneMesh_55i50")
+skeleton = NodePath("../..")
+
+[node name="YouWinMesh3" type="MeshInstance3D" parent="YouWin"]
+transform = Transform3D(-0.39, 0, -3.40949e-08, 0, 0.39, 0, 3.40949e-08, 0, -0.39, -0.284615, 0.466929, -1.21306)
+mesh = SubResource("PlaneMesh_55i50")
+skeleton = NodePath("../..")
+
+[node name="YouWinMesh4" type="MeshInstance3D" parent="YouWin"]
+transform = Transform3D(-1.70474e-08, 0, 0.39, 0, 0.39, 0, -0.39, 0, -1.70474e-08, 1.71769, 0.466929, 0.264372)
+mesh = SubResource("PlaneMesh_55i50")
+skeleton = NodePath("../..")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_gqy05")
+autoplay = true
+bus = &"Music"

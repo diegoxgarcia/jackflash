@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhceans8upbua"]
+
+[sub_resource type="Gradient" id="Gradient_xhlwi"]
+offsets = PackedFloat32Array(0.00334448, 0.411371, 0.712375, 1)
+colors = PackedColorArray(1, 0.282353, 1, 1, 0.00392157, 0.576471, 1, 1, 0.564706, 0.890196, 0.0666667, 1, 1, 1, 1, 0.490196)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a6mo1"]
+gradient = SubResource("Gradient_xhlwi")
+
+[sub_resource type="Curve" id="Curve_rwg3r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.860124, 0.263445), -1.96439, -1.96439, 0, 0, Vector2(0.98068, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_c0sqf"]
+curve = SubResource("Curve_rwg3r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mb31u"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 1, 0)
+spread = 15.172
+initial_velocity_max = 5.64
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.05
+scale_curve = SubResource("CurveTexture_c0sqf")
+color_ramp = SubResource("GradientTexture1D_a6mo1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o01pb"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_xl648"]
+material = SubResource("StandardMaterial3D_o01pb")
+
+[node name="MusicScoreParticles" type="GPUParticles3D"]
+amount = 100
+lifetime = 1.23
+explosiveness = 0.36
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_mb31u")
+draw_pass_1 = SubResource("BoxMesh_xl648")

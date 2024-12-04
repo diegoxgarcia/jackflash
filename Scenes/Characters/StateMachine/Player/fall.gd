@@ -15,6 +15,9 @@ func physics_update(delta : float):
 			change_direction_velocity(jackflash, components, direction)
 	else:
 		transitioned.emit(self, "Idle")
+		
+	if player.global_position.y < -20:
+		transitioned.emit(self, "dead")
 	pass
 	
 func enter():

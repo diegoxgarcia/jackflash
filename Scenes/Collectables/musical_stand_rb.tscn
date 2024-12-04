@@ -1,8 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dilqfaywssqu6"]
+[gd_scene load_steps=10 format=3 uid="uid://dilqfaywssqu6"]
 
 [ext_resource type="Script" path="res://Scenes/Collectables/musical_stand_rb.gd" id="1_3msi3"]
 [ext_resource type="PackedScene" uid="uid://cnj38vfnh4ygc" path="res://Scenes/Collectables/musical_stand.tscn" id="1_o0mx0"]
+[ext_resource type="FontFile" uid="uid://dndckiai2p8e8" path="res://Assets/Fonts/kirifont/KiriFont.otf" id="2_bwjgc"]
 [ext_resource type="PackedScene" uid="uid://d3uxf1hs4xqhr" path="res://Scenes/Components/musical_stand_player_detector.tscn" id="2_h3ikq"]
+[ext_resource type="Script" path="res://Scenes/Resources/music_stand_data.gd" id="2_qrpm7"]
+[ext_resource type="PackedScene" uid="uid://drr2rch56xnr8" path="res://Scenes/Particles/music_stand_particles.tscn" id="6_atgwe"]
+
+[sub_resource type="Resource" id="Resource_adc7a"]
+script = ExtResource("2_qrpm7")
+musical_scores = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cdax"]
 size = Vector3(0.54, 1.23, 0.41)
@@ -14,9 +21,11 @@ size = Vector3(0.81, 1.1, 0.81)
 collision_layer = 128
 collision_mask = 33
 script = ExtResource("1_3msi3")
+music_stand_data = SubResource("Resource_adc7a")
 
 [node name="InfoAction" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69383, 0)
+font = ExtResource("2_bwjgc")
 
 [node name="musical_stand" parent="." instance=ExtResource("1_o0mx0")]
 
@@ -29,6 +38,9 @@ shape = SubResource("BoxShape3D_3cdax")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MusicalStandPlayerDetector"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.663334, -0.049019)
 shape = SubResource("BoxShape3D_yahfo")
+
+[node name="MusicStandParticles" parent="." instance=ExtResource("6_atgwe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09541, 0)
 
 [connection signal="music_score_entered" from="MusicalStandPlayerDetector" to="." method="_on_musical_stand_player_detector_music_score_entered"]
 [connection signal="player_music_score_entered" from="MusicalStandPlayerDetector" to="." method="_on_musical_stand_player_detector_player_music_score_entered"]

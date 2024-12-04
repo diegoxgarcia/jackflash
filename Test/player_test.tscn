@@ -15,12 +15,12 @@ albedo_color = Color(0, 1, 0, 1)
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5131m"]
 panorama = ExtResource("2_h2lrg")
 
-[sub_resource type="Sky" id="Sky_cl7kr"]
+[sub_resource type="Sky" id="Sky_o2c5h"]
 sky_material = SubResource("PanoramaSkyMaterial_5131m")
 
 [sub_resource type="Environment" id="Environment_ad2gg"]
 background_mode = 2
-sky = SubResource("Sky_cl7kr")
+sky = SubResource("Sky_o2c5h")
 ambient_light_source = 2
 ambient_light_energy = 8.6
 
@@ -79,7 +79,7 @@ mesh_library = ExtResource("4_wdqsn")
 cell_size = Vector3(0.5, 0.25, 0.5)
 collision_layer = 32
 data = {
-"cells": PackedInt32Array(65471, 65298, 25, 6, 42, 20, 65534, 44, 20, 393223, 39, 20, 393216, 39, 20, 720901, 56, 20, 9, 29, 655360, 9, 26, 1441792)
+"cells": PackedInt32Array(6, 42, 20, 65534, 44, 20, 393223, 39, 20, 393216, 39, 20, 720901, 56, 20, 9, 29, 655360, 9, 26, 1441792)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 

@@ -15,5 +15,6 @@ func _on_body_exited(body):
 
 
 func _on_area_entered(area):
-	music_score_entered.emit(area)
+	if area is MusicalScore:
+		music_score_entered.emit(area)
 	pass

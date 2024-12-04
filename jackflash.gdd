@@ -8,7 +8,7 @@ Juego en 3era persona en donde al pisar distintas plataformas de colores, se des
 	- Corre
 	- Camina
 	- Agarra items (CD, Cassette o instrumento)
-No tendra barra de vida, tendra vidas. La vida se pierde al contacto del ataque del Enemy.
+No tendra barra de vida, tendra vidas. La vida se pierde al contacto del ataque del Enemy. Tambien pierde una vida a la caida por fuera del nivel.
 El enemy muere al contacto de la trompada de Elvis
 
 - Enemigos:

@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://cc40xj3elk501"]
+
+[ext_resource type="Script" path="res://Scenes/Particles/game_over_particle.gd" id="1_y66vq"]
+
+[sub_resource type="Gradient" id="Gradient_mwx81"]
+offsets = PackedFloat32Array(0, 0.324415, 0.675585, 0.851171, 0.941472, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.431373, 0, 1, 1, 0.72549, 0.14902, 1, 2.11535e-05, 0.15468, 0.490634, 1, 0, 0.215686, 1, 0.682353, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8p5ot"]
+gradient = SubResource("Gradient_mwx81")
+
+[sub_resource type="Curve" id="Curve_qppev"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.847759, 0.2792), -1.43861, -1.43861, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tesqm"]
+curve = SubResource("Curve_qppev")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n2n3c"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 2.4
+direction = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.03
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_tesqm")
+color_ramp = SubResource("GradientTexture1D_8p5ot")
+collision_mode = 1
+collision_friction = 0.07
+collision_bounce = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cj55k"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ea8gc"]
+material = SubResource("StandardMaterial3D_cj55k")
+
+[node name="GameOverParticle" type="GPUParticles3D"]
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_n2n3c")
+draw_pass_1 = SubResource("BoxMesh_ea8gc")
+script = ExtResource("1_y66vq")
+
+[node name="GPUParticlesCollisionSphere3D" type="GPUParticlesCollisionSphere3D" parent="."]
+radius = 2.95735

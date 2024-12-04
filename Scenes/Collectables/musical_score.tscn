@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://betd3di3e8dl3"]
+[gd_scene load_steps=11 format=3 uid="uid://betd3di3e8dl3"]
 
 [ext_resource type="Script" path="res://Scenes/Collectables/musical_score.gd" id="1_hxygl"]
 [ext_resource type="Texture2D" uid="uid://udsc5532v5a8" path="res://Assets/Collectables/musical_score.jpg" id="1_wyl3t"]
+[ext_resource type="PackedScene" uid="uid://bhceans8upbua" path="res://Scenes/Particles/music_score_particles.tscn" id="3_2oxuy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3df15"]
 cull_mode = 2
@@ -103,7 +104,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.78), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, -0.5), Vector3(0, 0, -1.3), Vector3(0, 0, -0.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -127,7 +128,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.78), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, -0.5), Vector3(0, 0, -1.3), Vector3(0, 0, -0.5)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -208,3 +209,7 @@ libraries = {
 "": SubResource("AnimationLibrary_h5w7h")
 }
 autoplay = "idle"
+
+[node name="MusicScoreParticles" parent="." instance=ExtResource("3_2oxuy")]
+transform = Transform3D(1, 0, 0, 0, -0.0491287, 0.998792, 0, -0.998792, -0.0491287, 0, -6.62732e-08, -1.51616)
+emitting = false

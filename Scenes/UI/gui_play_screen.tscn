@@ -1,0 +1,238 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3ddy7rurt8pq"]
+
+[ext_resource type="Script" path="res://Scenes/UI/gui_play_screen.gd" id="1_qmq0x"]
+[ext_resource type="PackedScene" uid="uid://cier05gww4ohc" path="res://Scenes/UI/elvio_avatar_frame.tscn" id="2_771qc"]
+[ext_resource type="PackedScene" uid="uid://cvve7uabs7fij" path="res://Scenes/UI/life_frame.tscn" id="3_3nhvk"]
+[ext_resource type="FontFile" uid="uid://dndckiai2p8e8" path="res://Assets/Fonts/kirifont/KiriFont.otf" id="4_fi3qj"]
+[ext_resource type="Texture2D" uid="uid://7njtjjhkh40w" path="res://Assets/GUI/musical-notes (1).png" id="4_oquyt"]
+[ext_resource type="PackedScene" uid="uid://bmoaagbpk341b" path="res://Scenes/UI/music_score_avatar.tscn" id="5_nrenq"]
+[ext_resource type="Texture2D" uid="uid://di3fq4ya3ul5r" path="res://Assets/GUI/musical-notes.png" id="6_aajbc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qpju"]
+bg_color = Color(1, 0.396322, 0.327902, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 13
+shadow_offset = Vector2(0, 4.3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhtqb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0.811765, 0.231373)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxrwn"]
+bg_color = Color(0.0823529, 0.184314, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 13
+shadow_offset = Vector2(0, 4.3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mte27"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="GUIPlayScreen" type="CanvasLayer"]
+script = ExtResource("1_qmq0x")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerInfoBox" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.021
+anchor_right = 0.239
+anchor_bottom = 0.194
+offset_left = -0.576
+offset_top = -0.192001
+offset_right = 0.527985
+offset_bottom = -0.488007
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6qpju")
+
+[node name="ElvioAvatarFrame" parent="UI/PlayerInfoBox" instance=ExtResource("2_771qc")]
+layout_mode = 1
+anchor_left = 0.043
+anchor_top = 0.101
+anchor_right = 0.378
+anchor_bottom = 0.889
+offset_left = -0.0380001
+offset_top = -0.0990009
+offset_right = -0.147995
+offset_bottom = 0.0889893
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlayerInfoBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.423
+anchor_top = 0.437
+anchor_right = 0.968
+anchor_bottom = 0.854
+offset_left = -0.117996
+offset_top = 0.0369949
+offset_right = 0.912018
+offset_bottom = 0.0540009
+
+[node name="LifeFrame1" parent="UI/PlayerInfoBox/HBoxContainer" instance=ExtResource("3_3nhvk")]
+layout_mode = 2
+
+[node name="LifeFrame2" parent="UI/PlayerInfoBox/HBoxContainer" instance=ExtResource("3_3nhvk")]
+layout_mode = 2
+
+[node name="LifeFrame3" parent="UI/PlayerInfoBox/HBoxContainer" instance=ExtResource("3_3nhvk")]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="UI/PlayerInfoBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.727
+anchor_bottom = 0.357
+offset_left = 200.0
+offset_top = 26.0
+offset_right = 0.217987
+offset_bottom = -0.0430069
+theme_override_fonts/font = ExtResource("4_fi3qj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_dhtqb")
+text = "Elvio"
+
+[node name="GameInfoBox" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.759
+anchor_top = 0.021
+anchor_right = 0.987
+anchor_bottom = 0.194
+offset_left = 0.563965
+offset_top = -0.192001
+offset_right = -0.374146
+offset_bottom = -0.488007
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sxrwn")
+
+[node name="MusicScoreAvatar" parent="UI/GameInfoBox" instance=ExtResource("5_nrenq")]
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 0.106
+anchor_right = 0.335
+anchor_bottom = 0.894
+offset_left = 20.0
+offset_top = -1.094
+offset_right = 19.89
+offset_bottom = -0.906006
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/GameInfoBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.408
+anchor_top = 0.131
+anchor_right = 0.558
+anchor_bottom = 0.854
+offset_left = -0.130402
+offset_top = -0.0690022
+offset_right = -0.0312805
+offset_bottom = 0.0540009
+
+[node name="StatusFrame" type="Panel" parent="UI/GameInfoBox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mte27")
+
+[node name="TextureRect" type="TextureRect" parent="UI/GameInfoBox/VBoxContainer/StatusFrame"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 448.0
+offset_bottom = 448.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("6_aajbc")
+
+[node name="StatusFrame2" type="Panel" parent="UI/GameInfoBox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mte27")
+
+[node name="TextureRect" type="TextureRect" parent="UI/GameInfoBox/VBoxContainer/StatusFrame2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 448.0
+offset_bottom = 447.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("4_oquyt")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/GameInfoBox"]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 26.0
+offset_right = 446.0
+offset_bottom = 170.0
+
+[node name="ScoreLeftLabel" type="Label" parent="UI/GameInfoBox/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_fi3qj")
+theme_override_font_sizes/font_size = 18
+text = "Scores Left"
+horizontal_alignment = 1
+
+[node name="ScoreLeftAmount" type="Label" parent="UI/GameInfoBox/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_fi3qj")
+theme_override_font_sizes/font_size = 22
+text = "0"
+horizontal_alignment = 1
+
+[node name="ScoreTakenLable" type="Label" parent="UI/GameInfoBox/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_fi3qj")
+theme_override_font_sizes/font_size = 18
+text = "Scores Taken"
+horizontal_alignment = 1
+
+[node name="ScoreTakenAmount" type="Label" parent="UI/GameInfoBox/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_fi3qj")
+theme_override_font_sizes/font_size = 22
+text = "0"
+horizontal_alignment = 1
