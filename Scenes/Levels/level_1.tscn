@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6eqtywr156qj"]
+[gd_scene load_steps=19 format=3 uid="uid://c6eqtywr156qj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level_1.gd" id="1_aa1yu"]
 [ext_resource type="Texture2D" uid="uid://c7k3mqqy4vbr5" path="res://Assets/kenney_platformer-kit/Starbasesnow.png" id="1_wv27l"]
@@ -24,6 +24,21 @@ sky = SubResource("Sky_cl7kr")
 ambient_light_source = 2
 ambient_light_energy = 8.6
 
+[sub_resource type="Animation" id="Animation_st78e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight3D:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_rp64b"]
 resource_name = "flash_color_lights"
 length = 2.0
@@ -40,26 +55,15 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.95629, 0.355167, 0.208342, 1), Color(1, 0.105882, 0.968627, 1), Color(0.278574, 0.689228, 0.749286, 1), Color(1, 0, 0, 1), Color(0.882353, 0.858824, 0, 1), Color(0.94387, 0.419084, 0.883077, 1), Color(0.667979, 0.00240365, 0.891501, 1), Color(0.0705882, 0.00392157, 0.890196, 1), Color(0.517774, 0.914903, 0.0511068, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_st78e"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DirectionalLight3D:light_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pl5xe"]
 _data = {
 "RESET": SubResource("Animation_st78e"),
 "flash_color_lights": SubResource("Animation_rp64b")
 }
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_40qk7"]
+stream_count = 1
+stream_0/volume = 0.0
 
 [node name="Level_1" type="Node3D"]
 script = ExtResource("1_aa1yu")
@@ -118,6 +122,9 @@ transform = Transform3D(0.0152535, 0, 0.999884, 0, 1, 0, -0.999884, 0, 0.0152535
 libraries = {
 "": SubResource("AnimationLibrary_pl5xe")
 }
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_40qk7")
 
 [connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="update_life_data" from="Player" to="." method="_on_player_update_life_data"]
