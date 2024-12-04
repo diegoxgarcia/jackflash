@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://djdldu26nyhbc"]
+[gd_scene load_steps=29 format=3 uid="uid://djdldu26nyhbc"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/Player/player.gd" id="1_n0nwc"]
 [ext_resource type="Script" path="res://Scenes/Resources/player_data.gd" id="2_18bkj"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b4got68cjiyts" path="res://Scenes/Components/stomper.tscn" id="15_xejk6"]
 [ext_resource type="PackedScene" uid="uid://ymwkvva7ij8p" path="res://Scenes/Components/attacker.tscn" id="16_veng2"]
 [ext_resource type="PackedScene" uid="uid://4w341vum13i7" path="res://Scenes/Particles/elvis_lightning.tscn" id="19_4wa40"]
+[ext_resource type="AudioStream" uid="uid://brtccdwd71r8e" path="res://Assets/SFX/Player/elvio_attack_3.wav" id="22_lic41"]
 
 [sub_resource type="Resource" id="Resource_360yg"]
 script = ExtResource("2_18bkj")
@@ -260,6 +261,12 @@ transform = Transform3D(-0.00139622, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.0013
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994719, 0)
 shape = SubResource("CapsuleShape3D_1qwxv")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Attack" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("22_lic41")
+bus = &"SFX"
 
 [connection signal="animation_finished" from="Visual/jackflash/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="player_collected" from="Visual/Components/Collecter" to="." method="_on_collecter_player_collected"]
