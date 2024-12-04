@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://e0r1tq37r7mi"]
+
+[ext_resource type="Shader" uid="uid://uscgtxdc7krp" path="res://Scenes/Particles/Blood.tres" id="1_h5ia2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_desif"]
+render_priority = 0
+shader = ExtResource("1_h5ia2")
+
+[sub_resource type="Curve" id="Curve_enunt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.483516), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_chfoe"]
+curve = SubResource("Curve_enunt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_618s8"]
+spread = 2.53
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+linear_accel_min = 4.0
+linear_accel_max = 4.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_chfoe")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xpf7t"]
+
+[node name="Blood" type="GPUParticles3D"]
+material_override = SubResource("ShaderMaterial_desif")
+process_material = SubResource("ParticleProcessMaterial_618s8")
+draw_pass_1 = SubResource("QuadMesh_xpf7t")

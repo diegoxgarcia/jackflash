@@ -1,2 +1,2 @@
-class_name DeadRasta
+class_name dead_enemy
 extends State
