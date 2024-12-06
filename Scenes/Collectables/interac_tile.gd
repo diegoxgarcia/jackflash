@@ -4,6 +4,9 @@ extends Node3D
 @onready var spot_light_3d = $SpotLight3D
 @onready var musical_score_handler = $MusicalScoreHandler
 @onready var tile_lighter = $TileLighter
+@onready var switch_on = $SFX/SwitchOn
+@onready var switch_off = $SFX/SwitchOff
+@onready var musical_score_appears = $SFX/MusicalScoreAppears
 
 signal turn_off_lights(on : bool)
 
@@ -31,6 +34,8 @@ func _on_interactive_tile_color_changed(color_index : int):
 		musical_score.tile_color = interactive_tile_data.tile_color[color_index]
 		musical_score_handler.add_child(musical_score)
 		turn_off_lights.emit(false)
+		musical_score_appears.play()
+		switch_on.play()
 		spot_light_3d.visible = false
 		for child in get_child(0).get_children():
 			if child is InteractiveTile:
@@ -59,10 +64,12 @@ func _on_tile_lighter_illuminate_player():
 	spot_light_3d.visible = true
 	await get_tree().create_timer(3).timeout
 	spot_light_3d.light_color = Color(Color.TRANSPARENT)
+	switch_off.play()
 	pass
 
 
 func _on_tile_lighter_darken_player():
+	switch_on.play()
 	turn_off_lights.emit(false)
 	spot_light_3d.visible = false
 	pass 

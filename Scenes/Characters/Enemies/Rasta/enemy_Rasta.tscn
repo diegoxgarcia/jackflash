@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dh6m6hocwypc0"]
+[gd_scene load_steps=19 format=3 uid="uid://dh6m6hocwypc0"]
 
 [ext_resource type="PackedScene" uid="uid://edy4bdnknf5d" path="res://Assets/Enemies/Rasta/rasta.glb" id="1_5wq2a"]
 [ext_resource type="Script" path="res://Scenes/Characters/Enemies/Rasta/enemy_rasta.gd" id="1_ecqye"]
@@ -12,9 +12,7 @@
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/fall_idle.gd" id="6_4ls7k"]
 [ext_resource type="PackedScene" uid="uid://domy66iulpckq" path="res://Scenes/Components/enable_to_attack.tscn" id="6_v6dp2"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/landing.gd" id="7_jktti"]
-[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/take_damage.gd" id="8_ybyyf"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/chase.gd" id="13_m24yl"]
-[ext_resource type="PackedScene" uid="uid://e0r1tq37r7mi" path="res://Scenes/Particles/Blood.tscn" id="15_5cdwx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lj8q5"]
 radius = 0.705
@@ -31,6 +29,8 @@ radius = 0.955
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ecylj"]
 
 [node name="EnemyRasta" type="CharacterBody3D"]
+collision_layer = 1024
+collision_mask = 177
 script = ExtResource("1_ecqye")
 
 [node name="visual" type="Node3D" parent="."]
@@ -158,6 +158,7 @@ bones/85/rotation = Quaternion(0.621292, 0.159456, 0.0329702, 0.766474)
 bones/86/rotation = Quaternion(0.267242, -0.0405914, -0.00836863, 0.962738)
 
 [node name="Components" type="Node3D" parent="visual"]
+process_mode = 1
 
 [node name="TakeDamageEnemy" parent="visual/Components" instance=ExtResource("3_6e6hn")]
 
@@ -176,6 +177,7 @@ shape = SubResource("BoxShape3D_w5d84")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="visual/Components/EnemyAttacker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0640972, 0.955857, 0.781471)
 shape = SubResource("BoxShape3D_hlr2b")
+disabled = true
 
 [node name="EnableToAttack" parent="visual/Components" instance=ExtResource("6_v6dp2")]
 
@@ -205,16 +207,8 @@ script = ExtResource("6_4ls7k")
 [node name="landing" type="Node" parent="StateMachine"]
 script = ExtResource("7_jktti")
 
-[node name="takeDamage" type="Node" parent="StateMachine"]
-script = ExtResource("8_ybyyf")
-
 [node name="chase" type="Node" parent="StateMachine"]
 script = ExtResource("13_m24yl")
-
-[node name="Blood" parent="." instance=ExtResource("15_5cdwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0803269, 0.942765, 1.07413)
-emitting = false
-one_shot = true
 
 [connection signal="animation_finished" from="visual/Enemy/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="enemy_take_damage" from="visual/Components/TakeDamageEnemy" to="." method="_on_take_damage_enemy_enemy_take_damage"]

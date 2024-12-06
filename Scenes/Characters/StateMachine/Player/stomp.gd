@@ -5,11 +5,13 @@ extends State
 @onready var animation_player = $"../../Visual/jackflash/AnimationPlayer"
 @onready var jackflash = $"../../Visual/jackflash"
 @onready var stomper_collision_shape_3d = $"../../Visual/Components/Stomper/CollisionShape3D"
+@onready var fall = $"../../SFX/Fall"
 
 func physics_update(delta : float):
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta * 10
 	else:
+		fall.play()
 		transitioned.emit(self, "Idle")
 	pass
 	

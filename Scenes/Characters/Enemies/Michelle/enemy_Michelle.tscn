@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cm6modg5kpa0"]
+[gd_scene load_steps=17 format=3 uid="uid://cm6modg5kpa0"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/Enemies/Michelle/enemy_michelle.gd" id="1_q6w38"]
 [ext_resource type="PackedScene" uid="uid://cdq2mv6srghm0" path="res://Assets/Enemies/Michelle/Michelle.glb" id="2_cbf0l"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/dead.gd" id="9_qdru6"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/fall_idle.gd" id="10_5rrvg"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/landing.gd" id="11_yyldg"]
-[ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/take_damage.gd" id="12_yshf4"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Enemy/chase.gd" id="13_rqwc5"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yknpj"]
@@ -189,9 +188,6 @@ script = ExtResource("10_5rrvg")
 
 [node name="landing" type="Node" parent="StateMachine"]
 script = ExtResource("11_yyldg")
-
-[node name="takeDamage" type="Node" parent="StateMachine"]
-script = ExtResource("12_yshf4")
 
 [node name="chase" type="Node" parent="StateMachine"]
 script = ExtResource("13_rqwc5")

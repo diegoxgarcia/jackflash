@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6eqtywr156qj"]
+[gd_scene load_steps=28 format=3 uid="uid://c6eqtywr156qj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level_1.gd" id="1_aa1yu"]
 [ext_resource type="Texture2D" uid="uid://c7k3mqqy4vbr5" path="res://Assets/kenney_platformer-kit/Starbasesnow.png" id="1_wv27l"]
@@ -11,6 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://itbxj17si8em" path="res://Scenes/UI/game_over.tscn" id="5_hiafo"]
 [ext_resource type="PackedScene" uid="uid://cfvaluygx5vyk" path="res://Scenes/Collectables/interac_tile_l.tscn" id="7_h62sf"]
 [ext_resource type="PackedScene" uid="uid://dkx6jstoduq7u" path="res://Scenes/Collectables/interac_tile_x.tscn" id="8_ec3ad"]
+[ext_resource type="PackedScene" uid="uid://dh6m6hocwypc0" path="res://Scenes/Characters/Enemies/Rasta/enemy_Rasta.tscn" id="12_6ec0g"]
+[ext_resource type="AudioStream" uid="uid://drrt887q1fl4c" path="res://Assets/Music/Level1/hihats.mp3" id="13_qyvrq"]
+[ext_resource type="AudioStream" uid="uid://dk2sx1ommwrx" path="res://Assets/SFX/Player/switch_on.wav" id="13_vgck3"]
+[ext_resource type="AudioStream" uid="uid://s02ujnikpmmc" path="res://Assets/SFX/Enemies/boss_come.wav" id="14_2t2nx"]
+[ext_resource type="AudioStream" uid="uid://bl70473xrekha" path="res://Assets/Music/Level1/drums.mp3" id="14_mgc2c"]
+[ext_resource type="AudioStream" uid="uid://dnkx1ts4gdwa2" path="res://Assets/Music/Level1/bass.mp3" id="15_s2213"]
+[ext_resource type="AudioStream" uid="uid://b81thuc3km7ei" path="res://Assets/Music/Level1/melodic1.mp3" id="16_bftkc"]
+[ext_resource type="AudioStream" uid="uid://d4hx0mcn5p2sl" path="res://Assets/Music/Level1/piano.mp3" id="17_wohdf"]
+[ext_resource type="AudioStream" uid="uid://7nf21408mrd5" path="res://Assets/Music/Level1/voices.mp3" id="18_48qb5"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_x4mrq"]
 panorama = ExtResource("1_wv27l")
@@ -62,8 +71,19 @@ _data = {
 }
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_40qk7"]
-stream_count = 1
+stream_count = 6
+stream_0/stream = ExtResource("13_qyvrq")
 stream_0/volume = 0.0
+stream_1/stream = ExtResource("14_mgc2c")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("15_s2213")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("16_bftkc")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("17_wohdf")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("18_48qb5")
+stream_5/volume = 0.0
 
 [node name="Level_1" type="Node3D"]
 script = ExtResource("1_aa1yu")
@@ -80,6 +100,11 @@ environment = SubResource("Environment_u7tcm")
 transform = Transform3D(0.93274, 0.357209, -0.0489593, -0.24615, 0.730115, 0.63745, 0.263449, -0.582524, 0.768935, 0, 11.6931, 42.5433)
 light_energy = 0.8
 shadow_enabled = true
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="EnemyRasta" parent="Enemies" instance=ExtResource("12_6ec0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.77857, 2.07272, 35.7023)
 
 [node name="Player" parent="." instance=ExtResource("2_tesls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 48)
@@ -125,6 +150,18 @@ libraries = {
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamSynchronized_40qk7")
+autoplay = true
+bus = &"Music"
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="SwitchOn" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_vgck3")
+bus = &"SFX"
+
+[node name="BossCome" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("14_2t2nx")
+bus = &"SFX"
 
 [connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="update_life_data" from="Player" to="." method="_on_player_update_life_data"]
@@ -135,3 +172,4 @@ stream = SubResource("AudioStreamSynchronized_40qk7")
 [connection signal="turn_off_lights" from="GridMap/InteracTile2" to="." method="_on_interac_tile_turn_off_lights"]
 [connection signal="turn_off_lights" from="GridMap/InteracTileL2" to="." method="_on_interac_tile_turn_off_lights"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
