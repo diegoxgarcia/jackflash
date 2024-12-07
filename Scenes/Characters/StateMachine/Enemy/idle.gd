@@ -1,9 +1,10 @@
 class_name IdleEnemy
 extends State
-@onready var animation_player: AnimationPlayer = $"../../visual/Enemy/AnimationPlayer"
+
+@onready var animation_player: AnimationPlayer = $"../../Visual/Enemy/AnimationPlayer"
 @onready var enemy_rasta: EnemyRasta = $"../.."
-@onready var rasta: Node3D = $"../../visual/Enemy"
-@onready var components: Node3D = $"../../visual/Components"
+@onready var rasta: Node3D = $"../../Visual/Enemy"
+@onready var components: Node3D = $"../../Visual/Components"
 
 var wander_time: float
 var move_direction: Vector3
@@ -30,27 +31,9 @@ func update(delta : float):
 
 func enter():
 	randomize_wander()
-	match is_type_enemy(animation_player):
-		"EnemyRasta":
-			animation_player.play("Walk")
-		"EnemyMichelle":
-			animation_player.play("Walk")
-		"EnemyBoss":
-			animation_player.play("Walk")
+	animation_player.play("Walk")
 	pass
 
 func exit():
 	animation_player.stop()
 	pass
-	
-func change_direction_enemy_velocity(enemy : Node3D,components:Node3D,direction : Vector3):
-	enemy.rotation.y = atan2(direction.x, direction.z)
-	components.rotation.y = atan2(direction.x, direction.z)
-
-func is_type_enemy(animation_player:AnimationPlayer) -> String:
-	return animation_player.get_parent().get_parent().get_parent().name
-	pass
-	
-
-
-	

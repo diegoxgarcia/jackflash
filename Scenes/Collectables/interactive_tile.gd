@@ -8,11 +8,13 @@ signal color_changed
 var current_color : int
 var tile_colors_size : int
 var key_color : int
+@onready var sound = $Sound
 
 func _ready():
 	pass
 	
 func change_color_on_stomp():
+	sound.play()
 	current_color += 1
 	if current_color < interactive_tile_data.tile_color.size():
 		change_color(current_color)

@@ -22,8 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://ymwkvva7ij8p" path="res://Scenes/Components/attacker.tscn" id="16_veng2"]
 [ext_resource type="PackedScene" uid="uid://4w341vum13i7" path="res://Scenes/Particles/elvis_lightning.tscn" id="19_4wa40"]
 [ext_resource type="AudioStream" uid="uid://brtccdwd71r8e" path="res://Assets/SFX/Player/elvio_attack_3.wav" id="22_lic41"]
-[ext_resource type="PackedScene" uid="uid://e0r1tq37r7mi" path="res://Scenes/Particles/Blood.tscn" id="22_qs7nn"]
 [ext_resource type="AudioStream" uid="uid://ba18jr2fsiqoo" path="res://Assets/SFX/Player/walk.wav" id="23_hu4xj"]
+[ext_resource type="PackedScene" uid="uid://cg6mun8ye3o60" path="res://Scenes/Particles/blood_particles.tscn" id="23_ujqfq"]
 [ext_resource type="AudioStream" uid="uid://cpv8ty67faga6" path="res://Assets/SFX/Player/run.wav" id="24_2n2ir"]
 [ext_resource type="AudioStream" uid="uid://7e668f2bn7ex" path="res://Assets/SFX/Player/jump.wav" id="25_3kw8l"]
 [ext_resource type="AudioStream" uid="uid://dyldso4cvveju" path="res://Assets/SFX/Player/fall.wav" id="26_1p4a4"]
@@ -266,10 +266,8 @@ disabled = true
 [node name="ElvisLightning" parent="Visual/Components" instance=ExtResource("19_4wa40")]
 transform = Transform3D(-0.00139622, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00139622, 0, 1.31596, 1.18041)
 
-[node name="Blood" parent="Visual/Components" instance=ExtResource("22_qs7nn")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.60905, 0)
-emitting = false
-one_shot = true
+[node name="BloodParticles" parent="Visual/Components" instance=ExtResource("23_ujqfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53683, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994719, 0)
@@ -312,6 +310,7 @@ bus = &"SFX"
 [connection signal="animation_finished" from="Visual/jackflash/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="player_collected" from="Visual/Components/Collecter" to="." method="_on_collecter_player_collected"]
 [connection signal="player_uncollected" from="Visual/Components/Collecter" to="." method="_on_collecter_player_uncollected"]
+[connection signal="player_damaged" from="Visual/Components/Damager" to="." method="_on_damager_player_damaged"]
 [connection signal="finished" from="SFX/Walk" to="StateMachine/walk" method="_on_walk_finished"]
 [connection signal="finished" from="SFX/Run" to="StateMachine/run" method="_on_run_finished"]
 

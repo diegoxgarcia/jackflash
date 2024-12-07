@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpvts8nyidsgq"]
+[gd_scene load_steps=10 format=3 uid="uid://bpvts8nyidsgq"]
 
 [ext_resource type="Script" path="res://Scenes/Collectables/interactive_tile.gd" id="1_37he4"]
 [ext_resource type="Texture2D" uid="uid://brs15fywtmq1e" path="res://Assets/Collectables/InteractiveTile/Marble tile beige.png" id="1_ugfrv"]
 [ext_resource type="Script" path="res://Scenes/Resources/interactive_tile_data.gd" id="2_f6wnf"]
+[ext_resource type="AudioStream" uid="uid://b0lsejyxvh16y" path="res://Assets/SFX/Player/tile.wav" id="4_asugh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ym7px"]
 
@@ -36,3 +37,7 @@ mesh = SubResource("PlaneMesh_hvm4n")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.999727, 0, 0, 0, 0.999727, 0, 0, 0, 0.999727, 0, 0, 0)
 shape = SubResource("BoxShape3D_1tmw8")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_asugh")
+bus = &"SFX"

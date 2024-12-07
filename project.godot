@@ -109,6 +109,7 @@ take={
 3d_physics/layer_11="Enemy"
 3d_physics/layer_12="Attacker"
 3d_physics/layer_13="EnemyDamager"
+3d_physics/layer_14="EnemyAttacker"
 
 [rendering]
 

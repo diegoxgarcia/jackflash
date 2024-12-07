@@ -62,3 +62,8 @@ func _on_collecter_player_uncollected(area : Area3D):
 			musical_score = null
 			info_action.text = ""
 	pass
+
+
+func _on_damager_player_damaged():
+	state_machine.current_state.transitioned.emit(state_machine.current_state, "dead")
+	pass

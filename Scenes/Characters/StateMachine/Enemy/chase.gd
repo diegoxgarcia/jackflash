@@ -1,11 +1,14 @@
 class_name ChaseEnemy
 extends State
-@onready var animation_player: AnimationPlayer = $"../../visual/Enemy/AnimationPlayer"
+
+@onready var animation_player: AnimationPlayer = $"../../Visual/Enemy/AnimationPlayer"
 @onready var enemy_rasta: EnemyRasta = $"../.."
-@onready var rasta: Node3D = $"../../visual/Enemy"
-@onready var components: Node3D = $"../../visual/Components"
+@onready var rasta: Node3D = $"../../Visual/Enemy"
+@onready var components: Node3D = $"../../Visual/Components"
+@onready var player_detected = $"../../SFX/PlayerDetected"
 
 var player: Player
+
 func physics_update(delta : float):
 	var direction = player.global_position - enemy_rasta.global_position
 	direction.y = 0
@@ -17,6 +20,7 @@ func update(delta : float):
 	pass
 
 func enter():
+	player_detected.play()
 	player = get_tree().get_first_node_in_group("Player")
 	match is_type_enemy(animation_player):
 		"EnemyRasta":
@@ -29,12 +33,4 @@ func enter():
 	
 func exit():
 	animation_player.stop()
-	pass
-	
-func change_direction_enemy_velocity(enemy : Node3D, components:Node3D, direction : Vector3):
-	enemy.rotation.y = atan2(direction.x, direction.z)
-	components.rotation.y = atan2(direction.x, direction.z)	
-	
-func is_type_enemy(animation_player:AnimationPlayer) -> String:
-	return animation_player.get_parent().get_parent().get_parent().name
 	pass

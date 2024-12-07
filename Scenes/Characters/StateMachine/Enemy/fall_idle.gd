@@ -2,7 +2,7 @@ class_name fall_idle_enemy
 extends State
 
 @onready var enemy_rasta = $"../.."
-@onready var animation_player = $"../../visual/Enemy/AnimationPlayer"
+@onready var animation_player = $"../../Visual/Enemy/AnimationPlayer"
 
 func physics_update(delta : float):
 	if not enemy_rasta.is_on_floor():
@@ -12,7 +12,11 @@ func physics_update(delta : float):
 	pass
 	
 func enter():
-	animation_player.play("FallIdle")
+	match is_type_enemy(animation_player):
+		"EnemyRasta":
+			animation_player.play("FallIdle")
+		"EnemyBoss":
+			animation_player.play("Idle")
 	pass
 
 func exit():
