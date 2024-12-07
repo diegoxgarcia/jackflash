@@ -1,2 +1,0 @@
-class_name landing_enemy
-extends State

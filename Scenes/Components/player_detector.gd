@@ -1,4 +1,5 @@
 extends Area3D
+
 signal player_detected
 signal player_undetected
 
