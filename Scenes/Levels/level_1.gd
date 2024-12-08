@@ -12,11 +12,13 @@ extends Node3D
 @onready var boss_come = $SFX/BossCome
 @onready var music : AudioStreamPlayer = $Music
 @onready var music_stream : AudioStreamSynchronized = music.stream
-var mute_stream_volume = -80
+@onready var enemy_boss = $Enemies/EnemyBoss
 
+var mute_stream_volume = -80
 var total_musical_scores : int
 
 func _ready():
+	enemy_boss.set_physics_process(false)
 	total_musical_scores = grid_map.get_children().size()
 	mute_all_not_first()
 	gui_play_screen.update_init_scores(total_musical_scores)
@@ -78,7 +80,13 @@ func open_menu(game_over : bool):
 func _on_animation_player_animation_finished(anim_name):
 	match anim_name:
 		"flash_color_lights":
+			create_boss()
 			pass
+	pass
+
+func create_boss():
+	enemy_boss.set_physics_process(false)
+	enemy_boss.visible = true
 	pass
 
 func _on_music_finished():
