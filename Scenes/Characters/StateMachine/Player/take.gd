@@ -3,6 +3,7 @@ extends State
 
 @onready var player = $"../.."
 @onready var taker_marker = $"../../Visual/Components/Collecter/TakerMarker"
+@onready var take = $"../../SFX/Take"
 
 func update(delta : float):
 	transitioned.emit(self, "idle")
@@ -15,6 +16,7 @@ func enter():
 		player.info_action.text = ""
 		musical_score.reparent(taker_marker, false)
 		musical_score.global_position = taker_marker.global_position
+		take.play()
 	pass
 
 func exit():

@@ -5,6 +5,7 @@ extends State
 @onready var jackflash = $"../../Visual/jackflash"
 @onready var animation_player = $"../../Visual/jackflash/AnimationPlayer"
 @onready var components = $"../../Visual/Components"
+@onready var run = $"../../SFX/Run"
 
 func physics_update(delta : float):
 	var direction = get_direction(player)
@@ -22,10 +23,17 @@ func physics_update(delta : float):
 	pass
 
 func enter():
+	run.play()
 	if player.is_on_floor():
 		animation_player.play("Run")
 	pass
 
 func exit():
+	run.stop()
 	animation_player.stop()
+	pass
+
+
+func _on_run_finished():
+	run.play()
 	pass
