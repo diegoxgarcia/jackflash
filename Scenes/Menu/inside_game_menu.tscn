@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cvcmyoym05dnd"]
 
-[ext_resource type="FontFile" uid="uid://dndckiai2p8e8" path="res://Assets/Fonts/kirifont/KiriFont.otf" id="1_pgyy7"]
 [ext_resource type="Script" path="res://Scenes/Menu/inside_game_menu.gd" id="1_sl8f3"]
+[ext_resource type="FontFile" uid="uid://cjkyl0yvkstwv" path="res://Assets/Fonts/kirifont/KiriFont.ttf" id="2_xckau"]
 [ext_resource type="Texture2D" uid="uid://bs3rnrxqbog5b" path="res://Assets/GUI/barBlue_horizontalBlue.png" id="5_hmjea"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2fbhi"]
@@ -59,7 +59,7 @@ grow_vertical = 2
 [node name="GameOptionsLabel" type="Label" parent="Control/Panel/ButtonsOptionsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_fonts/font = ExtResource("2_xckau")
 theme_override_font_sizes/font_size = 60
 text = "Game Paused"
 horizontal_alignment = 1
@@ -67,21 +67,21 @@ horizontal_alignment = 1
 [node name="ContinueButton" type="Button" parent="Control/Panel/ButtonsOptionsContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_fonts/font = ExtResource("2_xckau")
 theme_override_font_sizes/font_size = 50
 text = "Continue"
 
 [node name="AudioButton" type="Button" parent="Control/Panel/ButtonsOptionsContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_fonts/font = ExtResource("2_xckau")
 theme_override_font_sizes/font_size = 50
 text = "Audio Menu"
 
 [node name="ExitButton" type="Button" parent="Control/Panel/ButtonsOptionsContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_fonts/font = ExtResource("2_xckau")
 theme_override_font_sizes/font_size = 50
 text = "Exit Game"
 
@@ -117,7 +117,7 @@ grow_vertical = 2
 [node name="AudioOptionsLabel" type="Label" parent="Control/AudioPanel/AudioContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_fonts/font = ExtResource("2_xckau")
 theme_override_font_sizes/font_size = 60
 text = "Audio Options"
 horizontal_alignment = 1
@@ -125,7 +125,7 @@ horizontal_alignment = 1
 [node name="MasterLabel" type="Label" parent="Control/AudioPanel/AudioContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_fonts/font = ExtResource("2_xckau")
 theme_override_font_sizes/font_size = 50
 text = "Master Volume"
 horizontal_alignment = 1
@@ -141,7 +141,7 @@ max_value = 0.0
 [node name="MusicLabel" type="Label" parent="Control/AudioPanel/AudioContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_fonts/font = ExtResource("2_xckau")
 theme_override_font_sizes/font_size = 50
 text = "Music Volume"
 horizontal_alignment = 1
@@ -157,7 +157,7 @@ max_value = 0.0
 [node name="SFXLabel" type="Label" parent="Control/AudioPanel/AudioContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_fonts/font = ExtResource("2_xckau")
 theme_override_font_sizes/font_size = 50
 text = "SFX Volume"
 horizontal_alignment = 1
@@ -173,7 +173,7 @@ max_value = 0.0
 [node name="BackButton" type="Button" parent="Control/AudioPanel/AudioContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_pgyy7")
+theme_override_fonts/font = ExtResource("2_xckau")
 theme_override_font_sizes/font_size = 50
 text = "Exit"
 

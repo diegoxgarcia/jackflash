@@ -5,6 +5,7 @@ extends State
 @onready var jackflash = $"../../Visual/jackflash"
 @onready var animation_player = $"../../Visual/jackflash/AnimationPlayer"
 @onready var components = $"../../Visual/Components"
+@onready var jump = $"../../SFX/Jump"
 
 func physics_update(delta : float):
 	var direction = get_direction(player)
@@ -19,10 +20,12 @@ func physics_update(delta : float):
 	
 func update(delta : float):
 	if Input.is_action_just_pressed("attack")  && !player.has_musical_score():
+		jump.stop()
 		transitioned.emit(self, "stomp")
 	pass
 	
 func enter():
+	jump.play()
 	player.velocity.y = player.JUMP_VELOCITY
 	animation_player.play("Jump")
 	pass

@@ -25,6 +25,10 @@ window/size/viewport_width=2048
 window/size/viewport_height=1152
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/movie_file="/Users/diegoxgarcia/Downloads/movie_godot.avi"
+
 [file_customization]
 
 folder_colors={
@@ -102,6 +106,10 @@ take={
 3d_physics/layer_8="MusicStand"
 3d_physics/layer_9="Collectable"
 3d_physics/layer_10="MusicStandDetector"
+3d_physics/layer_11="Enemy"
+3d_physics/layer_12="Attacker"
+3d_physics/layer_13="EnemyDamager"
+3d_physics/layer_14="EnemyAttacker"
 
 [rendering]
 

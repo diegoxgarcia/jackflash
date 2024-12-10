@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://cxtmbc1mhh08j"]
 
-[ext_resource type="FontFile" uid="uid://dndckiai2p8e8" path="res://Assets/Fonts/kirifont/KiriFont.otf" id="1_63roi"]
 [ext_resource type="Script" path="res://Scenes/Menu/credits_menu.gd" id="1_djbok"]
+[ext_resource type="FontFile" uid="uid://cjkyl0yvkstwv" path="res://Assets/Fonts/kirifont/KiriFont.ttf" id="2_78i5t"]
 
 [sub_resource type="Animation" id="Animation_77q5l"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AudioTitle:position")
+tracks/0/path = NodePath("Credits:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +24,7 @@ length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AudioTitle:position")
+tracks/0/path = NodePath("Credits:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -49,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_djbok")
 
-[node name="AudioTitle" type="Label" parent="."]
+[node name="Credits" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.055
@@ -60,7 +60,7 @@ offset_left = -48.64
 offset_right = -45.472
 offset_bottom = -0.192017
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_63roi")
+theme_override_fonts/font = ExtResource("2_78i5t")
 theme_override_font_sizes/font_size = 60
 text = "Created By
 

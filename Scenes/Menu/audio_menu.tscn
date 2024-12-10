@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://mo4be646d1ah"]
+[gd_scene load_steps=13 format=3 uid="uid://mo4be646d1ah"]
 
 [ext_resource type="Script" path="res://Scenes/Menu/audio_menu.gd" id="1_116gs"]
 [ext_resource type="FontFile" uid="uid://dndckiai2p8e8" path="res://Assets/Fonts/kirifont/KiriFont.otf" id="1_kkylh"]
+[ext_resource type="FontFile" uid="uid://cjkyl0yvkstwv" path="res://Assets/Fonts/kirifont/KiriFont.ttf" id="2_jnx0o"]
 [ext_resource type="Texture2D" uid="uid://d2jj1ahnwt2xa" path="res://Assets/GUI/white_musicOn_Inverted.png" id="3_gmqsn"]
 [ext_resource type="Texture2D" uid="uid://bs3rnrxqbog5b" path="res://Assets/GUI/barBlue_horizontalBlue.png" id="5_5qxqi"]
 [ext_resource type="Texture2D" uid="uid://dkx8e0eb3viqx" path="res://Assets/GUI/white_musicOn_grey.png" id="5_ysgbm"]
@@ -45,7 +46,7 @@ offset_top = 56.368
 offset_right = -0.176025
 offset_bottom = 56.464
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_kkylh")
+theme_override_fonts/font = ExtResource("2_jnx0o")
 theme_override_font_sizes/font_size = 60
 text = "Audio Options"
 
@@ -67,7 +68,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_kkylh")
+theme_override_fonts/font = ExtResource("2_jnx0o")
 theme_override_font_sizes/font_size = 40
 text = "Master Volume"
 
@@ -85,7 +86,7 @@ max_value = 0.0
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_kkylh")
+theme_override_fonts/font = ExtResource("2_jnx0o")
 theme_override_font_sizes/font_size = 40
 text = "Music Volume"
 
@@ -122,7 +123,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_pressed_color = Color(0.968627, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_kkylh")
+theme_override_fonts/font = ExtResource("2_jnx0o")
 theme_override_font_sizes/font_size = 60
 text = "Exit"
 flat = true

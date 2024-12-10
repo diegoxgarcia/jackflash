@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://f6jxa1uxsimw"]
+[gd_scene load_steps=10 format=3 uid="uid://f6jxa1uxsimw"]
 
 [ext_resource type="Script" path="res://Scenes/Menu/game_menu.gd" id="1_v8iiw"]
 [ext_resource type="Texture2D" uid="uid://bkf6ck5kweggc" path="res://Assets/GameMenu/GameTitle2.jpg" id="1_x2dr5"]
 [ext_resource type="FontFile" uid="uid://dndckiai2p8e8" path="res://Assets/Fonts/kirifont/KiriFont.otf" id="2_au42a"]
+[ext_resource type="FontFile" uid="uid://cjkyl0yvkstwv" path="res://Assets/Fonts/kirifont/KiriFont.ttf" id="3_hwv6v"]
 [ext_resource type="PackedScene" uid="uid://mo4be646d1ah" path="res://Scenes/Menu/audio_menu.tscn" id="4_2p258"]
 [ext_resource type="PackedScene" uid="uid://cxtmbc1mhh08j" path="res://Scenes/Menu/credits_menu.tscn" id="5_c6nuo"]
 [ext_resource type="AudioStream" uid="uid://7t68x4hvs5eq" path="res://Assets/Music/IntroMusic.mp3" id="6_dlau7"]
+[ext_resource type="PackedScene" uid="uid://cqkbh6k44cpns" path="res://Scenes/Menu/how_to_play_menu.tscn" id="6_uvjms"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_od3yk"]
 
@@ -46,7 +48,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_pressed_color = Color(0.968627, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_au42a")
+theme_override_fonts/font = ExtResource("3_hwv6v")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_od3yk")
 text = "Start Game
@@ -58,7 +60,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_pressed_color = Color(0.968627, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_au42a")
+theme_override_fonts/font = ExtResource("3_hwv6v")
 theme_override_font_sizes/font_size = 60
 text = "Audio Menu"
 flat = true
@@ -68,7 +70,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_pressed_color = Color(0.968627, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_au42a")
+theme_override_fonts/font = ExtResource("3_hwv6v")
 theme_override_font_sizes/font_size = 60
 text = "How To Play"
 flat = true
@@ -88,6 +90,10 @@ visible = false
 layout_mode = 1
 
 [node name="CreditsMenu" parent="." instance=ExtResource("5_c6nuo")]
+visible = false
+layout_mode = 1
+
+[node name="HowToPlayMenu" parent="." instance=ExtResource("6_uvjms")]
 visible = false
 layout_mode = 1
 
