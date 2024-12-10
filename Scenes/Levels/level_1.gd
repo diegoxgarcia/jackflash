@@ -10,14 +10,17 @@ extends Node3D
 @onready var animation_player = $AnimationPlayer
 @onready var switch_on = $SFX/SwitchOn
 @onready var boss_come = $SFX/BossCome
-@onready var music : AudioStreamPlayer = $Music
+@onready var music : AudioStreamPlayer = $Music/Music
+@onready var game_over_theme = $Music/GameOverTheme
 @onready var music_stream : AudioStreamSynchronized = music.stream
 @onready var enemy_boss = $Enemies/EnemyBoss
+@onready var trans_animation_player = $GUIPlayScreen/Fade/TransAnimationPlayer
 
 var mute_stream_volume = -80
 var total_musical_scores : int
 
 func _ready():
+	trans_animation_player.play("fade_out")
 	enemy_boss.set_physics_process(false)
 	total_musical_scores = grid_map.get_children().size()
 	mute_all_not_first()
@@ -66,6 +69,8 @@ func _on_player_update_life_data(life):
 func _on_player_player_dead():
 	player.set_physics_process(false)
 	game_over.visible = true
+	music.stop()
+	game_over_theme.play()
 	game_over.init_animation()
 	pass
 
@@ -85,10 +90,23 @@ func _on_animation_player_animation_finished(anim_name):
 	pass
 
 func create_boss():
-	enemy_boss.set_physics_process(false)
+	enemy_boss.set_physics_process(true)
 	enemy_boss.visible = true
 	pass
 
 func _on_music_finished():
 	music.play()
 	pass 
+
+
+func _on_enemy_boss_boss_dead():
+	trans_animation_player.play("fade_in")
+	pass
+
+
+func _on_trans_animation_player_animation_finished(anim_name):
+	match anim_name:
+		"fade_in":
+			var next_level = GameManager.get_next_level(self.name.to_lower())
+			get_tree().change_scene_to_file(next_level)
+	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c6eqtywr156qj"]
+[gd_scene load_steps=31 format=3 uid="uid://c6eqtywr156qj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level_1.gd" id="1_aa1yu"]
 [ext_resource type="Texture2D" uid="uid://c7k3mqqy4vbr5" path="res://Assets/kenney_platformer-kit/Starbasesnow.png" id="1_wv27l"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://b81thuc3km7ei" path="res://Assets/Music/Level1/melodic1.mp3" id="16_bftkc"]
 [ext_resource type="AudioStream" uid="uid://d4hx0mcn5p2sl" path="res://Assets/Music/Level1/piano.mp3" id="17_wohdf"]
 [ext_resource type="AudioStream" uid="uid://7nf21408mrd5" path="res://Assets/Music/Level1/voices.mp3" id="18_48qb5"]
+[ext_resource type="AudioStream" uid="uid://bn2op8rjv383x" path="res://Assets/Music/GameOverTheme.mp3" id="23_t71hf"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_x4mrq"]
 panorama = ExtResource("1_wv27l")
@@ -157,11 +158,6 @@ libraries = {
 "": SubResource("AnimationLibrary_pl5xe")
 }
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamSynchronized_40qk7")
-autoplay = true
-bus = &"Music"
-
 [node name="SFX" type="Node" parent="."]
 
 [node name="SwitchOn" type="AudioStreamPlayer" parent="SFX"]
@@ -172,6 +168,19 @@ bus = &"SFX"
 stream = ExtResource("14_2t2nx")
 bus = &"SFX"
 
+[node name="Music" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Music"]
+stream = SubResource("AudioStreamSynchronized_40qk7")
+autoplay = true
+bus = &"Music"
+
+[node name="GameOverTheme" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("23_t71hf")
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="boss_dead" from="Enemies/EnemyBoss" to="." method="_on_enemy_boss_boss_dead"]
 [connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="update_life_data" from="Player" to="." method="_on_player_update_life_data"]
 [connection signal="musical_score_collected" from="MusicalStandRB" to="." method="_on_musical_stand_rb_musical_score_collected"]
@@ -181,4 +190,4 @@ bus = &"SFX"
 [connection signal="turn_off_lights" from="GridMap/InteracTile2" to="." method="_on_interac_tile_turn_off_lights"]
 [connection signal="turn_off_lights" from="GridMap/InteracTileL2" to="." method="_on_interac_tile_turn_off_lights"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="finished" from="Music" to="." method="_on_music_finished"]
+[connection signal="finished" from="Music/Music" to="." method="_on_music_finished"]

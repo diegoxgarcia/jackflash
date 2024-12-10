@@ -8,7 +8,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AudioTitle:position")
+tracks/0/path = NodePath("Credits:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +24,7 @@ length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AudioTitle:position")
+tracks/0/path = NodePath("Credits:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -49,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_djbok")
 
-[node name="AudioTitle" type="Label" parent="."]
+[node name="Credits" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.055

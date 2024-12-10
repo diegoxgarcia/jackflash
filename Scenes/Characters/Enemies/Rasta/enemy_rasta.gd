@@ -8,9 +8,11 @@ extends CharacterBody3D
 @onready var enemy_attacker = $Visual/Components/EnemyAttacker
 @onready var enable_to_attack = $Visual/Components/EnableToAttack
 @onready var enemy_dead_particle = $Visual/Components/EnemyDeadParticle
+@onready var animation_player = $Visual/Enemy/AnimationPlayer
+
+signal boss_dead
 
 var player : Player
-
 var speed: float = 2.0
 
 func _physics_process(delta):
@@ -22,6 +24,7 @@ func _on_take_damage_enemy_enemy_take_damage(area) -> void:
 	take_damage_enemy.disconnect("enemy_take_damage", _on_take_damage_enemy_enemy_take_damage)
 	player_detector.disconnect("player_detected", _on_player_detector_player_detected)
 	player_detector.disconnect("player_undetected", _on_player_detector_player_undetected)
+	enable_to_attack.disconnect("enable_to_attack", _on_enable_to_attack_enable_to_attack)
 	pass
 
 func _on_player_detector_player_detected(body) -> void:
@@ -48,5 +51,7 @@ func _on_enable_to_attack_enable_to_attack() -> void:
 
 
 func _on_enemy_dead_particle_finished():
+	if animation_player.get_parent().get_parent().get_parent().name == "EnemyBoss":
+		boss_dead.emit()
 	queue_free()
 	pass
