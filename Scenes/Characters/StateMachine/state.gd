@@ -45,5 +45,6 @@ func change_direction_enemy_velocity(enemy : Node3D,components:Node3D,direction 
 	components.rotation.y = atan2(direction.x, direction.z)
 
 func is_type_enemy(animation_player:AnimationPlayer) -> String:
-	return animation_player.get_parent().get_parent().get_parent().name
+	var enemy_type = animation_player.get_parent().get_parent().get_parent().name.rstrip("0123456789")
+	return enemy_type
 	pass
