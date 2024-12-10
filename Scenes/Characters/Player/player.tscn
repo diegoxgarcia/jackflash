@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/drop.gd" id="13_ojjwm"]
 [ext_resource type="Script" path="res://Scenes/Characters/StateMachine/Player/dance.gd" id="14_b0crw"]
 [ext_resource type="PackedScene" uid="uid://bleopqiwbkc2j" path="res://Scenes/Components/damager.tscn" id="14_lcs70"]
-[ext_resource type="FontFile" uid="uid://dndckiai2p8e8" path="res://Assets/Fonts/kirifont/KiriFont.otf" id="14_x45e7"]
+[ext_resource type="FontFile" uid="uid://cjkyl0yvkstwv" path="res://Assets/Fonts/kirifont/KiriFont.ttf" id="15_rx7px"]
 [ext_resource type="PackedScene" uid="uid://b4got68cjiyts" path="res://Scenes/Components/stomper.tscn" id="15_xejk6"]
 [ext_resource type="PackedScene" uid="uid://ymwkvva7ij8p" path="res://Scenes/Components/attacker.tscn" id="16_veng2"]
 [ext_resource type="PackedScene" uid="uid://4w341vum13i7" path="res://Scenes/Particles/elvis_lightning.tscn" id="19_4wa40"]
@@ -96,7 +96,7 @@ script = ExtResource("14_b0crw")
 
 [node name="InfoAction" type="Label3D" parent="Visual"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12736, 0)
-font = ExtResource("14_x45e7")
+font = ExtResource("15_rx7px")
 
 [node name="jackflash" parent="Visual" instance=ExtResource("11_mht60")]
 

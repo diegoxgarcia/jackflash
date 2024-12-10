@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqkbh6k44cpns"]
 
 [ext_resource type="Script" path="res://Scenes/Menu/how_to_play_menu.gd" id="1_rw75t"]
-[ext_resource type="FontFile" uid="uid://dndckiai2p8e8" path="res://Assets/Fonts/kirifont/KiriFont.otf" id="2_4hrws"]
+[ext_resource type="FontFile" uid="uid://cjkyl0yvkstwv" path="res://Assets/Fonts/kirifont/KiriFont.ttf" id="2_wkegt"]
 
 [node name="HowToPlayMenu" type="Control"]
 layout_mode = 3
@@ -24,7 +24,7 @@ offset_top = -0.192017
 offset_right = -0.976013
 offset_bottom = -0.0960083
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4hrws")
+theme_override_fonts/font = ExtResource("2_wkegt")
 theme_override_font_sizes/font_size = 60
 text = "How To Play"
 
@@ -40,7 +40,7 @@ offset_top = 0.191986
 offset_right = -6.10352e-05
 offset_bottom = -0.128052
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4hrws")
+theme_override_fonts/font = ExtResource("2_wkegt")
 theme_override_font_sizes/font_size = 40
 text = "The game consists of
 Elvio having to grab all 
@@ -72,7 +72,7 @@ offset_bottom = -0.480103
 size_flags_vertical = 3
 theme_override_colors/font_pressed_color = Color(0.968627, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4hrws")
+theme_override_fonts/font = ExtResource("2_wkegt")
 theme_override_font_sizes/font_size = 60
 text = "Exit"
 flat = true

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/UI/gui_play_screen.gd" id="1_qmq0x"]
 [ext_resource type="PackedScene" uid="uid://cier05gww4ohc" path="res://Scenes/UI/elvio_avatar_frame.tscn" id="2_771qc"]
 [ext_resource type="PackedScene" uid="uid://cvve7uabs7fij" path="res://Scenes/UI/life_frame.tscn" id="3_3nhvk"]
-[ext_resource type="FontFile" uid="uid://dndckiai2p8e8" path="res://Assets/Fonts/kirifont/KiriFont.otf" id="4_fi3qj"]
+[ext_resource type="FontFile" uid="uid://cjkyl0yvkstwv" path="res://Assets/Fonts/kirifont/KiriFont.ttf" id="4_d51pm"]
 [ext_resource type="Texture2D" uid="uid://7njtjjhkh40w" path="res://Assets/GUI/musical-notes (1).png" id="4_oquyt"]
 [ext_resource type="PackedScene" uid="uid://bmoaagbpk341b" path="res://Scenes/UI/music_score_avatar.tscn" id="5_nrenq"]
 [ext_resource type="Texture2D" uid="uid://di3fq4ya3ul5r" path="res://Assets/GUI/musical-notes.png" id="6_aajbc"]
@@ -51,6 +51,33 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="Animation" id="Animation_8eqxi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_y4ofy"]
 resource_name = "fade_in"
 tracks/0/type = "value"
@@ -91,33 +118,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_8eqxi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -205,7 +205,7 @@ offset_left = 200.0
 offset_top = 26.0
 offset_right = 0.217987
 offset_bottom = -0.0430069
-theme_override_fonts/font = ExtResource("4_fi3qj")
+theme_override_fonts/font = ExtResource("4_d51pm")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_dhtqb")
 text = "Elvio"
@@ -296,7 +296,7 @@ offset_bottom = 170.0
 [node name="ScoreLeftLabel" type="Label" parent="UI/GameInfoBox/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("4_fi3qj")
+theme_override_fonts/font = ExtResource("4_d51pm")
 theme_override_font_sizes/font_size = 18
 text = "Scores Left"
 horizontal_alignment = 1
@@ -304,7 +304,7 @@ horizontal_alignment = 1
 [node name="ScoreLeftAmount" type="Label" parent="UI/GameInfoBox/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("4_fi3qj")
+theme_override_fonts/font = ExtResource("4_d51pm")
 theme_override_font_sizes/font_size = 22
 text = "0"
 horizontal_alignment = 1
@@ -312,7 +312,7 @@ horizontal_alignment = 1
 [node name="ScoreTakenLable" type="Label" parent="UI/GameInfoBox/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("4_fi3qj")
+theme_override_fonts/font = ExtResource("4_d51pm")
 theme_override_font_sizes/font_size = 18
 text = "Scores Taken"
 horizontal_alignment = 1
@@ -320,7 +320,7 @@ horizontal_alignment = 1
 [node name="ScoreTakenAmount" type="Label" parent="UI/GameInfoBox/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("4_fi3qj")
+theme_override_fonts/font = ExtResource("4_d51pm")
 theme_override_font_sizes/font_size = 22
 text = "0"
 horizontal_alignment = 1

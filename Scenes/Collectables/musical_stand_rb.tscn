@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/Collectables/musical_stand_rb.gd" id="1_3msi3"]
 [ext_resource type="PackedScene" uid="uid://cnj38vfnh4ygc" path="res://Scenes/Collectables/musical_stand.tscn" id="1_o0mx0"]
-[ext_resource type="FontFile" uid="uid://dndckiai2p8e8" path="res://Assets/Fonts/kirifont/KiriFont.otf" id="2_bwjgc"]
 [ext_resource type="PackedScene" uid="uid://d3uxf1hs4xqhr" path="res://Scenes/Components/musical_stand_player_detector.tscn" id="2_h3ikq"]
 [ext_resource type="Script" path="res://Scenes/Resources/music_stand_data.gd" id="2_qrpm7"]
+[ext_resource type="FontFile" uid="uid://cjkyl0yvkstwv" path="res://Assets/Fonts/kirifont/KiriFont.ttf" id="3_83hvw"]
 [ext_resource type="PackedScene" uid="uid://drr2rch56xnr8" path="res://Scenes/Particles/music_stand_particles.tscn" id="6_atgwe"]
 [ext_resource type="AudioStream" uid="uid://q6erxpta8lai" path="res://Assets/SFX/Player/musical_score_disappears.wav" id="7_he85s"]
 
@@ -26,7 +26,7 @@ music_stand_data = SubResource("Resource_adc7a")
 
 [node name="InfoAction" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69383, 0)
-font = ExtResource("2_bwjgc")
+font = ExtResource("3_83hvw")
 
 [node name="musical_stand" parent="." instance=ExtResource("1_o0mx0")]
 
