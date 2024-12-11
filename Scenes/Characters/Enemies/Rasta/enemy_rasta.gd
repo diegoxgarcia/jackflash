@@ -9,6 +9,7 @@ extends CharacterBody3D
 @onready var enable_to_attack = $Visual/Components/EnableToAttack
 @onready var enemy_dead_particle = $Visual/Components/EnemyDeadParticle
 @onready var animation_player = $Visual/Enemy/AnimationPlayer
+@onready var dead_particles: AudioStreamPlayer = $SFX/DeadParticles
 
 signal boss_dead
 
@@ -43,6 +44,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			state_machine.current_state.transitioned.emit(state_machine.current_state, "chase")
 		"Dead":
 			enemy_dead_particle.emitting = true
+			dead_particles.play()
 	pass
 
 func _on_enable_to_attack_enable_to_attack() -> void:

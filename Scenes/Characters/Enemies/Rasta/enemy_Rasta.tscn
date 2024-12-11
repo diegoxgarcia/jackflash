@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dh6m6hocwypc0"]
+[gd_scene load_steps=23 format=3 uid="uid://dh6m6hocwypc0"]
 
 [ext_resource type="PackedScene" uid="uid://edy4bdnknf5d" path="res://Assets/Enemies/Rasta/rasta.glb" id="1_5wq2a"]
 [ext_resource type="Script" path="res://Scenes/Characters/Enemies/Rasta/enemy_rasta.gd" id="1_ecqye"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://b8o3ylr0ai8ov" path="res://Assets/SFX/Enemies/rasta_dead.wav" id="14_ajtcl"]
 [ext_resource type="AudioStream" uid="uid://dxssl83mt4cwj" path="res://Assets/SFX/Enemies/rasta_detected_player.wav" id="15_y8r4c"]
 [ext_resource type="AudioStream" uid="uid://bp5wtowkeoaot" path="res://Assets/SFX/Enemies/rasta_2.wav" id="16_udlfw"]
+[ext_resource type="AudioStream" uid="uid://56775idtj0x4" path="res://Assets/SFX/Enemies/DeadSound.wav" id="17_s0dmb"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lj8q5"]
 radius = 0.705
@@ -224,6 +225,10 @@ bus = &"SFX"
 
 [node name="Attack" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("16_udlfw")
+bus = &"SFX"
+
+[node name="DeadParticles" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("17_s0dmb")
 bus = &"SFX"
 
 [connection signal="animation_finished" from="Visual/Enemy/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

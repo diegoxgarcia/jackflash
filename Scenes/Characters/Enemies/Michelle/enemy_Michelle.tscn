@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cm6modg5kpa0"]
+[gd_scene load_steps=23 format=3 uid="uid://cm6modg5kpa0"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/Enemies/Michelle/enemy_michelle.gd" id="1_q6w38"]
 [ext_resource type="PackedScene" uid="uid://cdq2mv6srghm0" path="res://Assets/Enemies/Michelle/Michelle.glb" id="2_cbf0l"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://dd8i858f7ygi5" path="res://Assets/SFX/Enemies/michelle_dead.wav" id="14_nt7md"]
 [ext_resource type="AudioStream" uid="uid://bvsoike2jkug" path="res://Assets/SFX/Enemies/michelle_detect_player.wav" id="15_fd4tf"]
 [ext_resource type="AudioStream" uid="uid://dlwup7h16v1vt" path="res://Assets/SFX/Enemies/michelle_attack.wav" id="16_ux1gx"]
+[ext_resource type="AudioStream" uid="uid://56775idtj0x4" path="res://Assets/SFX/Enemies/DeadSound.wav" id="17_t2iss"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yknpj"]
 radius = 0.6
@@ -219,6 +220,10 @@ bus = &"SFX"
 
 [node name="Attack" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("16_ux1gx")
+bus = &"SFX"
+
+[node name="DeadParticles" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("17_t2iss")
 bus = &"SFX"
 
 [connection signal="animation_finished" from="Visual/Enemy/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
