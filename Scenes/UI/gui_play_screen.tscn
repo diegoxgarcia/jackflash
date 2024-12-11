@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3ddy7rurt8pq"]
+[gd_scene load_steps=19 format=3 uid="uid://d3ddy7rurt8pq"]
 
 [ext_resource type="Script" path="res://Scenes/UI/gui_play_screen.gd" id="1_qmq0x"]
 [ext_resource type="PackedScene" uid="uid://cier05gww4ohc" path="res://Scenes/UI/elvio_avatar_frame.tscn" id="2_771qc"]
@@ -137,6 +137,43 @@ _data = {
 "RESET": SubResource("Animation_8eqxi"),
 "fade_in": SubResource("Animation_y4ofy"),
 "fade_out": SubResource("Animation_bmyuo")
+}
+
+[sub_resource type="Animation" id="Animation_q2ns4"]
+resource_name = "defeat_boxx"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/DefeatBossBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8, 1.2, 1.6, 1.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(804, -92), Vector2(799, 84), Vector2(639, 84), Vector2(943, 84), Vector2(743, 84), Vector2(855, 84), Vector2(807, 84), Vector2(807, -100)]
+}
+
+[sub_resource type="Animation" id="Animation_imgan"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/DefeatBossBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(804, -92)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4fdwg"]
+_data = {
+"RESET": SubResource("Animation_imgan"),
+"defeat_boss": SubResource("Animation_q2ns4")
 }
 
 [node name="GUIPlayScreen" type="CanvasLayer"]
@@ -325,14 +362,48 @@ theme_override_font_sizes/font_size = 22
 text = "0"
 horizontal_alignment = 1
 
+[node name="DefeatBossBox" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.393
+anchor_top = -0.08
+anchor_right = 0.607
+anchor_bottom = -0.01
+offset_left = 2.13599
+offset_top = -7.84
+offset_right = 2.86389
+offset_bottom = -7.48
+grow_horizontal = 2
+
+[node name="DefeatLabel" type="Label" parent="UI/DefeatBossBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.965
+anchor_bottom = 1.0
+offset_left = 199.5
+offset_top = 29.0
+offset_right = -184.135
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_d51pm")
+theme_override_font_sizes/font_size = 33
+text = "Defeat the Boss!!!"
+
 [node name="Fade" type="ColorRect" parent="."]
-offset_right = 2048.0
-offset_bottom = 1152.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
 color = Color(0, 0, 0, 0)
 
 [node name="TransAnimationPlayer" type="AnimationPlayer" parent="Fade"]
 libraries = {
 "": SubResource("AnimationLibrary_iaanx")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4fdwg")
 }
 
 [connection signal="animation_finished" from="Fade/TransAnimationPlayer" to="." method="_on_trans_animation_player_animation_finished"]

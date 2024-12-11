@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var score_taken_amount : Label = $UI/GameInfoBox/VBoxContainer2/ScoreTakenAmount
 @onready var music_score_avatar = $UI/GameInfoBox/MusicScoreAvatar
 @onready var elvio_avatar_frame = $UI/PlayerInfoBox/ElvioAvatarFrame
+@onready var animation_player = $AnimationPlayer
 
 signal transition_next_level
 
@@ -41,4 +42,8 @@ func _on_trans_animation_player_animation_finished(anim_name):
 	match anim_name:
 		"fade_in":
 			transition_next_level.emit()
+	pass
+	
+func show_defeat_boss_box():
+	animation_player.play("defeat_boss")
 	pass

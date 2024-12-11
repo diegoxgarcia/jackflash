@@ -59,6 +59,7 @@ func _on_musical_stand_rb_musical_score_collected(color, musical_scores):
 	unmute_stream(musical_scores)
 	if musical_scores == total_musical_scores:
 		boss_come.play()
+		gui_play_screen.show_defeat_boss_box()
 		animation_player.play("flash_color_lights")
 	pass 
 
