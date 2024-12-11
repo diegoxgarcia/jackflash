@@ -12,7 +12,7 @@ var player: Player
 func physics_update(delta : float):
 	var direction = player.global_position - enemy_rasta.global_position
 	direction.y = 0
-	enemy_rasta.velocity = direction.normalized() * 5 #enemy_rasta.speed
+	enemy_rasta.velocity = direction.normalized() * 5
 	change_direction_enemy_velocity(rasta,components,direction)
 	pass
 

@@ -9,8 +9,7 @@ extends CanvasLayer
 @onready var music_score_avatar = $UI/GameInfoBox/MusicScoreAvatar
 @onready var elvio_avatar_frame = $UI/PlayerInfoBox/ElvioAvatarFrame
 
-func _ready():
-	pass
+signal transition_next_level
 
 func _process(delta):
 	pass
@@ -36,3 +35,10 @@ func update_scores(musical_stand_score : int, level_score : int, color : Color):
 	music_score_avatar.flicker_score(color)
 	pass
 	
+
+
+func _on_trans_animation_player_animation_finished(anim_name):
+	match anim_name:
+		"fade_in":
+			transition_next_level.emit()
+	pass

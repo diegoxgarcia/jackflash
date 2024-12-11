@@ -334,3 +334,5 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_iaanx")
 }
+
+[connection signal="animation_finished" from="Fade/TransAnimationPlayer" to="." method="_on_trans_animation_player_animation_finished"]

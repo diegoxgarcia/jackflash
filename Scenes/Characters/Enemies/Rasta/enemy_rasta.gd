@@ -44,6 +44,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			state_machine.current_state.transitioned.emit(state_machine.current_state, "chase")
 		"Dead":
 			enemy_dead_particle.emitting = true
+			Input.start_joy_vibration(0, 0.1, 0, 1.6)
 			dead_particles.play()
 	pass
 

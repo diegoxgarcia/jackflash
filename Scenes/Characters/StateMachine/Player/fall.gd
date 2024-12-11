@@ -16,6 +16,7 @@ func physics_update(delta : float):
 			change_direction_velocity(jackflash, components, direction)
 	else:
 		fall.play()
+		Input.start_joy_vibration(0, 0.8, 0.8, 0.3)
 		transitioned.emit(self, "Idle")
 		
 	if player.global_position.y < -20:

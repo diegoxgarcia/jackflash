@@ -32,16 +32,16 @@ text = "How To Play"
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.016
-anchor_top = 0.229
+anchor_top = 0.201
 anchor_right = 0.375
-anchor_bottom = 0.764
+anchor_bottom = 0.782
 offset_left = -0.768002
-offset_top = 0.191986
-offset_right = -6.10352e-05
-offset_bottom = -0.128052
+offset_top = 0.447998
+offset_right = -0.00012207
+offset_bottom = 0.135925
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_wkegt")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 28
 text = "The game consists of
 Elvio having to grab all 
 the scores and take them
@@ -54,7 +54,15 @@ pieces of the song you
 must defeat the enemy
 who is a treacherous
 Manager.
-Good luck Elvio!"
+Good luck Elvio!
+
+Controls
+Move : A, W, S, D Keys or Joystick
+Jump: Space Key or A Button
+Attack: K Key or X Button
+Grab / Drop: E Key or B Button
+Run: Shift Key or RB Button
+Game Menu: Escape"
 horizontal_alignment = 1
 vertical_alignment = 1
 

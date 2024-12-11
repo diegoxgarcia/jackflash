@@ -98,15 +98,11 @@ func _on_music_finished():
 	music.play()
 	pass 
 
-
 func _on_enemy_boss_boss_dead():
 	trans_animation_player.play("fade_in")
 	pass
 
-
-func _on_trans_animation_player_animation_finished(anim_name):
-	match anim_name:
-		"fade_in":
-			var next_level = GameManager.get_next_level(self.name.to_lower())
-			get_tree().change_scene_to_file(next_level)
-	pass
+func _on_gui_play_screen_transition_next_level():
+	var next_level = GameManager.get_next_level(self.name.to_lower())
+	get_tree().change_scene_to_file(next_level)
+	pass 

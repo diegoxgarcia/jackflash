@@ -10,6 +10,7 @@ func enter():
 	dead.play()
 	blood_particles.emitting  = true
 	animation_player.play("Dead")
+	Input.start_joy_vibration(0, 0.9, 0.9, 0.7)
 	pass
 
 func exit():

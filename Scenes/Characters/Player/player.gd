@@ -11,6 +11,7 @@ const JUMP_VELOCITY = 5.5
 var musical_score : MusicalScore
 @onready var taker_marker = $Visual/Components/Collecter/TakerMarker
 var player_global_position : Vector3
+@onready var damager = $Visual/Components/Damager
 
 signal update_life_data(life : int)
 signal player_dead
@@ -37,6 +38,8 @@ func _on_animation_player_animation_finished(anim_name):
 				state_machine.current_state.transitioned.emit(state_machine.current_state, "Idle")
 			else:
 				player_dead.emit()
+				damager.disconnect("player_damaged", _on_damager_player_damaged)
+				
 	pass
 
 func has_musical_score() -> bool:

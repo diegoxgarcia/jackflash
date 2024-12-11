@@ -24,6 +24,7 @@ func update(delta : float):
 func enter():
 	animation_player.play("Attack")
 	await get_tree().create_timer(0.7).timeout
+	Input.start_joy_vibration(0, 0.5, 0.5, 0.5)
 	attack.play()
 	elvis_lightning.lightning_on()
 	attacker_collision_shape_3d.disabled = false

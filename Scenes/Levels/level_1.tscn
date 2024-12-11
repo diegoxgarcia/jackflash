@@ -186,6 +186,7 @@ stream = ExtResource("23_t71hf")
 bus = &"Music"
 parameters/looping = true
 
+[connection signal="transition_next_level" from="GUIPlayScreen" to="." method="_on_gui_play_screen_transition_next_level"]
 [connection signal="boss_dead" from="Enemies/EnemyBoss" to="." method="_on_enemy_boss_boss_dead"]
 [connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="update_life_data" from="Player" to="." method="_on_player_update_life_data"]

@@ -22,5 +22,6 @@ func enter():
 
 func exit():
 	animation_player.stop()
+	Input.start_joy_vibration(0, 0.8, 0.8, 0.2)
 	stomper_collision_shape_3d.disabled = true
 	pass
