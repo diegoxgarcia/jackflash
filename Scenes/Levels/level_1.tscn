@@ -116,12 +116,6 @@ visible = false
 [node name="EnemyMichelle" parent="Enemies" instance=ExtResource("7_1ggjr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7422, 3.72692, 19.1866)
 
-[node name="EnemyRasta2" parent="Enemies" instance=ExtResource("12_6ec0g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10094, 3.64064, 15.8883)
-
-[node name="EnemyMichelle2" parent="Enemies" instance=ExtResource("7_1ggjr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1809, 2.53907, 0)
-
 [node name="Player" parent="." instance=ExtResource("2_tesls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 48)
 

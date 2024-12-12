@@ -167,6 +167,9 @@ script = ExtResource("1_nby3g")
 [node name="InsideGameMenu" parent="." instance=ExtResource("2_i86t8")]
 visible = false
 
+[node name="GUISongQR" parent="." instance=ExtResource("8_s72b7")]
+process_mode = 3
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_d1g1l")
 
@@ -219,5 +222,3 @@ skeleton = NodePath("../..")
 stream = ExtResource("7_gqy05")
 autoplay = true
 bus = &"Music"
-
-[node name="GUISongQR" parent="." instance=ExtResource("8_s72b7")]

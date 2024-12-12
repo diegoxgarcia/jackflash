@@ -139,6 +139,21 @@ _data = {
 "fade_out": SubResource("Animation_bmyuo")
 }
 
+[sub_resource type="Animation" id="Animation_imgan"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/DefeatBossBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(804, -92)]
+}
+
 [sub_resource type="Animation" id="Animation_q2ns4"]
 resource_name = "defeat_boxx"
 length = 3.0
@@ -153,21 +168,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(804, -92), Vector2(799, 84), Vector2(639, 84), Vector2(943, 84), Vector2(743, 84), Vector2(855, 84), Vector2(807, 84), Vector2(807, -100)]
-}
-
-[sub_resource type="Animation" id="Animation_imgan"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI/DefeatBossBox:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(804, -92)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4fdwg"]
@@ -391,7 +391,7 @@ theme_override_font_sizes/font_size = 33
 text = "Defeat the Boss!!!"
 
 [node name="Fade" type="ColorRect" parent="."]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0, 0, 0, 0)
