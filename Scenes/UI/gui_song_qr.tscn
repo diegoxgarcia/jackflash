@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhg4auwkom2ia"]
+
+[ext_resource type="Texture2D" uid="uid://7r2yy0any7u8" path="res://Assets/Music/QR/qrsong.png" id="1_7mb8d"]
+[ext_resource type="Texture2D" uid="uid://bmbmlyjnhhq6h" path="res://Assets/Music/Cover/Elvis_30hits.jpg" id="2_nfbim"]
+[ext_resource type="FontFile" uid="uid://cjkyl0yvkstwv" path="res://Assets/Fonts/kirifont/KiriFont.ttf" id="3_jbnlk"]
+
+[node name="GUISongQR" type="CanvasLayer"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.699
+anchor_right = 1.0
+anchor_bottom = 0.225
+offset_left = 0.447876
+offset_bottom = -0.200012
+grow_horizontal = 0
+
+[node name="QR" type="TextureRect" parent="UI/Panel"]
+layout_mode = 2
+anchor_left = 0.032
+anchor_top = 0.1
+anchor_right = 0.343
+anchor_bottom = 0.876
+offset_left = 7.288
+offset_top = 1.1
+offset_right = 6.71199
+offset_bottom = 1.11598
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_7mb8d")
+expand_mode = 1
+
+[node name="CDCover" type="TextureRect" parent="UI/Panel"]
+layout_mode = 2
+anchor_left = 0.406
+anchor_top = 0.104
+anchor_right = 0.615
+anchor_bottom = 0.629
+offset_left = -0.0960083
+offset_top = 0.0639992
+offset_right = 0.160004
+offset_bottom = 0.0890045
+size_flags_horizontal = 3
+texture = ExtResource("2_nfbim")
+expand_mode = 1
+
+[node name="AuthorLabel" type="Label" parent="UI/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.659
+anchor_top = 0.104
+anchor_right = 0.974
+anchor_bottom = 0.614
+offset_left = 0.0559692
+offset_top = 0.0639992
+offset_right = 0.0159912
+offset_bottom = -0.026001
+theme_override_fonts/font = ExtResource("3_jbnlk")
+text = "
+Author:
+Elvis Presley
+
+Album
+ELV1S"
+
+[node name="SongLabel" type="Label" parent="UI/Panel"]
+layout_mode = 2
+anchor_left = 0.406
+anchor_top = 0.66
+anchor_right = 0.979
+anchor_bottom = 0.892
+offset_left = -0.0960083
+offset_top = 0.0599976
+offset_right = -0.0640259
+offset_bottom = -0.0279999
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_jbnlk")
+text = "
+Song:
+A Little Less Conversation"

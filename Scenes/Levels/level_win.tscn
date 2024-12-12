@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://l4wd1yalukmj"]
+[gd_scene load_steps=17 format=3 uid="uid://l4wd1yalukmj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level_win.gd" id="1_nby3g"]
 [ext_resource type="Texture2D" uid="uid://b24qpg3tdmvc1" path="res://Assets/kenney_platformer-kit/disco_background.webp" id="1_ngapu"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://djdldu26nyhbc" path="res://Scenes/Characters/Player/player.tscn" id="3_43ndq"]
 [ext_resource type="Texture2D" uid="uid://bobtws0g425st" path="res://Assets/kenney_platformer-kit/youwin.jpg" id="5_6a7h3"]
 [ext_resource type="AudioStream" uid="uid://cun4fskir5qfo" path="res://Assets/Music/YouWinSong.mp3" id="7_gqy05"]
+[ext_resource type="PackedScene" uid="uid://dhg4auwkom2ia" path="res://Scenes/UI/gui_song_qr.tscn" id="8_s72b7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_28pjx"]
 panorama = ExtResource("1_ngapu")
@@ -218,3 +219,5 @@ skeleton = NodePath("../..")
 stream = ExtResource("7_gqy05")
 autoplay = true
 bus = &"Music"
+
+[node name="GUISongQR" parent="." instance=ExtResource("8_s72b7")]
