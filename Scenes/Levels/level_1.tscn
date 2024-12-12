@@ -110,7 +110,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.77857, 2.07272, 35.7023)
 
 [node name="EnemyBoss" parent="Enemies" instance=ExtResource("6_7o7r0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.94469, 11.4487)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.5554, 11.4487)
 visible = false
 
 [node name="EnemyMichelle" parent="Enemies" instance=ExtResource("7_1ggjr")]
@@ -148,7 +148,7 @@ transform = Transform3D(0.00479966, 0, 0.999988, 0, 1, 0, -0.999988, 0, 0.004799
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1563, 3.69345, -1.7031)
 
 [node name="InteracTile2" parent="GridMap" instance=ExtResource("5_bq8hu")]
-transform = Transform3D(0.00123924, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.00123924, -34.7825, 2.27131, 15.325)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34.7825, 2.27131, 16.3008)
 
 [node name="InteracTileL2" parent="GridMap" instance=ExtResource("7_h62sf")]
 transform = Transform3D(0.0152535, 0, 0.999884, 0, 1, 0, -0.999884, 0, 0.0152535, 13.0896, 6.05134, -2.47324)

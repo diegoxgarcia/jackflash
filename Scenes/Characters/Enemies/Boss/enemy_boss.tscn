@@ -22,7 +22,7 @@
 radius = 0.7
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_df71p"]
-size = Vector3(10, 2.76282, 10)
+size = Vector3(44.8656, 2.76282, 41.4514)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ciij6"]
 size = Vector3(0.187012, 0.231079, 0.596558)
@@ -153,7 +153,6 @@ shape = SubResource("CylinderShape3D_660sh")
 [node name="PlayerDetector" parent="Visual/Components" instance=ExtResource("3_xht30")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visual/Components/PlayerDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59748, 0)
 shape = SubResource("BoxShape3D_df71p")
 
 [node name="EnemyAttacker" parent="Visual/Components" instance=ExtResource("5_6lkdv")]

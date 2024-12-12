@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkx6jstoduq7u"]
+[gd_scene load_steps=15 format=3 uid="uid://dkx6jstoduq7u"]
 
 [ext_resource type="Script" path="res://Scenes/Collectables/interac_tile_x.gd" id="1_xkj7a"]
 [ext_resource type="PackedScene" uid="uid://bpvts8nyidsgq" path="res://Scenes/Collectables/interactive_tile.tscn" id="2_dgxrd"]
+[ext_resource type="FontFile" uid="uid://cjkyl0yvkstwv" path="res://Assets/Fonts/kirifont/KiriFont.ttf" id="2_n2tbq"]
 [ext_resource type="Script" path="res://Scenes/Resources/interactive_tile_data.gd" id="3_s0uaa"]
 [ext_resource type="PackedScene" uid="uid://w6v3i5oomj5k" path="res://Scenes/Components/tile_lighter.tscn" id="4_bqwjx"]
 [ext_resource type="AudioStream" uid="uid://dk2sx1ommwrx" path="res://Assets/SFX/Player/switch_on.wav" id="5_yj8d0"]
@@ -90,6 +91,12 @@ bus = &"SFX"
 [node name="MusicalScoreAppears" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("7_qk4mw")
 bus = &"SFX"
+
+[node name="InfoAction" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.62269, 0)
+visible = false
+text = "Press Jump and then Attack to stomp on the tile"
+font = ExtResource("2_n2tbq")
 
 [connection signal="darken_player" from="TileLighter" to="." method="_on_tile_lighter_darken_player"]
 [connection signal="illuminate_player" from="TileLighter" to="." method="_on_tile_lighter_illuminate_player"]
