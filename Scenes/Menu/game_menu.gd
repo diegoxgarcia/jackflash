@@ -19,5 +19,5 @@ func _on_how_to_play_button_pressed():
 	pass 
 
 func _on_credit_button_pressed():
-	credits_menu.show_hide_play(v_box_container, recommends_label)
+	credits_menu.show_hidoe_play(v_box_container, recommends_label)
 	pass 

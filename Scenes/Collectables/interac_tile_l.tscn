@@ -35,6 +35,12 @@ size = Vector3(8.01, 2, 6.55)
 [node name="InteracTileL" type="Node3D"]
 script = ExtResource("1_imbnu")
 
+[node name="InfoAction" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.62269, 0)
+visible = false
+text = "Press Jump and then Attack to stomp on the tile"
+font = ExtResource("2_8yx25")
+
 [node name="Tiles" type="Node3D" parent="."]
 
 [node name="InteractiveTile" parent="Tiles" instance=ExtResource("1_bfnbj")]
@@ -82,12 +88,6 @@ bus = &"SFX"
 [node name="MusicalScoreAppears" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("7_rval3")
 bus = &"SFX"
-
-[node name="InfoAction" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.62269, 0)
-visible = false
-text = "Press Jump and then Attack to stomp on the tile"
-font = ExtResource("2_8yx25")
 
 [connection signal="darken_player" from="TileLighter" to="." method="_on_tile_lighter_darken_player"]
 [connection signal="illuminate_player" from="TileLighter" to="." method="_on_tile_lighter_illuminate_player"]
