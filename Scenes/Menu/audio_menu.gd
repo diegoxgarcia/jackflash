@@ -2,6 +2,8 @@ class_name AudioMenu
 extends Control
 
 var vbox_aux : VBoxContainer
+var label_aux : Label
+
 @onready var v_box_container = $VBoxContainer
 
 func _ready():
@@ -11,12 +13,15 @@ func _ready():
 func _on_back_button_pressed():
 	self.hide()
 	vbox_aux.show()
+	label_aux.show()
 	GameManager.save_data(GameManager.savefile, GameManager.game_data)	
 	pass
 	
-func show_and_hide(vbox : VBoxContainer):
+func show_and_hide(vbox : VBoxContainer, recommends_label : Label):
 	vbox_aux = vbox
+	label_aux = recommends_label
 	vbox.hide()
+	recommends_label.hide()
 	show()
 	pass
 
