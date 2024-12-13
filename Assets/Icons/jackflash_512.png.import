@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x12h556jpmxf"
-path="res://.godot/imported/jackflash.png-ff6578c19d0d7e24db2221f254f3ed28.ctex"
+uid="uid://ceh2c1u0tokrs"
+path="res://.godot/imported/jackflash_512.png-572767bba0fc525340f04fc30bf91202.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/jackflash.png"
-dest_files=["res://.godot/imported/jackflash.png-ff6578c19d0d7e24db2221f254f3ed28.ctex"]
+source_file="res://Assets/Icons/jackflash_512.png"
+dest_files=["res://.godot/imported/jackflash_512.png-572767bba0fc525340f04fc30bf91202.ctex"]
 
 [params]
 
