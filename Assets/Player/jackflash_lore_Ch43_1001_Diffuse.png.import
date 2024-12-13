@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw0w2ylyp1w52"
 path.s3tc="res://.godot/imported/jackflash_lore_Ch43_1001_Diffuse.png-c9cf0034c60d6bc180b579360d79175a.s3tc.ctex"
+path.etc2="res://.godot/imported/jackflash_lore_Ch43_1001_Diffuse.png-c9cf0034c60d6bc180b579360d79175a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Player/jackflash_lore_Ch43_1001_Diffuse.png"
-dest_files=["res://.godot/imported/jackflash_lore_Ch43_1001_Diffuse.png-c9cf0034c60d6bc180b579360d79175a.s3tc.ctex"]
+dest_files=["res://.godot/imported/jackflash_lore_Ch43_1001_Diffuse.png-c9cf0034c60d6bc180b579360d79175a.s3tc.ctex", "res://.godot/imported/jackflash_lore_Ch43_1001_Diffuse.png-c9cf0034c60d6bc180b579360d79175a.etc2.ctex"]
 
 [params]
 

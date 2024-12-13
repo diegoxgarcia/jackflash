@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhi3q65agksbn"
 path.s3tc="res://.godot/imported/jackflash_Elvis_FaceAnimMap.png-97bc5101b7e0d3e7e2a35a4aa89109d2.s3tc.ctex"
+path.etc2="res://.godot/imported/jackflash_Elvis_FaceAnimMap.png-97bc5101b7e0d3e7e2a35a4aa89109d2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Player/jackflash_Elvis_FaceAnimMap.png"
-dest_files=["res://.godot/imported/jackflash_Elvis_FaceAnimMap.png-97bc5101b7e0d3e7e2a35a4aa89109d2.s3tc.ctex"]
+dest_files=["res://.godot/imported/jackflash_Elvis_FaceAnimMap.png-97bc5101b7e0d3e7e2a35a4aa89109d2.s3tc.ctex", "res://.godot/imported/jackflash_Elvis_FaceAnimMap.png-97bc5101b7e0d3e7e2a35a4aa89109d2.etc2.ctex"]
 
 [params]
 

@@ -113,7 +113,7 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(0.41024, 0.41024, 0.41024, 1)
 theme_override_fonts/font = ExtResource("3_hwv6v")
 theme_override_font_sizes/font_size = 40
-text = "Only for Windows and Web Browser
+text = "Only for Windows, Linux, MacOS and Web Browser
 
 Is recommended to use joystick for a better gaming experience"
 horizontal_alignment = 1

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://udsc5532v5a8"
 path.s3tc="res://.godot/imported/musical_score.jpg-bae976c8c70e62cd08e235f20b0dbad8.s3tc.ctex"
+path.etc2="res://.godot/imported/musical_score.jpg-bae976c8c70e62cd08e235f20b0dbad8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Collectables/musical_score.jpg"
-dest_files=["res://.godot/imported/musical_score.jpg-bae976c8c70e62cd08e235f20b0dbad8.s3tc.ctex"]
+dest_files=["res://.godot/imported/musical_score.jpg-bae976c8c70e62cd08e235f20b0dbad8.s3tc.ctex", "res://.godot/imported/musical_score.jpg-bae976c8c70e62cd08e235f20b0dbad8.etc2.ctex"]
 
 [params]
 

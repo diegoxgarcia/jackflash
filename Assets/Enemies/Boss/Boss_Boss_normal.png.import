@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1dnygs1wnjkv"
 path.s3tc="res://.godot/imported/Boss_Boss_normal.png-9272c7f396dbe1c5dd66bf02067dd986.s3tc.ctex"
+path.etc2="res://.godot/imported/Boss_Boss_normal.png-9272c7f396dbe1c5dd66bf02067dd986.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Enemies/Boss/Boss_Boss_normal.png"
-dest_files=["res://.godot/imported/Boss_Boss_normal.png-9272c7f396dbe1c5dd66bf02067dd986.s3tc.ctex"]
+dest_files=["res://.godot/imported/Boss_Boss_normal.png-9272c7f396dbe1c5dd66bf02067dd986.s3tc.ctex", "res://.godot/imported/Boss_Boss_normal.png-9272c7f396dbe1c5dd66bf02067dd986.etc2.ctex"]
 
 [params]
 

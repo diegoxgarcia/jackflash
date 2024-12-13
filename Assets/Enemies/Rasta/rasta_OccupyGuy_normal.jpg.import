@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1if7kp3qta2l"
 path.s3tc="res://.godot/imported/rasta_OccupyGuy_normal.jpg-8eef01da0b52f15d671a3c4d28ed69ea.s3tc.ctex"
+path.etc2="res://.godot/imported/rasta_OccupyGuy_normal.jpg-8eef01da0b52f15d671a3c4d28ed69ea.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Enemies/Rasta/rasta_OccupyGuy_normal.jpg"
-dest_files=["res://.godot/imported/rasta_OccupyGuy_normal.jpg-8eef01da0b52f15d671a3c4d28ed69ea.s3tc.ctex"]
+dest_files=["res://.godot/imported/rasta_OccupyGuy_normal.jpg-8eef01da0b52f15d671a3c4d28ed69ea.s3tc.ctex", "res://.godot/imported/rasta_OccupyGuy_normal.jpg-8eef01da0b52f15d671a3c4d28ed69ea.etc2.ctex"]
 
 [params]
 

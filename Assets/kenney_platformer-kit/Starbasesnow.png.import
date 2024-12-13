@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7k3mqqy4vbr5"
 path.s3tc="res://.godot/imported/Starbasesnow.png-adf7705b258e0af14ea2b8a763d74e8b.s3tc.ctex"
+path.etc2="res://.godot/imported/Starbasesnow.png-adf7705b258e0af14ea2b8a763d74e8b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/kenney_platformer-kit/Starbasesnow.png"
-dest_files=["res://.godot/imported/Starbasesnow.png-adf7705b258e0af14ea2b8a763d74e8b.s3tc.ctex"]
+dest_files=["res://.godot/imported/Starbasesnow.png-adf7705b258e0af14ea2b8a763d74e8b.s3tc.ctex", "res://.godot/imported/Starbasesnow.png-adf7705b258e0af14ea2b8a763d74e8b.etc2.ctex"]
 
 [params]
 

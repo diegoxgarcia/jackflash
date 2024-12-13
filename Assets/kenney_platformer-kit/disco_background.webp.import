@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b24qpg3tdmvc1"
 path.s3tc="res://.godot/imported/disco_background.webp-070aa360fcd8e1ed1c69d6e96fb8e21a.s3tc.ctex"
+path.etc2="res://.godot/imported/disco_background.webp-070aa360fcd8e1ed1c69d6e96fb8e21a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/kenney_platformer-kit/disco_background.webp"
-dest_files=["res://.godot/imported/disco_background.webp-070aa360fcd8e1ed1c69d6e96fb8e21a.s3tc.ctex"]
+dest_files=["res://.godot/imported/disco_background.webp-070aa360fcd8e1ed1c69d6e96fb8e21a.s3tc.ctex", "res://.godot/imported/disco_background.webp-070aa360fcd8e1ed1c69d6e96fb8e21a.etc2.ctex"]
 
 [params]
 

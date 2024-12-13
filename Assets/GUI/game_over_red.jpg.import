@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhbvifrg3pdp7"
 path.s3tc="res://.godot/imported/game_over_red.jpg-73e2325c9f19d368f2b9fe50b28b4fc4.s3tc.ctex"
+path.etc2="res://.godot/imported/game_over_red.jpg-73e2325c9f19d368f2b9fe50b28b4fc4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/GUI/game_over_red.jpg"
-dest_files=["res://.godot/imported/game_over_red.jpg-73e2325c9f19d368f2b9fe50b28b4fc4.s3tc.ctex"]
+dest_files=["res://.godot/imported/game_over_red.jpg-73e2325c9f19d368f2b9fe50b28b4fc4.s3tc.ctex", "res://.godot/imported/game_over_red.jpg-73e2325c9f19d368f2b9fe50b28b4fc4.etc2.ctex"]
 
 [params]
 
